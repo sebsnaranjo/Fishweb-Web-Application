@@ -1,32 +1,37 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { routingComponents } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './plantillas/header/header.component';
 import { FooterComponent } from './plantillas/footer/footer.component';
-//import { LoginComponent } from './vistas/login/login.component';
-//import { DashboardComponent } from './vistas/dashboard/dashboard.component';
-//import { NuevoComponent } from './vistas/nuevo/nuevo.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RegisterComponent } from './vistas/register/register.component'; 
+import { LoginComponent } from './vistas/login/login.component';
+import { HomeComponent } from './vistas/home/home.component';
+import { NotfoundComponent } from './vistas/notfound/notfound.component';
+import { AuxiliarComponent } from './layaouts/auxiliar/auxiliar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    routingComponents
-    //LoginComponent,
-    //DashboardComponent,
-    //NuevoComponent
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    NotfoundComponent,
+    AuxiliarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

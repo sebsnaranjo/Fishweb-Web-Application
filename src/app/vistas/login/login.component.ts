@@ -1,24 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms'
-import { ApiService } from 'src/app/servicios/api/api.service';
 import { LoginI } from 'src/app/modelos/login.interface';
 import { Subscriber } from 'rxjs';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { UsersService } from 'src/app/servicios/users.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  loginForm = new FormGroup ({
-    usuario : new FormControl('',Validators.required),
-    password : new FormControl('',Validators.required)
-  })
+  constructor(
+    private AuthService: AuthService,
+    private usersService: UsersService
+  ) { }
 
-  constructor(private api:ApiService) { }
+  createUser() {
+    this.usersService.create({
+      nombre: 'Sebas',
+      apellido: 'Naranjo',
+      email: 'fnarnao@ucun.com',
+      clave: '12345',
+    }).subscribe(rta => {
+      console.log(rta)
+    })
+  }
 
-  ngOnInit(): void {
+  login() {
+    this.AuthService.login('fnarnao@ucun.com','12345').subscribe(rta => {
+      console.log(rta)
+    })
   }
 
 }

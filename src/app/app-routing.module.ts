@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './vistas/dashboard/dashboard.component';
+import { HomeComponent } from './vistas/home/home.component';
 import { LoginComponent } from './vistas/login/login.component';
-import { NuevoComponent } from './vistas/nuevo/nuevo.component';
+import { NotfoundComponent } from './vistas/notfound/notfound.component';
+import { RegisterComponent } from './vistas/register/register.component';
+import { AuxiliarComponent } from './layaouts/auxiliar/auxiliar.component';
+import { AdministradorGuard } from './administrador.guard';
 
 const routes: Routes = [
-  { path:'', redirectTo:'login', pathMatch:'full' },
-  { path:'login', component:LoginComponent },
-  { path:'dashboard', component:DashboardComponent },
-  { path:'nuevo', component:NuevoComponent }
-  //Hace falta crear componente de editar.
+  { path: '', component:AuxiliarComponent, children: [
+    { path:'inicio', component:HomeComponent },
+    { path:'login', component:LoginComponent },
+    { path:'registro', canActivate:[AdministradorGuard], component:RegisterComponent },
+    { path:'', redirectTo:'inicio', pathMatch:'full' },
+    { path:'**', component:NotfoundComponent },
+  ]},
 ];
 
 @NgModule({
@@ -17,4 +22,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, DashboardComponent, NuevoComponent]
+export const routingComponents = [HomeComponent, LoginComponent, RegisterComponent]
