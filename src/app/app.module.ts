@@ -14,6 +14,10 @@ import { HomeComponent } from './vistas/home/home.component';
 import { NotfoundComponent } from './vistas/notfound/notfound.component';
 import { AuxiliarComponent } from './layaouts/auxiliar/auxiliar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { GestionarUsuariosComponent } from './vistas/gestionar-usuarios/gestionar-usuarios.component';
+import { CreateUpaComponent } from './vistas/create-upa/create-upa.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     NotfoundComponent,
     AuxiliarComponent,
+    GestionarUsuariosComponent,
+    CreateUpaComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
