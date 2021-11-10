@@ -1,4 +1,4 @@
-export interface LoginI{
-    usuario:string;
-    password:string;
+export class LoginI{
+    email:string;
+    clave:string;
 }
