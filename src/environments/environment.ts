@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  HOST: 'http://localhost:10778'
+  HOST: 'http://localhost:10778',
+  //llave para acceder al token
+  TOKEN: 'access_token',
+  vence: 'expiresIn'
 };
 
 /*

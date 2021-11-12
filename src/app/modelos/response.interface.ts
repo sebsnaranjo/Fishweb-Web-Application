@@ -1,6 +1,6 @@
 export interface ResponseI {
-    Mensaje:string;
-    IsExito:boolean;
-    StatusCode:number;
-    Data:string;
+    mensaje:string;
+    isExito:boolean;
+    statusCode:number;
+    data:string;
 }

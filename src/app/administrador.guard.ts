@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, CanLoad } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdministradorGuard implements CanActivate {
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return false;
+export class AdministradorGuard implements CanActivate, CanLoad {
+
+  canActivate(): Observable<boolean> | boolean{
+    console.log('canActivate');
+    return true;
   }
   
+  canLoad(): Observable<boolean> | boolean{
+    console.log('canload');
+    return true;
+  }
 }

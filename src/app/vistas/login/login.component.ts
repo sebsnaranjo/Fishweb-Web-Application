@@ -5,6 +5,10 @@ import { Subscriber } from 'rxjs';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { UsersService } from 'src/app/servicios/users.service';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
+import { __values } from 'tslib';
+
+
 
 @Component({
   selector: 'app-login',
@@ -17,7 +21,8 @@ export class LoginComponent{
   constructor(
     private AuthService: AuthService,
     private usersService: UsersService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router:Router
   ) { }
 
   loginF = new FormGroup({
@@ -26,8 +31,10 @@ export class LoginComponent{
   });
 
   async loggear(values) {
-    this.AuthService.login(values.email, values.clave).subscribe(rta => {
-      console.log(rta)
+    this.AuthService.login(values.email, values.clave).subscribe( (data) => {
+      sessionStorage.setItem(environment.TOKEN, data.data.token);
+      sessionStorage.setItem(environment.vence, data.data.expiration);
+      this.router.navigate(['gestionarUsuarios'])
     })
   }
 

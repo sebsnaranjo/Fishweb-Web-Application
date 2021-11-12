@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { GestionarUsuariosComponent } from './vistas/gestionar-usuarios/gestionar-usuarios.component';
 import { CreateUpaComponent } from './vistas/create-upa/create-upa.component';
 import { Observable } from 'rxjs';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { Observable } from 'rxjs';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
