@@ -2,32 +2,38 @@
 <div class="mailbox_content">
     <div class="background mailbox">
         <div class="form-group">
-            <input type="text" class="registreCamp" id="nameR" aria-describedby="name" placeholder="Nombre para la UPA">
+            <input matInput placeholder="Nombre para la UPA" formControlName="nameUPA" required
+                class="registreCamp form-control">
         </div>
         <h1 class="titleRegistre"> Administrador Inicial </h1>
         <div class="form-group">
-            <input type="email" class="registreCamp" id="nameUPA" aria-describedby="name" placeholder="Nombre Completo">
+            <input matInput placeholder="Nombre Completo" formControlName="name" required
+                class="registreCamp form-control">
         </div>
         <div class="form-group">
-            <input type="password" class="registreCamp" id="maillUPA" aria-describedby="email" placeholder="Correo Electronico">
+            <input matInput placeholder="Correo Electronico" formControlName="email" required
+                class="registreCamp form-control">
         </div>
         <div class="form-group">
-            <input type="password" class="registreCamp" id="passwordUPA" aria-describedby="password" placeholder="Contraseña">
+            <input matInput placeholder="Contraseña" formControlName="password" required
+                class="registreCamp form-control">
         </div>
         <div class="form-group">
-            <input type="password" class="registreCamp" id="passwordCUPA" aria-describedby="passwordConfirmation" placeholder="Confirmar contraseña">
+            <input matInput placeholder="Confirmar Contraseña" formControlName="passwordConfirmation" required
+                class="registreCamp form-control">
         </div>
-        <div class="form-group">
-      <!-- <select name="OS" class="registreCamp">
-            <option selected value="0" > ¿A que UPA estará vinculado? </option>
-                <optgroup label="Microsoft"> 
-                <option value="1">Windows Vista</option> 
-                <option value="2">Windows 7</option> 
-                <option value="3">Windows XP</option> 
-            </optgroup> 
-        </div>--> 
-        
-            <button type="button" class="btn-outline-dark"> Registrar </button>
+      
+        <div class="form-group form-group-btn-send">
+            <!-- <select name="OS" class="registreCamp">
+                <option selected value="0" > ¿A que UPA estará vinculado? </option>
+                    <optgroup label="Microsoft"> 
+                    <option value="1">Windows Vista</option> 
+                    <option value="2">Windows 7</option> 
+                    <option value="3">Windows XP</option> 
+                </optgroup> 
+            </div>-->
+            <button mat-raised-button id="basic" type="submit"
+                class="btn_send btn btn-outline-dark">Ingresar</button>
         </div>
     </div>
 </div>

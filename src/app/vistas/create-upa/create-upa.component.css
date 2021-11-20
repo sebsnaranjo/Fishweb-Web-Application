@@ -156,7 +156,11 @@ h2{
     text-align: center;
     
 }
-.registreCamp{
+.form-group input {
+    background-color: white;
+  }
+  
+  .registreCamp{
     display: block;
     width: 100%;
     padding: .5rem 1.1rem;
@@ -165,18 +169,28 @@ h2{
     font-weight: 400;
     line-height: 1.5;
     color: #000000 !important;
-    background-color: #fff;
+    background-color: white !important;
     background-clip: padding-box;
     border-radius: 40px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-radius: 60px !important;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;  
+    border: none;
+    border-radius: 60px !important;  
     margin-top: 30px;
-}
-.btn-outline-dark{
-
+  }
+  
+  .recoverpass {
+    margin-top: 25px;
+    text-decoration: none;
+    color: #4E4B48;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .btn-outline-dark{
+  
     
     
     display: flex;
@@ -184,27 +198,49 @@ h2{
     margin-right: 500px;
     margin-top: auto;
     margin-bottom: auto;
-
+  
     border-radius: 70px;
     margin: 0 5px;
-
+  
     padding: 7px 13px;
     text-decoration: none;
     font-size: 16px;
     display: block;
     color: black;
-
+  
     color: white;
-
     border-radius: 70px;
     background-color: #007B3E;
     color: white;
     transition: .3s;
     box-shadow: 5px 0 10px rgba(0,0,0, .2);
-
-}
-
-
+  
+  }
+  
+  .form-group-btn-send {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btn_send {
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    background-color: #007B3E;
+    font-size: 18px;
+    font-family: "DM Sans", sans-serif !important;
+    color: #000000;
+    border-radius: 70px;
+    border-style: none;
+  }
+  
+  .form-group-btn-send button:hover {
+    border-radius: 70px;
+    background-color: #DAAA00;
+    color: white;
+    transition: .3s;
+    box-shadow: 5px 0 10px rgba(0,0,0, .2);
+  }
 @media screen and (max-width: 858px){
     .first{
         display: table;
