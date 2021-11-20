@@ -1,30 +1,37 @@
-<h2 class="titleRegistre"> Registrar UPA  </h2>
+<h2 class="titleRegistre"> Crear UPA </h2>
 <div class="mailbox_content">
     <div class="background mailbox">
-        <div class="form-group">
-            <input matInput placeholder="Nombre para la UPA" formControlName="nameUPA" required
-                class="registreCamp form-control">
-        </div>
-        <h1 class="titleRegistre"> Administrador Inicial </h1>
-        <div class="form-group">
-            <input matInput placeholder="Nombre Completo" formControlName="name" required
-                class="registreCamp form-control">
-        </div>
-        <div class="form-group">
-            <input matInput placeholder="Correo Electronico" formControlName="email" required
-                class="registreCamp form-control">
-        </div>
-        <div class="form-group">
-            <input matInput placeholder="Contraseña" formControlName="password" required
-                class="registreCamp form-control">
-        </div>
-        <div class="form-group">
-            <input matInput placeholder="Confirmar Contraseña" formControlName="passwordConfirmation" required
-                class="registreCamp form-control">
-        </div>
-      
-        <div class="form-group form-group-btn-send">
-            <!-- <select name="OS" class="registreCamp">
+        <form [formGroup]="crearUpaF" #formCrearUPA="ngForm" (ngSubmit)="createUPA(crearUpaF.value)">
+            <div class="form-group">
+                <input matInput placeholder="Nombre para la UPA" formControlName="nameUpa" required
+                    class="registreCamp form-control">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Descripcion" id="exampleTextarea" formControlName="descript" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <input matInput placeholder="Cantidad de actividades" formControlName="numberAct" required
+                    class="registreCamp form-control">
+            </div>
+            <h1 class="titleRegistre"> Administrador Inicial </h1>
+            <div class="form-group">
+                <input matInput placeholder="Nombre" formControlName="nameAdmin" required class="registreCamp form-control">
+            </div>
+            <div class="form-group">
+                <input matInput placeholder="Apellido" formControlName="lastname" required
+                    class="registreCamp form-control">
+            </div>
+            <div class="form-group">
+                <input matInput placeholder="Correo electronico" formControlName="email" required
+                    class="registreCamp form-control">
+            </div>
+            <div class="form-group">
+                <input matInput placeholder="Contraseña" formControlName="password" required
+                    class="registreCamp form-control">
+            </div>
+
+            <div class="form-group form-group-btn-send">
+                <!-- <select name="OS" class="registreCamp">
                 <option selected value="0" > ¿A que UPA estará vinculado? </option>
                     <optgroup label="Microsoft"> 
                     <option value="1">Windows Vista</option> 
@@ -32,8 +39,8 @@
                     <option value="3">Windows XP</option> 
                 </optgroup> 
             </div>-->
-            <button mat-raised-button id="basic" type="submit"
-                class="btn_send btn btn-outline-dark">Ingresar</button>
-        </div>
+                <button mat-raised-button id="basic" type="submit" class="btn_send btn btn-outline-dark">Crear</button>
+            </div>
+        </form>
     </div>
 </div>
