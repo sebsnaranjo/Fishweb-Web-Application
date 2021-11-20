@@ -20,8 +20,4 @@ export class UsersService {
       return this.http.post<User>(this.apiUrl, dto);
     }
 
-    getAll(){
-      return this.http.get<User[]>(this.apiUrl);
-    }
-
 }

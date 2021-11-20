@@ -1,0 +1,10 @@
+.table-camp {
+    height: 650px;
+}
+
+.table-camp table {
+    width: 70%;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
