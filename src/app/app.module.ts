@@ -19,6 +19,10 @@ import { GestionarUsuariosComponent } from './vistas/gestionar-usuarios/gestiona
 import { CreateUpaComponent } from './vistas/create-upa/create-upa.component';
 import { Observable } from 'rxjs';
 import {MatTableModule} from '@angular/material/table';
+import { HeaderAdminComponent } from './plantillas/header-admin/header-admin.component';
+import { AdministradorComponent } from './layaouts/administrador/administrador.component';
+import { SuperadministradorComponent } from './layaouts/superadministrador/superadministrador.component';
+import { HeaderSuperadminComponent } from './plantillas/header-superadmin/header-superadmin.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,10 @@ import {MatTableModule} from '@angular/material/table';
     AuxiliarComponent,
     GestionarUsuariosComponent,
     CreateUpaComponent,
+    HeaderAdminComponent,
+    AdministradorComponent,
+    SuperadministradorComponent,
+    HeaderSuperadminComponent,
   ],
   imports: [
     BrowserModule,
