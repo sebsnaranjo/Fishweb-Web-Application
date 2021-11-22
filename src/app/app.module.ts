@@ -18,12 +18,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { GestionarUsuariosComponent } from './vistas/gestionar-usuarios/gestionar-usuarios.component';
 import { CreateUpaComponent } from './vistas/create-upa/create-upa.component';
 import { Observable } from 'rxjs';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { HeaderAdminComponent } from './plantillas/header-admin/header-admin.component';
+import { AdministradorComponent } from './layaouts/administrador/administrador.component';
+import { SuperadministradorComponent } from './layaouts/superadministrador/superadministrador.component';
+import { HeaderSuperadminComponent } from './plantillas/header-superadmin/header-superadmin.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { RolregistreComponent } from './vistas/rol-registre/rolregistre/rolregistre.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatTabsModule} from '@angular/material/tabs'; 
-import {MatSelectModule} from '@angular/material/select';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,10 @@ import {MatSelectModule} from '@angular/material/select';
     CreateUpaComponent,
     RolregistreComponent,
 
+    HeaderAdminComponent,
+    AdministradorComponent,
+    SuperadministradorComponent,
+    HeaderSuperadminComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,11 +54,8 @@ import {MatSelectModule} from '@angular/material/select';
     BrowserAnimationsModule,
     MatIconModule,
     MatTableModule,
-    MatFormFieldModule,
-    MatTabsModule,
-    MatSelectModule
- 
- 
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

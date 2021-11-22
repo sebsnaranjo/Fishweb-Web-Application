@@ -9,6 +9,8 @@ import { AdministradorGuard } from './administrador.guard';
 import { GestionarUsuariosComponent } from './vistas/gestionar-usuarios/gestionar-usuarios.component';
 import { CreateUpaComponent } from './vistas/create-upa/create-upa.component';
 import { RolregistreComponent } from './vistas/rol-registre/rolregistre/rolregistre.component';
+import { AdministradorComponent } from './layaouts/administrador/administrador.component';
+import { SuperadministradorComponent } from './layaouts/superadministrador/superadministrador.component';
 
 const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
@@ -18,11 +20,17 @@ const routes: Routes = [
     { path:'gestionarUsuarios', component:GestionarUsuariosComponent },
     { path: 'crearupa', component:CreateUpaComponent },
     { path: 'registrorol', component: RolregistreComponent},
+    //{ path:'registro', component:RegisterComponent },
     //Ejemplo con gurdian
     //{ path:'registro', canActivate:[AdministradorGuard], component:RegisterComponent },
     { path:'', redirectTo:'inicio', pathMatch:'full' },
-    { path:'**', component:NotfoundComponent },
   ]},
+  { path:'', component:SuperadministradorComponent, children: [
+    { path:'gestionarUsuarios', component:GestionarUsuariosComponent },
+    { path: 'crearUPA', component:CreateUpaComponent },
+    { path:'', redirectTo:'inicio', pathMatch:'full' },
+  ]},
+  { path:'**', component:NotfoundComponent },
 ];
 
 @NgModule({
@@ -30,4 +38,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, LoginComponent, RegisterComponent, GestionarUsuariosComponent]
+export const routingComponents = [HomeComponent, LoginComponent, RegisterComponent, GestionarUsuariosComponent, CreateUpaComponent]
