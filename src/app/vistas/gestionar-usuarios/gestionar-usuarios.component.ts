@@ -4,6 +4,7 @@ import { ManagementusersService } from 'src/app/servicios/managementusers.servic
 import { MatTableDataSource } from '@angular/material/table';
 import { UserChange } from 'src/app/modelos/userChange.interface';
 import { UrlSegment } from '@angular/router';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-gestionar-usuarios',
@@ -13,27 +14,35 @@ import { UrlSegment } from '@angular/router';
 export class GestionarUsuariosComponent implements OnInit {
 
   ELEMENT_DATA: User[];
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'fullName', 'button'];
+  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'fullName', 'rolId', 'button'];
   dataSource = new MatTableDataSource<User>();
 
-  constructor( private managmentUser:ManagementusersService) { }
+
+
+
+  constructor(private managmentUser: ManagementusersService) { }
+
 
   ngOnInit(): void {
     this.getUsers();
-    this.change();
+  }
+
+  filtrar(event: Event) {
+    const filtro = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filtro.trim().toLowerCase();
   }
 
   public getUsers() {
-    let resp=this.managmentUser.getAll();
-    resp.subscribe(report => this.dataSource.data=report as User[])
+    let resp = this.managmentUser.getAll();
+    resp.subscribe(report => this.dataSource.data = report as User[])
   }
 
   public change(): void {
     const updateUser: UserChange = {
-      idUser: 4,
-      rolUser: 3,
+      idUser: 5,
+      rolUser: 2,
     };
-    this.managmentUser.change(updateUser).subscribe((data)=>{
+    this.managmentUser.change(updateUser).subscribe((data) => {
       console.log(data)
     })
   }

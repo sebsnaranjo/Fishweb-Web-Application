@@ -18,11 +18,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { GestionarUsuariosComponent } from './vistas/gestionar-usuarios/gestionar-usuarios.component';
 import { CreateUpaComponent } from './vistas/create-upa/create-upa.component';
 import { Observable } from 'rxjs';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { HeaderAdminComponent } from './plantillas/header-admin/header-admin.component';
 import { AdministradorComponent } from './layaouts/administrador/administrador.component';
 import { SuperadministradorComponent } from './layaouts/superadministrador/superadministrador.component';
 import { HeaderSuperadminComponent } from './plantillas/header-superadmin/header-superadmin.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { HeaderSuperadminComponent } from './plantillas/header-superadmin/header
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

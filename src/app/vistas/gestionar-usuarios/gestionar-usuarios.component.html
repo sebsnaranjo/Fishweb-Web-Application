@@ -1,5 +1,11 @@
+
 <div class="table-camp">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 tabla-gestion">
+
+  <mat-form-field>
+    <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+  </mat-form-field>
+  
+  <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8 tabla-gestion">
     
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -17,6 +23,10 @@
       <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="rolId">
+      <th mat-header-cell *matHeaderCellDef> Rol </th>
+      <td mat-cell *matCellDef="let element"> {{element.rolId}} </td>
+    </ng-container>
 
     <ng-container matColumnDef="fullName">
       <th mat-header-cell *matHeaderCellDef> Nombre completo </th>
