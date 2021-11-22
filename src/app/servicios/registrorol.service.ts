@@ -26,7 +26,5 @@ export class RegistrorolService {
    return this.http.post<string>(this.url , registre );
   }
 
-  RegistroAdmin(id: number, nombre: string, apellido:string, email:string, password:string){
-    return this.http.post<string>(this.url , {id,nombre,apellido,email,password}, {headers: this.headers} );
-  }
+ 
 }

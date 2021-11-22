@@ -13,15 +13,17 @@
                 <input matInput placeholder="Cantidad de actividades" formControlName="numberAct" required
                     class="registreCamp form-control">
             </div>
+        </form>
             <h1 class="titleRegistre"> Administrador Inicial </h1>
+            <form [formGroup]="registreFormGroup" >
             <div class="form-group">
-                <input matInput placeholder="ID" formControlName="id" required class="registreCamp form-control">
+                <input matInput placeholder="ID" formControlName="rolid" required class="registreCamp form-control">
             </div>
             <div class="form-group">
-                <input matInput placeholder="Nombre" formControlName="nameAdmin" required class="registreCamp form-control">
+                <input matInput placeholder="Nombre" formControlName="nombre" required class="registreCamp form-control">
             </div>
             <div class="form-group">
-                <input matInput placeholder="Apellido" formControlName="lastname" required
+                <input matInput placeholder="Apellido" formControlName="apellido" required
                     class="registreCamp form-control">
             </div>
             <div class="form-group">
@@ -29,21 +31,14 @@
                     class="registreCamp form-control">
             </div>
             <div class="form-group">
-                <input matInput placeholder="Contraseña" formControlName="password" required
+                <input matInput placeholder="Contraseña" type="password" formControlName="clave" required
                     class="registreCamp form-control">
             </div>
 
             <div class="form-group form-group-btn-send">
-                <!-- <select name="OS" class="registreCamp">
-                <option selected value="0" > ¿A que UPA estará vinculado? </option>
-                    <optgroup label="Microsoft"> 
-                    <option value="1">Windows Vista</option> 
-                    <option value="2">Windows 7</option> 
-                    <option value="3">Windows XP</option> 
-                </optgroup> 
-            </div>-->
-                <button mat-raised-button id="basic" type="submit" class="btn_send btn btn-outline-dark">Crear</button>
+                <button (click)="registre()" mat-raised-button id="basic" type="submit" class="btn_send btn btn-outline-dark">Crear</button>
             </div>
+        
         </form>
     </div>
 </div>
