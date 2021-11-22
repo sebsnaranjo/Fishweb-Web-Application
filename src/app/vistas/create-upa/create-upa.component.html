@@ -1,7 +1,7 @@
 <h2 class="titleRegistre"> Crear UPA </h2>
 <div class="mailbox_content">
     <div class="background mailbox">
-        <form #formCrearUPA="ngForm" (ngSubmit)="createUPA(crearUpaF.value)">
+        <form [formGroup]="crearUpaF" #formCrearUPA="ngForm" (ngSubmit)="createUPA(crearUpaF.value)">
             <div class="form-group">
                 <input matInput placeholder="Nombre para la UPA" formControlName="nameUpa" required
                     class="registreCamp form-control">
@@ -13,32 +13,36 @@
                 <input matInput placeholder="Cantidad de actividades" formControlName="numberAct" required
                     class="registreCamp form-control">
             </div>
-        </form>
-            <h1 class="titleRegistre"> Administrador Inicial </h1>
-            <form [formGroup]="registreFormGroup" >
+       
+        <h1 class="titleRegistre"> Administrador Inicial </h1>
+        <form [formGroup]="registreFormGroup" >
+            
             <div class="form-group">
-                <input matInput placeholder="ID" formControlName="rolid" required class="registreCamp form-control">
+                <input formControlName="rolid"  matInput placeholder="ID"  required 
+                class="registreCamp form-control">
             </div>
             <div class="form-group">
-                <input matInput placeholder="Nombre" formControlName="nombre" required class="registreCamp form-control">
+                <input formControlName="nombre" matInput placeholder="Nombre"  required 
+                class="registreCamp form-control">
             </div>
             <div class="form-group">
-                <input matInput placeholder="Apellido" formControlName="apellido" required
+                <input matInput placeholder="Apellido" formControlName="apellido" required 
+                class="registreCamp form-control">
+            </div>
+            <div class="form-group">
+                <input formControlName="email" matInput placeholder="Correo electronico" required
                     class="registreCamp form-control">
             </div>
             <div class="form-group">
-                <input matInput placeholder="Correo electronico" formControlName="email" required
-                    class="registreCamp form-control">
-            </div>
-            <div class="form-group">
-                <input matInput placeholder="Contraseña" type="password" formControlName="clave" required
+                <input formControlName="clave" matInput placeholder="Contraseña" type="password"  required
                     class="registreCamp form-control">
             </div>
 
             <div class="form-group form-group-btn-send">
-                <button (click)="registre()" mat-raised-button id="basic" type="submit" class="btn_send btn btn-outline-dark">Crear</button>
+                <button (click)="registre()"  (click)="createUPA(crearUpaF.value)"mat-raised-button id="basic" type="submit" class="btn_send btn btn-outline-dark">Crear</button>
             </div>
         
         </form>
+    </form>
     </div>
 </div>
