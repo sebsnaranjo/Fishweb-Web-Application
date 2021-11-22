@@ -17,25 +17,43 @@
         <h1 class="titleRegistre"> Administrador Inicial </h1>
         <form [formGroup]="registreFormGroup" >
             
+           
             <div class="form-group">
-                <input formControlName="rolid"  matInput placeholder="ID"  required 
-                class="registreCamp form-control">
+                <input formControlName="rolid" matInput placeholder="Rol" class="registreCamp form-control">
+                <mat-error class="error" *ngIf="registreFormGroup.controls.rolid.hasError('required')">
+                    Este campo es<strong> obligatorio</strong>
+                </mat-error>
             </div>
             <div class="form-group">
-                <input formControlName="nombre" matInput placeholder="Nombre"  required 
-                class="registreCamp form-control">
-            </div>
-            <div class="form-group">
-                <input matInput placeholder="Apellido" formControlName="apellido" required 
-                class="registreCamp form-control">
-            </div>
-            <div class="form-group">
-                <input formControlName="email" matInput placeholder="Correo electronico" required
+                <input formControlName="nombre" matInput placeholder="Nombre"
                     class="registreCamp form-control">
+                <mat-error class="error" *ngIf="registreFormGroup.controls.nombre.hasError('required')">
+                    Este campo es<strong> obligatorio</strong>
+                </mat-error>
             </div>
             <div class="form-group">
-                <input formControlName="clave" matInput placeholder="Contraseña" type="password"  required
+                <input formControlName="apellido" matInput placeholder="Apellido"
                     class="registreCamp form-control">
+                <mat-error class="error" *ngIf="registreFormGroup.controls.apellido.hasError('required')">
+                    Este campo es<strong> obligatorio</strong>
+                </mat-error>
+            </div>
+            <div class="form-group">
+                <input formControlName="email" matInput placeholder="Correo Electronico"
+                    class="registreCamp form-control">
+                <mat-error class="error" *ngIf="registreFormGroup.controls.email.hasError('required')">
+                    Este campo es<strong> obligatorio</strong>
+                </mat-error>
+            </div>
+            <div class="form-group">
+                <input formControlName="clave" type="password" matInput placeholder="Contraseña"
+                    class="registreCamp form-control">
+                <mat-error class="error" *ngIf="registreFormGroup.controls.clave.hasError('required')">
+                    Este campo es<strong> obligatorio</strong>
+                </mat-error>
+                <mat-error class="error" *ngIf="registreFormGroup.controls.clave.hasError('minlength')">
+                    Debe tener como mínimo 7 caracteres
+                </mat-error>
             </div>
 
             <div class="form-group form-group-btn-send">

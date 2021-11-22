@@ -5,6 +5,7 @@ import { RegistrorolService } from 'src/app/servicios/registrorol.service';
 import { UpasService } from 'src/app/servicios/upas.service';
 import { environment } from 'src/environments/environment';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-upa',
@@ -12,6 +13,15 @@ import { UsuarioModel } from 'src/app/modelos/usuario.model';
   styleUrls: ['./create-upa.component.css']
 })
 export class CreateUpaComponent {
+
+  alerts(){
+    Swal.fire({
+      title: 'Registro exitoso',
+      text: 'El registro se hizo con exito',
+      icon: 'success'
+    });
+  }
+
   registreFormGroup: FormGroup;
 
   createFormGroup(){
@@ -44,6 +54,7 @@ export class CreateUpaComponent {
   async createUPA(values) {
     this.UpaService.crearUpa(values.nameUpa, values.descript, values.numberAct).subscribe( (data) => {
       console.log(data);
+      this.alerts();
       //this.router.navigate(['inicio'])
     })
     //registro administrador
@@ -59,11 +70,15 @@ export class CreateUpaComponent {
  
       this.RegistreService.RegisterRol(model).subscribe(
         data => { 
-          alert ("WELL DONE");}, 
+          this.alerts();  }, 
       err => { 
-        alert ("ERROR");} )
+        } )
     }else{
-       alert ("INVALIDO");
+       Swal.fire({
+      title: 'Formulario Invalido',
+      text: 'El registro no se pudo realizar',
+      icon: 'error'
+    });
     }
    }
 

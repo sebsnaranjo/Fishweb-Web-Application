@@ -251,6 +251,9 @@ h2{
     transition: .3s;
     box-shadow: 5px 0 10px rgba(0,0,0, .2);
   }
+  .error{
+    color: #DAAA00;
+  }
 @media screen and (max-width: 858px){
     .first{
         display: table;

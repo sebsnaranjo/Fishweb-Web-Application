@@ -3,6 +3,7 @@ import { EmailValidator, FormBuilder, FormControl, FormGroup, Validators } from 
 import { ɵangular_packages_platform_browser_platform_browser_d } from '@angular/platform-browser';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { RegistrorolService } from 'src/app/servicios/registrorol.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -43,11 +44,24 @@ registre(){
 
      this.RegistreService.RegisterRol(model).subscribe(
        data => { 
-         alert ("WELL DONE");}, 
+        Swal.fire({
+          title: 'Registro exitoso',
+          text: 'El registro se hizo con exito',
+          icon: 'success'
+        });
+        }, 
      err => { 
-       alert ("ERROR");} )
+      Swal.fire({
+        title: 'Registro fallo',
+        text: 'El registro no se pudo realizar',
+        icon: 'error'
+      });} )
    }else{
-      alert ("INVALIDO");
+    Swal.fire({
+      title: 'Formulario Invalido',
+      text: 'El registro no se pudo realizar',
+      icon: 'error'
+    });
    }
   }
 }
