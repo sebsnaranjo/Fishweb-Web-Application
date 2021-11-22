@@ -16,16 +16,13 @@ const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
     { path:'inicio', component:HomeComponent },
     { path:'login', component:LoginComponent },
-    { path:'registro', component:RegisterComponent },
-    { path:'gestionarUsuarios', component:GestionarUsuariosComponent },
-    { path: 'crearupa', component:CreateUpaComponent },
-    { path: 'registrorol', component: RolregistreComponent},
     //{ path:'registro', component:RegisterComponent },
     //Ejemplo con gurdian
     //{ path:'registro', canActivate:[AdministradorGuard], component:RegisterComponent },
     { path:'', redirectTo:'inicio', pathMatch:'full' },
   ]},
   { path:'', component:SuperadministradorComponent, children: [
+    { path: 'registro', component: RolregistreComponent},
     { path:'gestionarUsuarios', component:GestionarUsuariosComponent },
     { path: 'crearUPA', component:CreateUpaComponent },
     { path:'', redirectTo:'inicio', pathMatch:'full' },

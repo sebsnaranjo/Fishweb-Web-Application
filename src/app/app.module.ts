@@ -25,7 +25,10 @@ import { SuperadministradorComponent } from './layaouts/superadministrador/super
 import { HeaderSuperadminComponent } from './plantillas/header-superadmin/header-superadmin.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatTabsModule } from '@angular/material/tabs'; 
+import { MatSelectModule } from '@angular/material/select';
 import { RolregistreComponent } from './vistas/rol-registre/rolregistre/rolregistre.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +42,6 @@ import { RolregistreComponent } from './vistas/rol-registre/rolregistre/rolregis
     GestionarUsuariosComponent,
     CreateUpaComponent,
     RolregistreComponent,
-
     HeaderAdminComponent,
     AdministradorComponent,
     SuperadministradorComponent,
@@ -55,7 +57,9 @@ import { RolregistreComponent } from './vistas/rol-registre/rolregistre/rolregis
     MatIconModule,
     MatTableModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTabsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
