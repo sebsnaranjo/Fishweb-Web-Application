@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   HOST: 'http://localhost:10778',
+  REGISTRO: 'http://localhost:10778',
   //llave para acceder al token
   TOKEN: 'access_token',
   vence: 'expiresIn'

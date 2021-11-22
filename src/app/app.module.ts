@@ -19,6 +19,10 @@ import { GestionarUsuariosComponent } from './vistas/gestionar-usuarios/gestiona
 import { CreateUpaComponent } from './vistas/create-upa/create-upa.component';
 import { Observable } from 'rxjs';
 import {MatTableModule} from '@angular/material/table';
+import { RolregistreComponent } from './vistas/rol-registre/rolregistre/rolregistre.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTabsModule} from '@angular/material/tabs'; 
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import {MatTableModule} from '@angular/material/table';
     AuxiliarComponent,
     GestionarUsuariosComponent,
     CreateUpaComponent,
+    RolregistreComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,12 @@ import {MatTableModule} from '@angular/material/table';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatTabsModule,
+    MatSelectModule
+ 
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

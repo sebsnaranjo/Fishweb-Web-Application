@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './vistas/home/home.component';
 import { LoginComponent } from './vistas/login/login.component';
@@ -8,6 +8,7 @@ import { AuxiliarComponent } from './layaouts/auxiliar/auxiliar.component';
 import { AdministradorGuard } from './administrador.guard';
 import { GestionarUsuariosComponent } from './vistas/gestionar-usuarios/gestionar-usuarios.component';
 import { CreateUpaComponent } from './vistas/create-upa/create-upa.component';
+import { RolregistreComponent } from './vistas/rol-registre/rolregistre/rolregistre.component';
 
 const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path:'registro', component:RegisterComponent },
     { path:'gestionarUsuarios', component:GestionarUsuariosComponent },
     { path: 'crearupa', component:CreateUpaComponent },
+    { path: 'registrorol', component: RolregistreComponent},
     //Ejemplo con gurdian
     //{ path:'registro', canActivate:[AdministradorGuard], component:RegisterComponent },
     { path:'', redirectTo:'inicio', pathMatch:'full' },
