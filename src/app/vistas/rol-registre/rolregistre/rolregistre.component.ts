@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ɵangular_packages_platform_browser_platform_browser_d } from '@angular/platform-browser';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { RegistrorolService } from 'src/app/servicios/registrorol.service';
 import Swal from 'sweetalert2';

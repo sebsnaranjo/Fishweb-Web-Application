@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserEditI } from 'src/app/modelos/userEdit.interface';
 import { ManagementusersService } from 'src/app/servicios/managementusers.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
