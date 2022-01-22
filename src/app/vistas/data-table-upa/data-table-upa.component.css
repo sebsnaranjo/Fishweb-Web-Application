@@ -1,0 +1,34 @@
+.table-camp {
+    height: 650px;
+}
+
+.table-camp table {
+    width: 70%;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn_send {
+    text-align: center;
+    width: 150px;
+    height: 37px;
+    background-color: white;
+    font-size: 15px;
+    font-family: "DM Sans", sans-serif !important;
+    border-style: none;
+}
+
+.btn-outline-dark{
+    border-radius: 70px;
+    margin: 0 5px;
+    padding: 7px 13px;
+    text-decoration: none;
+    display: block;
+    color: white;
+    border-radius: 70px;
+    background-color: #007B3E;
+    transition: .3s;
+    box-shadow: 5px 0 10px rgba(0,0,0, .2);
+}
+

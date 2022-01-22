@@ -1,0 +1,48 @@
+
+<div class="table-camp">
+
+    <mat-form-field>
+      <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+    </mat-form-field>
+    
+    <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8 tabla-gestion">
+      
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="hora">
+        <th mat-header-cell *matHeaderCellDef> Hora </th>
+        <td mat-cell *matCellDef="let element"> {{element.hora}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="ph">
+        <th mat-header-cell *matHeaderCellDef> pH </th>
+        <td mat-cell *matCellDef="let element"> {{element.ph}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="temperatura">
+        <th mat-header-cell *matHeaderCellDef> Temperatura </th>
+        <td mat-cell *matCellDef="let element"> {{element.temperatura}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="nivelAgua">
+        <th mat-header-cell *matHeaderCellDef> Nivel del agua </th>
+        <td mat-cell *matCellDef="let element"> {{element.nivelAgua}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="temperaturaAmbiente">
+        <th mat-header-cell *matHeaderCellDef> Temperatura ambiente </th>
+        <td mat-cell *matCellDef="let element"> {{element.temperaturaAmbiente}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    </table>
+
+    <button (click)="obtenerReportes()" class="btn_send btn btn-outline-dark">Obtener reportes</button>
+
+  </div>

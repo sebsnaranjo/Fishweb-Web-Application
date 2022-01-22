@@ -28,6 +28,11 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatTabsModule } from '@angular/material/tabs'; 
 import { MatSelectModule } from '@angular/material/select';
 import { RolregistreComponent } from './vistas/rol-registre/rolregistre/rolregistre.component';
+import { EditUserRolComponent } from './vistas/edit-user-rol/edit-user-rol.component';
+import { DataTableUpaComponent } from './vistas/data-table-upa/data-table-upa.component';
+import { InicioAuxiliarComponent } from './vistas/inicio/inicio-auxiliar/inicio-auxiliar.component';
+import { InicioAdministradorComponent } from './vistas/inicio/inicio-administrador/inicio-administrador.component';
+import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-superadminsitrador/inicio-superadminsitrador.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +51,11 @@ import { RolregistreComponent } from './vistas/rol-registre/rolregistre/rolregis
     AdministradorComponent,
     SuperadministradorComponent,
     HeaderSuperadminComponent,
+    EditUserRolComponent,
+    DataTableUpaComponent,
+    InicioAuxiliarComponent,
+    InicioAdministradorComponent,
+    InicioSuperadminsitradorComponent,
   ],
   imports: [
     BrowserModule,

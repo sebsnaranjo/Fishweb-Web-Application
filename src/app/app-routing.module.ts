@@ -11,6 +11,8 @@ import { CreateUpaComponent } from './vistas/create-upa/create-upa.component';
 import { RolregistreComponent } from './vistas/rol-registre/rolregistre/rolregistre.component';
 import { AdministradorComponent } from './layaouts/administrador/administrador.component';
 import { SuperadministradorComponent } from './layaouts/superadministrador/superadministrador.component';
+import { EditUserRolComponent } from './vistas/edit-user-rol/edit-user-rol.component';
+import { InicioAuxiliarComponent } from './vistas/inicio/inicio-auxiliar/inicio-auxiliar.component';
 
 const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
@@ -25,7 +27,9 @@ const routes: Routes = [
     { path: 'registro', component: RolregistreComponent},
     { path:'gestionarUsuarios', component:GestionarUsuariosComponent },
     { path: 'crearUPA', component:CreateUpaComponent },
+    { path:'editRol/:id', component: EditUserRolComponent},
     { path:'', redirectTo:'inicio', pathMatch:'full' },
+    { path: 'inicioAuxiliar', component: InicioAuxiliarComponent}
   ]},
   { path:'**', component:NotfoundComponent },
 ];
