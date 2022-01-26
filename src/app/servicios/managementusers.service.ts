@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { UserChange } from '../modelos/userChange.interface';
 import { Observable } from 'rxjs';
 import { UserEditI } from '../modelos/userEdit.interface';
+import { EditRolI } from '../modelos/rolEdit.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class ManagementusersService {
   headers = new HttpHeaders().set("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));
   private apiUrl = '/api/usuarios/listado-nombres';
   private apiUrleditar = '/api/usuarios/editar';
-  private apiUrlUser = '/api/usuarios/search/'
+  private apiUrlUser = '/api/usuarios/search/';
+  private editRol = '/api/usuarios/editar'
 
   constructor(
     private http: HttpClient
@@ -36,8 +38,13 @@ export class ManagementusersService {
       return this.http.put<UserChange>(this.apiUrleditar, changes)
     }
 
-    editUserRol(id):Observable<UserEditI>{
+    editUserRol(id):Observable<any>{
       let direccion = this.apiUrlUser + id;
-      return this.http.get<UserEditI>(direccion);
+      return this.http.get<any>(direccion);
+    }
+
+    editIdRol(form:EditRolI):Observable<EditRolI>{
+      let direccion = this.editRol;
+      return this.http.put<EditRolI>(direccion, form)
     }
 }

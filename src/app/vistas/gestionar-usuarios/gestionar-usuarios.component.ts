@@ -18,10 +18,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'; */
 export class GestionarUsuariosComponent implements OnInit {
   ELEMENT_DATA: User[];
   displayedColumns: string[] = [
-    'id',
     'nombre',
     'apellido',
-    'fullName',
     'rolId',
     'button',
   ];

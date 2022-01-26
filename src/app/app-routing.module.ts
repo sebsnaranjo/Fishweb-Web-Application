@@ -13,6 +13,8 @@ import { AdministradorComponent } from './layaouts/administrador/administrador.c
 import { SuperadministradorComponent } from './layaouts/superadministrador/superadministrador.component';
 import { EditUserRolComponent } from './vistas/edit-user-rol/edit-user-rol.component';
 import { InicioAuxiliarComponent } from './vistas/inicio/inicio-auxiliar/inicio-auxiliar.component';
+import { InicioAdministradorComponent } from './vistas/inicio/inicio-administrador/inicio-administrador.component';
+import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-superadminsitrador/inicio-superadminsitrador.component';
 
 const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
@@ -29,7 +31,9 @@ const routes: Routes = [
     { path: 'crearUPA', component:CreateUpaComponent },
     { path:'editRol/:id', component: EditUserRolComponent},
     { path:'', redirectTo:'inicio', pathMatch:'full' },
-    { path: 'inicioAuxiliar', component: InicioAuxiliarComponent}
+    { path: 'inicioAuxiliar', component: InicioAuxiliarComponent},
+    { path: 'inicioAdministrador', component: InicioAdministradorComponent},
+    { path: 'inicioSuperAdministrador', component: InicioSuperadminsitradorComponent}
   ]},
   { path:'**', component:NotfoundComponent },
 ];

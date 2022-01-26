@@ -1,33 +1,75 @@
+.tittle h2 {
+  margin-top: 50px;
+  font-size: 35px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.filter {
+  text-align: center;
+  margin-top: 50px;
+}
+
+mat-form-field {
+  width: 70%;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+}
+
+.mat-input-underline {
+  color: #007b3e;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #007b3e !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #007b3e !important;
+}
+
 .table-camp {
-    height: 650px;
+  height: 650px;
 }
 
 .table-camp table {
-    width: 70%;
-    margin-top: 100px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mat-header-cell {
+    text-align: center;
+}
+
+.btnRol {
 }
 
 .btn_send {
-    text-align: center;
-    width: 150px;
-    height: 37px;
-    background-color: white;
-    font-size: 15px;
-    font-family: "DM Sans", sans-serif !important;
-    border-style: none;
+  width: 150px;
+  height: 37px;
+  background-color: white;
+  font-size: 15px;
+  font-family: "DM Sans", sans-serif !important;
+  border-style: none;
+  position:relative;
+  top:50%; 
+  left:35%;
 }
 
-.btn-outline-dark{
-    border-radius: 70px;
-    margin: 0 5px;
-    padding: 7px 13px;
-    text-decoration: none;
-    display: block;
-    color: white;
-    border-radius: 70px;
-    background-color: #007B3E;
-    transition: .3s;
-    box-shadow: 5px 0 10px rgba(0,0,0, .2);
+.btn-outline-dark {
+  border-radius: 70px;
+  margin: 0 5px;
+  padding: 7px 13px;
+  text-decoration: none;
+  display: block;
+  color: white;
+  border-radius: 70px;
+  background-color: #007b3e;
+  transition: 0.3s;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
 }
+

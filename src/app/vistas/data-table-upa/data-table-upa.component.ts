@@ -25,7 +25,7 @@ export class DataTableUpaComponent implements OnInit {
   }
 
   obtenerReportes(){
-    this.router.navigate(['editRol']);
+    /* this.router.navigate(['editRol']); */
   }
 
 }
