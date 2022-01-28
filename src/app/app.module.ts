@@ -35,6 +35,7 @@ import { InicioAdministradorComponent } from './vistas/inicio/inicio-administrad
 import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-superadminsitrador/inicio-superadminsitrador.component';
 import { ControlarComponent } from './vistas/controlar/controlar.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     InicioAdministradorComponent,
     InicioSuperadminsitradorComponent,
     ControlarComponent,
+    MensajeComponent,
   ],
   imports: [
     BrowserModule,

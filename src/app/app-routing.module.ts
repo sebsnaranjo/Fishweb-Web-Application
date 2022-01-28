@@ -16,6 +16,7 @@ import { InicioAuxiliarComponent } from './vistas/inicio/inicio-auxiliar/inicio-
 import { InicioAdministradorComponent } from './vistas/inicio/inicio-administrador/inicio-administrador.component';
 import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-superadminsitrador/inicio-superadminsitrador.component';
 import { ControlarComponent } from './vistas/controlar/controlar.component';
+import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 
 const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
@@ -35,7 +36,8 @@ const routes: Routes = [
     { path: 'inicioAuxiliar', component: InicioAuxiliarComponent},
     { path: 'inicioAdministrador', component: InicioAdministradorComponent},
     { path: 'inicioSuperAdministrador', component: InicioSuperadminsitradorComponent},
-    { path: 'controlar', component: ControlarComponent}
+    { path: 'controlar', component: ControlarComponent},
+    { path: 'mensaje', component: MensajeComponent}
   ]},
   { path:'**', component:NotfoundComponent },
 ];
