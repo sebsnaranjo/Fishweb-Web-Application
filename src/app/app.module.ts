@@ -33,6 +33,8 @@ import { DataTableUpaComponent } from './vistas/data-table-upa/data-table-upa.co
 import { InicioAuxiliarComponent } from './vistas/inicio/inicio-auxiliar/inicio-auxiliar.component';
 import { InicioAdministradorComponent } from './vistas/inicio/inicio-administrador/inicio-administrador.component';
 import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-superadminsitrador/inicio-superadminsitrador.component';
+import { ControlarComponent } from './vistas/controlar/controlar.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-supera
     InicioAuxiliarComponent,
     InicioAdministradorComponent,
     InicioSuperadminsitradorComponent,
+    ControlarComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-supera
     MatInputModule,
     MatFormFieldModule,
     MatTabsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

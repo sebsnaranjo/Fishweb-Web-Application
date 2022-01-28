@@ -15,6 +15,7 @@ import { EditUserRolComponent } from './vistas/edit-user-rol/edit-user-rol.compo
 import { InicioAuxiliarComponent } from './vistas/inicio/inicio-auxiliar/inicio-auxiliar.component';
 import { InicioAdministradorComponent } from './vistas/inicio/inicio-administrador/inicio-administrador.component';
 import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-superadminsitrador/inicio-superadminsitrador.component';
+import { ControlarComponent } from './vistas/controlar/controlar.component';
 
 const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
@@ -33,7 +34,8 @@ const routes: Routes = [
     { path:'', redirectTo:'inicio', pathMatch:'full' },
     { path: 'inicioAuxiliar', component: InicioAuxiliarComponent},
     { path: 'inicioAdministrador', component: InicioAdministradorComponent},
-    { path: 'inicioSuperAdministrador', component: InicioSuperadminsitradorComponent}
+    { path: 'inicioSuperAdministrador', component: InicioSuperadminsitradorComponent},
+    { path: 'controlar', component: ControlarComponent}
   ]},
   { path:'**', component:NotfoundComponent },
 ];
