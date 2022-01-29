@@ -36,6 +36,7 @@ import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-supera
 import { ControlarComponent } from './vistas/controlar/controlar.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MensajeComponent } from './vistas/mensaje/mensaje.component';
+import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { MensajeComponent } from './vistas/mensaje/mensaje.component';
     InicioSuperadminsitradorComponent,
     ControlarComponent,
     MensajeComponent,
+    UsersPermissionComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,7 @@ import { InicioAdministradorComponent } from './vistas/inicio/inicio-administrad
 import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-superadminsitrador/inicio-superadminsitrador.component';
 import { ControlarComponent } from './vistas/controlar/controlar.component';
 import { MensajeComponent } from './vistas/mensaje/mensaje.component';
+import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
 
 const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
@@ -37,7 +38,8 @@ const routes: Routes = [
     { path: 'inicioAdministrador', component: InicioAdministradorComponent},
     { path: 'inicioSuperAdministrador', component: InicioSuperadminsitradorComponent},
     { path: 'controlar', component: ControlarComponent},
-    { path: 'mensaje', component: MensajeComponent}
+    { path: 'mensaje', component: MensajeComponent},
+    { path: 'permisoUsuarios', component: UsersPermissionComponent}
   ]},
   { path:'**', component:NotfoundComponent },
 ];
