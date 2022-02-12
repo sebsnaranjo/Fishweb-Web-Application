@@ -1,0 +1,45 @@
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+.titleMessage {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 40px;
+}
+
+table {
+  width: 60%;
+  margin-left: 300px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  .tittle{
+      font-family: 'DM Sans', sans-serif;
+      font-weight: bold;
+      font-size: 15px;
+    
+  }
+  .infoMessage{
+    font-family: 'DM Sans', sans-serif;
+  }
+  .iconMail{
+      color: grey;
+      margin-right: 5px;
+  }
+  @media screen and (max-width: 960px) {
+ 
+    .titleMessage  {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        color: aquamarine;
+    }
+}
