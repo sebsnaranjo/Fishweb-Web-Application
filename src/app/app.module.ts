@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './plantillas/header/header.component';
 import { FooterComponent } from './plantillas/footer/footer.component';
 import { ReactiveFormsModule, FormsModule, FormBuilder, FormControl } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './vistas/register/register.component'; 
 import { LoginComponent } from './vistas/login/login.component';
 import { HomeComponent } from './vistas/home/home.component';
@@ -37,6 +37,7 @@ import { ControlarComponent } from './vistas/controlar/controlar.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
+import { InterceptorService } from './Interceptores/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,11 @@ import { UsersPermissionComponent } from './vistas/users-permission/users-permis
     MatSelectModule,
     MatSlideToggleModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
