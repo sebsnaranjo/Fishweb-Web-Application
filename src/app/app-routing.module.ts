@@ -18,10 +18,12 @@ import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-supera
 import { ControlarComponent } from './vistas/controlar/controlar.component';
 import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
+import { MessageBoxComponent } from './vistas/message-box/message-box.component';
+import { NotifyComponent } from './vistas/notify/notify.component';
 
 const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
-    { path:'inicio', component:HomeComponent },
+    { path:'inicio', component:NotifyComponent },
     { path:'login', component:LoginComponent },
     //{ path:'registro', component:RegisterComponent },
     //Ejemplo con gurdian

@@ -38,6 +38,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
 import { InterceptorService } from './Interceptores/interceptor.service';
+import { MessageBoxComponent } from './vistas/message-box/message-box.component';
+import { NotifyComponent } from './vistas/notify/notify.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { InterceptorService } from './Interceptores/interceptor.service';
     ControlarComponent,
     MensajeComponent,
     UsersPermissionComponent,
+    MessageBoxComponent,
+    NotifyComponent,
   ],
   imports: [
     BrowserModule,

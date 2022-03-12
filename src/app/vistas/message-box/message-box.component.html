@@ -1,0 +1,24 @@
+<h2 class="titleMessage"> Estos son tus mensajes </h2>
+<div class ="messageContent"> 
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+          <ng-container matColumnDef="from">
+            <mat-header-cell class="tittle" *matHeaderCellDef> Mensaje de </mat-header-cell>
+            <mat-cell *matCellDef="let element"><mat-icon class="iconMail">mail</mat-icon> {{element.from}} </mat-cell>
+          </ng-container>
+    
+          <ng-container matColumnDef="datetime">
+            <mat-header-cell class="tittle" *matHeaderCellDef> Fecha y hora </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.datetime}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="send">
+            <mat-header-cell class="tittle" *matHeaderCellDef> Enviado desde </mat-header-cell>
+            <mat-cell class="infoMessage" *matCellDef="let element"> {{element.send}} </mat-cell>
+          </ng-container>
+    
+          <mat-header-row  *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </table>
+      
+</div>
