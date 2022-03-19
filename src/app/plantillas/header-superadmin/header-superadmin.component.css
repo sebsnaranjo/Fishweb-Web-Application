@@ -57,6 +57,14 @@ li.active a {
     color: white;
 }
 
+li.active-close {
+    border-radius: 70px;
+    background-color: #DAAA00;
+    color: white;
+    transition: .3s;
+    box-shadow: 5px 0 10px rgba(0,0,0, .2);
+}
+
 .menu_items li a:hover, li.active {
     border-radius: 70px;
     background-color: #007B3E;
@@ -65,6 +73,13 @@ li.active a {
     box-shadow: 5px 0 10px rgba(0,0,0, .2);
 }
 
+.menu_items li a .active-close:hover {
+    border-radius: 70px;
+    background-color: #44007b !important; 
+    color: white;
+    transition: .3s;
+    box-shadow: 5px 0 10px rgba(0,0,0, .2);
+}
 
 .btn_menu {
     margin-right: 30px;

@@ -32,7 +32,7 @@ const routes: Routes = [
   ]},
   { path:'', component:SuperadministradorComponent, children: [
     { path: 'registro', component: RolregistreComponent},
-    { path:'gestionarUsuarios', component:GestionarUsuariosComponent },
+    { path:'gestionarUsuarios', canActivate:[AdministradorGuard], component:GestionarUsuariosComponent },
     { path: 'crearUPA', component:CreateUpaComponent },
     { path:'editRol/:id', component: EditUserRolComponent},
     { path:'', redirectTo:'inicio', pathMatch:'full' },

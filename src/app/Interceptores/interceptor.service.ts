@@ -15,11 +15,11 @@ export class InterceptorService implements HttpInterceptor {
       return next.handle(req);
     }
 
-    const req1 = req.clone({
+    const reqClone = req.clone({
       headers: req.headers.set('Authorization', `Bearer ${token}`),
     })
 
-    return next.handle(req1);
+    return next.handle(reqClone);
 
   }
   
