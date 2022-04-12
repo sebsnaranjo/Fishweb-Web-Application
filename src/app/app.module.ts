@@ -40,6 +40,7 @@ import { UsersPermissionComponent } from './vistas/users-permission/users-permis
 import { InterceptorService } from './Interceptores/interceptor.service';
 import { MessageBoxComponent } from './vistas/message-box/message-box.component';
 import { NotifyComponent } from './vistas/notify/notify.component';
+import { HeaderAuxComponent } from './plantillas/header-aux/header-aux.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { NotifyComponent } from './vistas/notify/notify.component';
     UsersPermissionComponent,
     MessageBoxComponent,
     NotifyComponent,
+    HeaderAuxComponent,
   ],
   imports: [
     BrowserModule,

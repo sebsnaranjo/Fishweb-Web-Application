@@ -65,6 +65,21 @@ li.active-close {
     box-shadow: 5px 0 10px rgba(0,0,0, .2);
 }
 
+.button_logout {
+    height: 34px;
+    width: auto;
+    padding: 7px 13px;
+    border-style: none;
+    border-radius: 70px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    transition: .3s;
+    background-color: #007B3E;
+    color: black;
+    box-shadow: 5px 0 10px rgba(0,0,0, .2);
+}
+
 .menu_items li a:hover, li.active {
     border-radius: 70px;
     background-color: #007B3E;
@@ -73,9 +88,9 @@ li.active-close {
     box-shadow: 5px 0 10px rgba(0,0,0, .2);
 }
 
-.menu_items li a .active-close:hover {
+.menu_items li button:hover {
     border-radius: 70px;
-    background-color: #44007b !important; 
+    background-color: #DAAA00;
     color: white;
     transition: .3s;
     box-shadow: 5px 0 10px rgba(0,0,0, .2);
