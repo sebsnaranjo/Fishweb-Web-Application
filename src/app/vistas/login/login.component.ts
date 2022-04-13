@@ -34,6 +34,7 @@ export class LoginComponent{
       /*sessionStorage.setItem(environment.vence, data.data.expiration);
       sessionStorage.setItem(environment.rolId, data.data.user.rolId);*/
       this.AuthService.token(data.data.token, data.data.user.rolId);
+      this.AuthService.getIdRol();
       this.router.navigate(['superadmin/gestionar-usuarios'])
     })
   }

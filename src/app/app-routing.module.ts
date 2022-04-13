@@ -33,9 +33,7 @@ const routes: Routes = [
   ]},
   { path:'superadmin', component:SuperadministradorComponent, children: [
     { path: 'registro', component: RolregistreComponent},
-    { path:'gestionar-usuarios', canActivate:[RoleGuard], data: {
-      role: 'Admin'
-    }, component:GestionarUsuariosComponent },
+    { path:'gestionar-usuarios', canActivate:[RoleGuard], component:GestionarUsuariosComponent },
     { path: 'crear-upa', component:CreateUpaComponent },
     { path:'edit-rol/:id', component: EditUserRolComponent},
     { path:'', redirectTo:'inicio', pathMatch:'full' },

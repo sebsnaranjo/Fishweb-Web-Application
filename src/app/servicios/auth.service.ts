@@ -13,6 +13,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   private apiUrl = '/api/Account/login';
+  public currentUser = null;
 /*   user!: UserRolModel;
 
   get getToken(): any {
@@ -21,6 +22,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private encrypt: EncryptService, private injector:Injector) {
 /*      this.user = this.getUserRol(this.getToken) */
+    this.currentUser = this.getIdRol();
   }
 
   login(email: string, clave: string): Observable<any> {
@@ -33,15 +35,21 @@ export class AuthService {
 
   token(token: string, rol_id: number): void {
     const decode = jwt_decode<TokenDecodeI>(token);
-
+    
     let expiration_encrypt = this.encrypt.encrypt(JSON.stringify(decode.exp));
-    console.log(expiration_encrypt);
+    /* console.log(expiration_encrypt); */
     sessionStorage.setItem(environment.expiration, expiration_encrypt);
 
     let rolId_encrypt = this.encrypt.encrypt(JSON.stringify(rol_id));
-    console.log(rolId_encrypt);
+    /* console.log(rolId_encrypt); */
     sessionStorage.setItem(environment.rolId, rolId_encrypt);
+  }
 
+  getIdRol(){
+    let idrol = sessionStorage.getItem(environment.rolId)||'';
+    let idrol2 = this.encrypt.decrypt(idrol);
+    return idrol2;
+    console.log(idrol2);
   }
 
   isLoggedIn(): boolean {
@@ -58,7 +66,7 @@ export class AuthService {
     var _extractedtoken = loggintoken.split('.')[1];
     var _atobdata = atob(_extractedtoken);
     var _finaldata= JSON.parse(_atobdata);
-    console.log(_finaldata)
+    /* console.log(_finaldata) */
     if(_finaldata.role=='Super Administrador'){
       return true
     } 

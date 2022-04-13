@@ -16,13 +16,32 @@
     <form (ngSubmit)="logout()" class="menu">
         <img class="logo_img" src="../../../assets/images/fishes.png">
         <label class="logo">Fishweb</label>
-        <ul class="menu_items">
-            <li><a routerLink="/crearUPA">Registro UPA</a></li>
-            <li><a routerLink="/registro">Registro usuario</a></li>
-            <li><a routerLink="/gestionarUsuarios">Usuarios</a></li>
+        <ul class="menu_items" *ngIf="currentUser == 1">
+            <li><a routerLink="/superadmin/crear-upa">Registro UPA</a></li>
+            <li><a routerLink="/superadmin/registro">Registro usuario</a></li>
+            <li><a routerLink="/superadmin/gestionar-usuarios">Usuarios</a></li>
             <li><a routerLink="#">Ajuste de variables</a></li>
             <li><a routerLink="#">Control</a></li>
-            <li><a routerLink="#">Generar reportes</a></li>
+            <li><a routerLink="#">Reportes</a></li>
+            <li><a routerLink="#">Inicio</a></li>
+            <li class="active"><a>Ver perfil</a></li>
+            <li><button class="button_logout" type="submit">Cerrar sesión</button></li>
+        </ul>
+        <ul class="menu_items" *ngIf="currentUser == 2">
+            <li><a routerLink="/admin/registro">Registro usuario</a></li>
+            <li><a routerLink="#">Ajuste de variables</a></li>
+            <li><a routerLink="#">Control</a></li>
+            <li><a routerLink="#">Reportes</a></li>
+            <li><a routerLink="#">Chat</a></li>
+            <li><a routerLink="#">Inicio</a></li>
+            <li class="active"><a>Ver perfil</a></li>
+            <li><button class="button_logout" type="submit">Cerrar sesión</button></li>
+        </ul>
+        <ul class="menu_items" *ngIf="currentUser == 3">
+            <li><a routerLink="/aux/gestionar-usuarios">Usuarios</a></li>
+            <li><a routerLink="#">Control</a></li>
+            <li><a routerLink="#">Reportes</a></li>
+            <li><a routerLink="#">Inicio</a></li>
             <li class="active"><a>Ver perfil</a></li>
             <li><button class="button_logout" type="submit">Cerrar sesión</button></li>
         </ul>
