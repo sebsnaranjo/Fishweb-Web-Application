@@ -1,0 +1,172 @@
+.titleMessage {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 40px;
+}
+.subtitle{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 40px;
+
+}
+.content{
+    margin-bottom: 30px;
+}
+.mat-expansion-panel{
+    width: 52%;
+    margin-left: 320px;
+    background-color: #007B3E ;
+ 
+}
+.describeText{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    margin-left: 270px;
+    margin-top: 20px;
+    
+}
+
+  .activityTitle{
+  font-family: 'DM Sans', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center !important;
+  }
+
+.background{
+    background-color: lightgray;
+    width: 52%;
+    height: 132%;
+    margin-left: 320px !important;
+    margin-bottom: 50px;
+    border-radius: 30px;
+
+}
+
+.textBox{
+    font-family: 'DM Sans', sans-serif;
+    color: grey;
+    font-size: 20px ;
+    margin-top: 20px;
+    margin-left: 320px !important;
+
+    
+}
+.text{
+    margin-left: 10px;
+    margin-top: 30px;
+    color: blue;
+    font-family: 'DM Sans', sans-serif;
+    color: black;
+    font-size: 18px ;
+    
+}
+.dateBox{
+    width: 20%;
+    border-radius: 10px;
+    margin-left: 25px;
+    margin-top: -10px;
+}
+.example-section1 {
+    margin: 12px 0;
+    display: flex;
+    margin-top: 50px;
+   
+  }
+ 
+  .checkboxVariable{
+    margin-left: 175px;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 15px ;
+    color: black;
+  }
+  .content1{
+      margin-left: 120px;
+  }
+  .btnReportes{
+  
+  margin-left: 80px !important;
+  margin-top: 20px;
+  width: 180px;
+  height: 40px;
+  background-color: white;
+  font-size: 18px;
+  font-family: "DM Sans", sans-serif !important;
+  color: #000000;
+  border-radius: 70px;
+  border-style: none;
+ 
+  }
+
+  .btnClass{
+    margin-top: 25px !important;
+    margin-left:150px;
+  }
+  
+  
+  .btn-outline-dark{
+  
+    display: flex;
+    list-style: none;
+    margin-right: 500px;
+    margin-top: auto;
+    
+  
+    border-radius: 70px;
+    margin: 0 5px;
+  
+    padding: 7px 13px;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    color: black;
+  
+    color: white;
+    border-radius: 70px;
+    background-color: #007B3E;
+    color: white;
+    transition: .3s;
+    box-shadow: 5px 0 10px rgba(0,0,0, .2);
+  
+  }
+  .btnGrafica{
+    margin-left: 240px !important;
+    margin-bottom: 40px !important   ;
+    margin-top: 30px;
+    width: 180px;
+    height: 40px;
+    background-color: white;
+    font-size: 18px;
+    font-family: "DM Sans", sans-serif !important;
+    color: #000000;
+    border-radius: 70px;
+    border-style: none;
+  }
+  .general-box{
+
+	display: flex;
+    background-color: #007B3E;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+  @media screen and (max-width: 960px) {
+
+    .mat-expansion-panel{
+        width: 50%;
+       margin-left: 100px;
+
+    }
+    .describeText{
+        margin-left: 15px;
+        font-size: 13px;
+    }
+  }

@@ -39,6 +39,13 @@ import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
 import { MessageBoxComponent } from './vistas/message-box/message-box.component';
 import { NotifyComponent } from './vistas/notify/notify.component';
+import { ReportsComponent } from './vistas/reports/reports.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCard} from '@angular/material/card';
+
+import {MatMenuModule} from '@angular/material/menu';
+import { AjustesVariablesComponent } from './ajustes-variables/ajustes-variables.component'
+
 
 @NgModule({
   declarations: [
@@ -67,6 +74,8 @@ import { NotifyComponent } from './vistas/notify/notify.component';
     UsersPermissionComponent,
     MessageBoxComponent,
     NotifyComponent,
+    ReportsComponent,
+    AjustesVariablesComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +90,10 @@ import { NotifyComponent } from './vistas/notify/notify.component';
     MatFormFieldModule,
     MatTabsModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatExpansionModule,
+    MatMenuModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
