@@ -8,8 +8,6 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { __values } from 'tslib';
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -33,8 +31,11 @@ export class LoginComponent{
   async loggear(values) {
     this.AuthService.login(values.email, values.clave).subscribe( (data) => {
       sessionStorage.setItem(environment.TOKEN, data.data.token);
-      sessionStorage.setItem(environment.vence, data.data.expiration);
-      this.router.navigate(['gestionarUsuarios'])
+      /*sessionStorage.setItem(environment.vence, data.data.expiration);
+      sessionStorage.setItem(environment.rolId, data.data.user.rolId);*/
+      this.AuthService.token(data.data.token, data.data.user.rolId);
+      this.AuthService.getIdRol();
+      this.router.navigate(['superadmin/gestionar-usuarios'])
     })
   }
 

@@ -18,10 +18,8 @@ import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-supera
 import { ControlarComponent } from './vistas/controlar/controlar.component';
 import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
-import { MessageBoxComponent } from './vistas/message-box/message-box.component';
-import { NotifyComponent } from './vistas/notify/notify.component';
-import { ReportsComponent } from './vistas/reports/reports.component';
 import { AjustesVariablesComponent } from './ajustes-variables/ajustes-variables.component';
+import { RoleGuard } from './guardianes/role.guard';
 
 const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
@@ -32,9 +30,35 @@ const routes: Routes = [
     //{ path:'registro', canActivate:[AdministradorGuard], component:RegisterComponent },
     { path:'', redirectTo:'inicio', pathMatch:'full' },
   ]},
-  { path:'', component:SuperadministradorComponent, children: [
+  { path:'superadmin', component:SuperadministradorComponent, children: [
     { path: 'registro', component: RolregistreComponent},
-    { path:'gestionarUsuarios', component:GestionarUsuariosComponent },
+    { path:'gestionar-usuarios', canActivate:[RoleGuard], component:GestionarUsuariosComponent },
+    { path: 'crear-upa', component:CreateUpaComponent },
+    { path:'edit-rol/:id', component: EditUserRolComponent},
+    { path:'', redirectTo:'inicio', pathMatch:'full' },
+    { path: 'inicio-auxiliar', component: InicioAuxiliarComponent},
+    { path: 'inicio-administrador', component: InicioAdministradorComponent},
+    { path: 'inicio-super-administrador', component: InicioSuperadminsitradorComponent},
+    { path: 'controlar', component: ControlarComponent},
+    { path: 'mensaje', component: MensajeComponent},
+    { path: 'permiso-usuarios', component: UsersPermissionComponent}
+  ]},
+  { path:'admin', component:AdministradorComponent, children: [
+    { path: 'registro', component: RolregistreComponent},
+    { path:'gestionarUsuarios', canActivate:[AdministradorGuard], component:GestionarUsuariosComponent },
+    { path: 'crearUPA', component:CreateUpaComponent },
+    { path:'editRol/:id', component: EditUserRolComponent},
+    { path:'', redirectTo:'inicio', pathMatch:'full' },
+    { path: 'inicioAuxiliar', component: InicioAuxiliarComponent},
+    { path: 'inicioAdministrador', component: InicioAdministradorComponent},
+    { path: 'inicioSuperAdministrador', component: InicioSuperadminsitradorComponent},
+    { path: 'controlar', component: ControlarComponent},
+    { path: 'mensaje', component: MensajeComponent},
+    { path: 'permisoUsuarios', component: UsersPermissionComponent}
+  ]},
+  { path:'auxiliar', component:SuperadministradorComponent, children: [
+    { path: 'registro', component: RolregistreComponent},
+    { path:'gestionarUsuarios', canActivate:[AdministradorGuard], component:GestionarUsuariosComponent },
     { path: 'crearUPA', component:CreateUpaComponent },
     { path:'editRol/:id', component: EditUserRolComponent},
     { path:'', redirectTo:'inicio', pathMatch:'full' },

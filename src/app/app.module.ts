@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './plantillas/header/header.component';
 import { FooterComponent } from './plantillas/footer/footer.component';
 import { ReactiveFormsModule, FormsModule, FormBuilder, FormControl } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './vistas/register/register.component'; 
 import { LoginComponent } from './vistas/login/login.component';
 import { HomeComponent } from './vistas/home/home.component';
@@ -37,15 +37,10 @@ import { ControlarComponent } from './vistas/controlar/controlar.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
+import { InterceptorService } from './Interceptores/interceptor.service';
 import { MessageBoxComponent } from './vistas/message-box/message-box.component';
 import { NotifyComponent } from './vistas/notify/notify.component';
-import { ReportsComponent } from './vistas/reports/reports.component';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatCard} from '@angular/material/card';
-
-import {MatMenuModule} from '@angular/material/menu';
-import { AjustesVariablesComponent } from './ajustes-variables/ajustes-variables.component'
-
+import { HeaderAuxComponent } from './plantillas/header-aux/header-aux.component';
 
 @NgModule({
   declarations: [
@@ -74,8 +69,7 @@ import { AjustesVariablesComponent } from './ajustes-variables/ajustes-variables
     UsersPermissionComponent,
     MessageBoxComponent,
     NotifyComponent,
-    ReportsComponent,
-    AjustesVariablesComponent,
+    HeaderAuxComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,11 +85,14 @@ import { AjustesVariablesComponent } from './ajustes-variables/ajustes-variables
     MatTabsModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatExpansionModule,
-    MatMenuModule
+  
 
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

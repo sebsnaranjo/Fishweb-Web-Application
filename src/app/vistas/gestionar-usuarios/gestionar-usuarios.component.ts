@@ -76,6 +76,6 @@ export class GestionarUsuariosComponent implements OnInit {
   }
 
   editUserRol(id) {
-    this.router.navigate(['editRol', id]);
+    this.router.navigate(['edit-rol', id]);
   }
 }

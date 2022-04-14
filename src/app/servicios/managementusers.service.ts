@@ -13,25 +13,20 @@ import { EditRolI } from '../modelos/rolEdit.interface';
 })
 export class ManagementusersService {
 
-  headers = new HttpHeaders().set("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));
+  /*headers = new HttpHeaders().set("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));*/
   private apiUrl = '/api/usuarios/listado-nombres';
   private apiUrleditar = '/api/usuarios/editar';
   private apiUrlUser = '/api/usuarios/search/';
   private editRol = '/api/usuarios/editar'
 
-  constructor(
-    private http: HttpClient
-  ) { 
-    this.headers.append("Content-Type", "application/json");
-    this.headers.append("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));
-  }
-
+  constructor(private http: HttpClient) { /*this.headers.append("Content-Type", "application/json"); this.headers.append("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));*/}
+    
     create(dto: CreateUserDTO){
       return this.http.post<User>(this.apiUrl, dto);
     }
 
     getAll(){
-      return this.http.get<User[]>(this.apiUrl, {headers: this.headers});
+      return this.http.get<User[]>(this.apiUrl);
     }
 
     change(changes: UserChange){
@@ -47,4 +42,5 @@ export class ManagementusersService {
       let direccion = this.editRol;
       return this.http.put<EditRolI>(direccion, form)
     }
+
 }

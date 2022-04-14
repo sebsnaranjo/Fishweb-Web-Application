@@ -8,7 +8,8 @@ export const environment = {
   REGISTRO: 'http://localhost:10778',
   //llave para acceder al token
   TOKEN: 'access_token',
-  vence: 'expiresIn'
+  expiration: 'expiresIn',
+  rolId: 'rol_id'
 };
 
 /*
