@@ -41,6 +41,9 @@ import { InterceptorService } from './Interceptores/interceptor.service';
 import { MessageBoxComponent } from './vistas/message-box/message-box.component';
 import { NotifyComponent } from './vistas/notify/notify.component';
 import { HeaderAuxComponent } from './plantillas/header-aux/header-aux.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ReportsComponent } from './vistas/reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +73,7 @@ import { HeaderAuxComponent } from './plantillas/header-aux/header-aux.component
     MessageBoxComponent,
     NotifyComponent,
     HeaderAuxComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +89,9 @@ import { HeaderAuxComponent } from './plantillas/header-aux/header-aux.component
     MatTabsModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatMenuModule,
+    BrowserModule,
+    MatExpansionModule
   
 
   ],

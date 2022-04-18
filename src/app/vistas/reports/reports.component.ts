@@ -6,13 +6,13 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
-  toppings: FormGroup;
+  variables: FormGroup;
   panelOpenState = false;
   constructor(fb: FormBuilder) {
-    this.toppings = fb.group({
-      pepperoni: false,
-      extracheese: false,
-      mushroom: false,
+    this.variables = fb.group({
+      ph: false,
+      temperatura: false,
+      nivelAgua: false,
     });
    }
 

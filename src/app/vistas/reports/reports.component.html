@@ -28,7 +28,7 @@
   </mat-accordion>
 </div>
 <div class="background mailbox">
-  <h2 class="describeText"> Descarga tu reporte </h2>
+  <h2 class="describeText1"> Descarga tu reporte </h2>
 <div class="box">
   <p class="textBox"> Rango de fecha </p>
   <p class="text">Desde:  <input type="text" class="dateBox" placeholder="Dia">
@@ -43,13 +43,13 @@
 <div class="checkboxVariable">
 <p class="textBox1"> Tipo de variables a inluir </p>
 <div class="example-section1">
-<content [formGroup]="toppings">
+<content [formGroup]="variables">
   <p><input type="checkbox" formControlName="phvalue">pH</p>
   <p><input type="checkbox" formControlName="tempeturevalue">Temperatura</p>
   <p><input type="checkbox" formControlName="levelwvalue">Nivel del agua</p>
 </content>
 
-<content class="content1" [formGroup]="toppings">
+<content class="content1" [formGroup]="variables">
   <p><input type="checkbox" formControlName="tempAmb">Temperatura ambiente</p>
   <p><input type="checkbox" formControlName="tiempoAl">Tiempo de alimentación</p>
   <p><input type="checkbox" formControlName="recAgua">Recirculación del agua</p>
@@ -61,7 +61,7 @@
 </div>
 </div>
 <div class="background mailbox">
-  <h2 class="describeText"> Genera tu grafica </h2>
+  <h2 class="describeText1"> Genera tu grafica </h2>
 <div class="box">
   <p class="textBox"> Rango de fecha </p>
   <p class="text">Desde:  <input type="text" class="dateBox" placeholder="Dia">

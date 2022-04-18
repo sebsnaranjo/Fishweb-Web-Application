@@ -28,9 +28,18 @@
     font-size: 25px;
     color: black;
     font-weight: bold;
-    margin-left: 200px;
+    margin-left: 190px;
     margin-top: 20px;
     
+}
+.describeText1{
+  font-family: 'DM Sans', sans-serif;
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+  margin-left: 210px;
+  margin-top: 20px;
+  
 }
 
   .activityTitle{
@@ -159,10 +168,10 @@
   
   }
   .btnGrafica{
-    margin-left: 240px !important;
+    margin-left: 220px !important;
     margin-bottom: 40px !important   ;
     margin-top: 30px;
-    width: 180px;
+    width: 210px;
     height: 40px;
     background-color: white;
     font-size: 18px;

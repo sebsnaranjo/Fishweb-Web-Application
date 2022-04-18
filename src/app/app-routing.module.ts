@@ -20,10 +20,11 @@ import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
 import { AjustesVariablesComponent } from './ajustes-variables/ajustes-variables.component';
 import { RoleGuard } from './guardianes/role.guard';
+import { ReportsComponent } from './vistas/reports/reports.component';
 
 const routes: Routes = [
   { path: '', component:AuxiliarComponent, children: [
-    { path:'inicio', component:AjustesVariablesComponent},
+    { path:'inicio', component:ReportsComponent},
     { path:'login', component:LoginComponent },
     //{ path:'registro', component:RegisterComponent },
     //Ejemplo con gurdian
@@ -43,7 +44,7 @@ const routes: Routes = [
     { path: 'mensaje', component: MensajeComponent},
     { path: 'permiso-usuarios', component: UsersPermissionComponent}
   ]},
-  { path:'admin', component:AdministradorComponent, children: [
+  { path:'admin', component:InicioAdministradorComponent, children: [
     { path: 'registro', component: RolregistreComponent},
     { path:'gestionarUsuarios', canActivate:[AdministradorGuard], component:GestionarUsuariosComponent },
     { path: 'crearUPA', component:CreateUpaComponent },
