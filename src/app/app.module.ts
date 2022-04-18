@@ -44,6 +44,7 @@ import { HeaderAuxComponent } from './plantillas/header-aux/header-aux.component
 import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ReportsComponent } from './vistas/reports/reports.component';
+import { AjustesVariablesComponent } from './vistas/ajustes-variables/ajustes-variables.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { ReportsComponent } from './vistas/reports/reports.component';
     MessageBoxComponent,
     NotifyComponent,
     HeaderAuxComponent,
-    ReportsComponent
+    ReportsComponent,
+    AjustesVariablesComponent
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@ import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-supera
 import { ControlarComponent } from './vistas/controlar/controlar.component';
 import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
-import { AjustesVariablesComponent } from './ajustes-variables/ajustes-variables.component';
+import { AjustesVariablesComponent } from './vistas/ajustes-variables/ajustes-variables.component';
 import { RoleGuard } from './guardianes/role.guard';
 import { ReportsComponent } from './vistas/reports/reports.component';
 
