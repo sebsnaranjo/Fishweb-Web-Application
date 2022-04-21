@@ -61,13 +61,36 @@ export class AuthService {
     }
   }
 
-  HaveAccess(){
+  HaveAccessSuperAdmin(){
     var loggintoken = sessionStorage.getItem(environment.TOKEN)||'';
     var _extractedtoken = loggintoken.split('.')[1];
     var _atobdata = atob(_extractedtoken);
     var _finaldata= JSON.parse(_atobdata);
-    /* console.log(_finaldata) */
     if(_finaldata.role=='Super Administrador'){
+      return true
+    } 
+    alert('No tienes permiso');
+    return false
+  }
+
+  HaveAccessAdmin(){
+    var loggintoken = sessionStorage.getItem(environment.TOKEN)||'';
+    var _extractedtoken = loggintoken.split('.')[1];
+    var _atobdata = atob(_extractedtoken);
+    var _finaldata= JSON.parse(_atobdata);
+    if(_finaldata.role=='Administrador'){
+      return true
+    } 
+    alert('No tienes permiso');
+    return false
+  }
+
+  HaveAccessAux(){
+    var loggintoken = sessionStorage.getItem(environment.TOKEN)||'';
+    var _extractedtoken = loggintoken.split('.')[1];
+    var _atobdata = atob(_extractedtoken);
+    var _finaldata= JSON.parse(_atobdata);
+    if(_finaldata.role=='Auxiliar'){
       return true
     } 
     alert('No tienes permiso');

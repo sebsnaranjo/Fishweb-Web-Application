@@ -1,0 +1,52 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/fc0398356f.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../../../assets/javascript/menu.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Poppins&family=Roboto&family=Roboto+Slab&display=swap"
+        rel="stylesheet">
+    <title>Fishweb</title>
+</head>
+<nav class="menu">
+    <!-- RouterActive puede ser de utilidad: revisar-->
+    <form (ngSubmit)="logout()" class="menu">
+        <img class="logo_img" src="../../../assets/images/fishes.png">
+        <label class="logo">Fishweb</label>
+        <ul class="menu_items" *ngIf="currentUser == 1">
+            <li><a routerLink="/superadmin/crear-upa">Registro UPA</a></li>
+            <li><a routerLink="/superadmin/registro">Registro usuario</a></li>
+            <li><a routerLink="/superadmin/gestionar-usuarios">Usuarios</a></li>
+            <li><a routerLink="#">Ajuste de variables</a></li>
+            <li><a routerLink="#">Control</a></li>
+            <li><a routerLink="#">Reportes</a></li>
+            <li><a routerLink="#">Inicio</a></li>
+            <li class="active"><a>Ver perfil</a></li>
+            <li><button class="button_logout" type="submit">Cerrar sesión</button></li>
+        </ul>
+        <ul class="menu_items" *ngIf="currentUser == 2">
+            <li><a routerLink="/admin/registro">Registro usuario</a></li>
+            <li><a routerLink="#">Ajuste de variables</a></li>
+            <li><a routerLink="#">Control</a></li>
+            <li><a routerLink="#">Reportes</a></li>
+            <li><a routerLink="#">Chat</a></li>
+            <li><a routerLink="#">Inicio</a></li>
+            <li class="active"><a>Ver perfil</a></li>
+            <li><button class="button_logout" type="submit">Cerrar sesión</button></li>
+        </ul>
+        <ul class="menu_items" *ngIf="currentUser == 3">
+            <li><a routerLink="/aux/gestionar-usuarios">Usuarios</a></li>
+            <li><a routerLink="#">Control</a></li>
+            <li><a routerLink="#">Reportes</a></li>
+            <li><a routerLink="#">Inicio</a></li>
+            <li class="active"><a>Ver perfil</a></li>
+            <li><button class="button_logout" type="submit">Cerrar sesión</button></li>
+        </ul>
+        <span class="btn_menu">
+            <i class="fa fa-bars"></i>
+        </span>
+    </form>
+</nav>

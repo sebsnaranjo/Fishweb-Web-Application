@@ -12,15 +12,15 @@ import { AuthService } from '../servicios/auth.service';
   providedIn: 'root',
 })
 export class RoleGuard implements CanActivate {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   canActivate(
-/*     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot */
+    /*     route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot */
   ) {
-    if(this.authService.HaveAccess())
-    return true;
-    else{
+    if (this.authService.HaveAccessSuperAdmin())
+      return true;
+    else {
       return false
     }
   }/* :

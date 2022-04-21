@@ -45,6 +45,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ReportsComponent } from './vistas/reports/reports.component';
 import { AjustesVariablesComponent } from './vistas/ajustes-variables/ajustes-variables.component';
+import { HeaderUsersComponent } from './plantillas/header-users/header-users.component';
+import { UsersComponent } from './layaouts/users/users.component';
+import { HomeViewComponent } from './layaouts/home-view/home-view.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +78,10 @@ import { AjustesVariablesComponent } from './vistas/ajustes-variables/ajustes-va
     NotifyComponent,
     HeaderAuxComponent,
     ReportsComponent,
-    AjustesVariablesComponent
+    AjustesVariablesComponent,
+    HeaderUsersComponent,
+    UsersComponent,
+    HomeViewComponent
   ],
   imports: [
     BrowserModule,
@@ -94,8 +100,6 @@ import { AjustesVariablesComponent } from './vistas/ajustes-variables/ajustes-va
     MatMenuModule,
     BrowserModule,
     MatExpansionModule
-  
-
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
