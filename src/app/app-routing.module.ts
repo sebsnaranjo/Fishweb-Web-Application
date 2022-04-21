@@ -18,6 +18,10 @@ import { RoleGuard } from './guardianes/role.guard';
 import { ReportsComponent } from './vistas/reports/reports.component';
 import { UsersComponent } from './layaouts/users/users.component';
 import { HomeViewComponent } from './layaouts/home-view/home-view.component';
+import { AjustesVariablesComponent } from './vistas/ajustes-variables/ajustes-variables.component';
+import { AdminGuard } from './guardianes/admin.guard';
+import { SuperadminGuard } from './guardianes/superadmin.guard';
+import { AuxGuard } from './guardianes/aux.guard';
 
 const routes: Routes = [
   {
@@ -30,7 +34,7 @@ const routes: Routes = [
   {
     path: '', component: UsersComponent, children: [
       { path: 'registro', component: RolregistreComponent },
-      { path: 'gestionar-usuarios', canActivate: [RoleGuard], component: GestionarUsuariosComponent },
+      { path: 'gestionar-usuarios', canActivate: [AdminGuard], component: GestionarUsuariosComponent },
       { path: 'crear-upa', component: CreateUpaComponent },
       { path: 'edit-rol/:id', component: EditUserRolComponent },
       { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -39,7 +43,9 @@ const routes: Routes = [
       { path: 'inicio-super-administrador', component: InicioSuperadminsitradorComponent },
       { path: 'controlar', component: ControlarComponent },
       { path: 'mensaje', component: MensajeComponent },
-      { path: 'permiso-usuarios', component: UsersPermissionComponent }
+      { path: 'permiso-usuarios', component: UsersPermissionComponent },
+      { path: 'ajuste-variables', component: AjustesVariablesComponent},
+      { path: 'reportes', component: ReportsComponent},
     ]
   },
   { path: '**', component: NotfoundComponent },
