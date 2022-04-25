@@ -1,0 +1,102 @@
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+.titleMessage {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.background{
+    background-color: #007B3E;
+    width: 40%;
+    height: 80%;
+    margin-left: 400px !important;
+    margin-bottom: 50px;
+    border-radius: 30px;
+
+}
+.mailImage{
+    width: 20%;
+    margin-left: 190px !important;
+    margin-top: 30px;
+    
+}
+.box{
+    text-align: center !important;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.textBox{
+    
+    line-height: 10px !important;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text{
+    width: 60%;
+    height: 30%;
+    margin-left: 110px !important;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btnSend1{
+    margin-top: 30px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btnSend{
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    font-size: 12px;
+    font-family: "DM Sans", sans-serif !important;
+    color: #000000;
+    border-radius: 70px;
+    border-style: double;
+}
+@media screen and (max-width: 860px) {
+ 
+    .titleMessage  {
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }
+    .background{
+        align-items: center !important;
+        width: 40%;
+        margin-left: 150px !important;
+        margin-bottom: 20px;
+
+    }
+    .mailImage{
+        width: 20%;
+        margin-left: 80px !important;
+
+    }
+    .box{
+        line-height: 0.011em !important;
+    }
+    .textBox{
+        margin-left: 20px !important;
+        line-height: 1em !important;
+        
+    }
+    .text{
+        margin-left: 40px !important;
+    }
+}

@@ -1,0 +1,89 @@
+<h2 class="titleMessage"> En esta sección puedes descargar reportes
+    <br> según tu necesidad.
+</h2>
+<h3 class="subtitle">Para que tengas más claridad al generar los reportes puedes
+    <br> darle click al siguiente banner despegable para obtener
+    <br> más información.
+</h3>
+<div class="content">
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-description>
+         <p class="describeText">¡Para tener en cuenta!</p>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <h4 class="activityTitle">Selecciona un rango de fecha</h4>
+      <p>Para generar un reporte debes de establecer un rango de fecha
+        de esta forma tu reporte contendrá únicamente la información
+        suministrada en el rango de fecha que estableciste.</p>
+        <h4 class="activityTitle">Selecciona el tipo de variable </h4>
+      <p>Para generar un reporte debes de establecer el o los tipos de 
+        variable que se incluirán en el reporte.</p>
+        <h4 class="activityTitle">¡Descargalo!</h4>
+      <p>Finalmente lo que debes de hacer es descargar tu reporte
+        dando click en el botón descargar.</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div class="background mailbox">
+  <h2 class="describeText1"> Descarga tu reporte </h2>
+<div class="box">
+  <p class="textBox"> Rango de fecha </p>
+  <p class="text">Desde:  <input type="text" class="dateBox" placeholder="Dia">
+    <input type="text" class="dateBox" placeholder="Mes">
+    <input type="text" class="dateBox" placeholder="Año"></p>
+</div>
+<div class="box">
+  <p class="text"> Hasta:     <input type="text" class="dateBox" placeholder="Dia">
+    <input type="text" class="dateBox" placeholder="Mes">
+    <input type="text" class="dateBox" placeholder="Año"></p>
+</div>
+<div class="checkboxVariable">
+<p class="textBox1"> Tipo de variables a inluir </p>
+<div class="example-section1">
+<content [formGroup]="variables">
+  <p><input type="checkbox" formControlName="phvalue">pH</p>
+  <p><input type="checkbox" formControlName="tempeturevalue">Temperatura</p>
+  <p><input type="checkbox" formControlName="levelwvalue">Nivel del agua</p>
+</content>
+
+<content class="content1" [formGroup]="variables">
+  <p><input type="checkbox" formControlName="tempAmb">Temperatura ambiente</p>
+  <p><input type="checkbox" formControlName="tiempoAl">Tiempo de alimentación</p>
+  <p><input type="checkbox" formControlName="recAgua">Recirculación del agua</p>
+</content>
+</div>
+<div class="btnClass">
+<button mat-button class="btnReportes btn btn-outline-dark">Descarga tu reporte</button>
+</div>
+</div>
+</div>
+<div class="background mailbox">
+  <h2 class="describeText1"> Genera tu grafica </h2>
+<div class="box">
+  <p class="textBox"> Rango de fecha </p>
+  <p class="text">Desde:  <input type="text" class="dateBox" placeholder="Dia">
+    <input type="text" class="dateBox" placeholder="Mes">
+    <input type="text" class="dateBox" placeholder="Año"></p>
+</div>
+<div class="box">
+  <p class="text"> Hasta:     <input type="text" class="dateBox" placeholder="Dia">
+    <input type="text" class="dateBox" placeholder="Mes">
+    <input type="text" class="dateBox" placeholder="Año"></p>
+</div>
+<button mat-button [matMenuTriggerFor]="menu" class="btnGrafica">Selecciona el tipo de variable </button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Nivel del agua</button>
+  <button mat-menu-item>Temperatura</button>
+  <button mat-menu-item>pH</button>
+  <button mat-menu-item>Temperatura ambiente</button>
+  <button mat-menu-item>Tiempo de alimentación</button>
+  <button mat-menu-item>Recirculación del agua</button>
+
+</mat-menu>
+<div class="btnClass2">
+<button mat-button class="btnReportes2 btn btn-outline-dark">Genera tu grafica</button>
+</div>
+</div>

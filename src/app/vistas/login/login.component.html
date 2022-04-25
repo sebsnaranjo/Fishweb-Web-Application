@@ -1,0 +1,39 @@
+<h2 class="titleRegistre"> Iniciar sesión </h2>
+<div class="mailbox_content">
+    <div class="background mailbox">
+        <div class="container">
+            <form [formGroup]="loginF" #frmLogin="ngForm" class="" (ngSubmit)="loggear(loginF.value)">
+                <div class="form-group">
+                    <input matInput placeholder="Correo electronico" formControlName="email" required
+                        class="registreCamp form-control">
+                </div>
+                <div class="form-group">
+                    <input matInput placeholder="Contraseña" type="password" formControlName="clave" required class="registreCamp">
+                </div>
+
+                <div class="form-group">
+                    <a href="#" class="recoverpass">Si olvidaste tu contraseña solicita su recuperación haciendo click
+                        aquí</a>
+                </div>
+                <div class="form-group form-group-btn-send">
+                    <!-- <select name="OS" class="registreCamp">
+                        <option selected value="0" > ¿A que UPA estará vinculado? </option>
+                            <optgroup label="Microsoft"> 
+                            <option value="1">Windows Vista</option> 
+                            <option value="2">Windows 7</option> 
+                            <option value="3">Windows XP</option> 
+                        </optgroup> 
+                    </div>-->
+                    <button mat-raised-button id="basic" type="submit"
+                        class="btn_send btn btn-outline-dark">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--
+   <button (click)='createUser()' >Crear</button>
+    <button (click)='login()' >Login</button>
+    <a href="/register">Registrar</a>
+-->
