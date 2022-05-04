@@ -14,14 +14,17 @@ import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-supera
 import { ControlarComponent } from './vistas/controlar/controlar.component';
 import { MensajeComponent } from './vistas/mensaje/mensaje.component';
 import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
-import { RoleGuard } from './guardianes/role.guard';
 import { ReportsComponent } from './vistas/reports/reports.component';
 import { UsersComponent } from './layaouts/users/users.component';
 import { HomeViewComponent } from './layaouts/home-view/home-view.component';
 import { AjustesVariablesComponent } from './vistas/ajustes-variables/ajustes-variables.component';
-import { AdminGuard } from './guardianes/admin.guard';
-import { SuperadminGuard } from './guardianes/superadmin.guard';
-import { AuxGuard } from './guardianes/aux.guard';
+import { ManageUsersGuard } from './guardianes/manage-users.guard';
+import { ControlGuard } from './guardianes/control.guard';
+import { CreateUpaGuard } from './guardianes/create-upa.guard';
+import { RegistreGuard } from './guardianes/registre.guard';
+import { MessageGuard } from './guardianes/message.guard';
+import { ReportsGuard } from './guardianes/reports.guard';
+import { VariableSettingGuard } from './guardianes/variable-setting.guard';
 
 const routes: Routes = [
   {
@@ -33,19 +36,19 @@ const routes: Routes = [
   },
   {
     path: '', component: UsersComponent, children: [
-      { path: 'registro', component: RolregistreComponent },
-      { path: 'gestionar-usuarios', canActivate: [AdminGuard], component: GestionarUsuariosComponent },
-      { path: 'crear-upa', component: CreateUpaComponent },
-      { path: 'edit-rol/:id', component: EditUserRolComponent },
-      { path: '', redirectTo: 'inicio', pathMatch: 'full' },
       { path: 'inicio-auxiliar', component: InicioAuxiliarComponent },
       { path: 'inicio-administrador', component: InicioAdministradorComponent },
       { path: 'inicio-super-administrador', component: InicioSuperadminsitradorComponent },
-      { path: 'controlar', component: ControlarComponent },
-      { path: 'mensaje', component: MensajeComponent },
-      { path: 'permiso-usuarios', component: UsersPermissionComponent },
-      { path: 'ajuste-variables', component: AjustesVariablesComponent},
-      { path: 'reportes', component: ReportsComponent},
+      { path: 'registro', canActivate: [RegistreGuard], component: RolregistreComponent },
+      { path: 'gestionar-usuarios', canActivate: [ManageUsersGuard], component: GestionarUsuariosComponent },
+      { path: 'edit-rol/:id', canActivate: [ManageUsersGuard], component: EditUserRolComponent },
+      { path: 'crear-upa', canActivate: [CreateUpaGuard], component: CreateUpaComponent },
+      { path: 'controlar', canActivate: [ControlGuard], component: ControlarComponent },
+      { path: 'mensaje', canActivate: [MessageGuard], component: MensajeComponent },
+      { path: 'ajuste-variables', canActivate: [VariableSettingGuard], component: AjustesVariablesComponent},
+      { path: 'reportes', canActivate: [ReportsGuard], component: ReportsComponent},
+            /* { path: 'permiso-usuarios', component: UsersPermissionComponent }, */
+      { path: '', redirectTo: 'inicio', pathMatch: 'full' },
     ]
   },
   { path: '**', component: NotfoundComponent },

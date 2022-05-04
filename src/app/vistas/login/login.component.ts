@@ -15,7 +15,6 @@ import { __values } from 'tslib';
 })
 export class LoginComponent{
 
-  
   constructor(
     private AuthService: AuthService,
     private usersService: UsersService,
@@ -31,29 +30,16 @@ export class LoginComponent{
   async loggear(values) {
     this.AuthService.login(values.email, values.clave).subscribe( (data) => {
       sessionStorage.setItem(environment.TOKEN, data.data.token);
-      /*sessionStorage.setItem(environment.vence, data.data.expiration);
-      sessionStorage.setItem(environment.rolId, data.data.user.rolId);*/
       this.AuthService.token(data.data.token, data.data.user.rolId);
       this.AuthService.getIdRol();
-      this.router.navigate(['/gestionar-usuarios'])
+      let rol = this.AuthService.getIdRol();
+      if(rol == 1){
+        this.router.navigate(['/inicio-super-administrador'])
+      } else if (rol == 2) {
+        this.router.navigate(['/inicio-administrador'])
+      } else if (rol == 3){
+        this.router.navigate(['/inicio-auxiliar'])
+      }
     })
   }
-
-  /*createUser() {
-    this.usersService.create({
-      nombre: 'Sebas',
-      apellido: 'Naranjo',
-      email: 'fnarnao@ucun.com',
-      clave: '12345',
-    }).subscribe(rta => {
-      console.log(rta)
-    })
-  }*/
-
-  /*login() {
-    this.AuthService.login('fnarnao@ucun.com','12345').subscribe(rta => {
-      console.log(rta)
-    })
-  }*/
-
 }

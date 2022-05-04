@@ -13,13 +13,12 @@ import { EditRolI } from '../modelos/rolEdit.interface';
 })
 export class ManagementusersService {
 
-  /*headers = new HttpHeaders().set("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));*/
   private apiUrl = '/api/usuarios/listado-nombres';
   private apiUrleditar = '/api/usuarios/editar';
   private apiUrlUser = '/api/usuarios/search/';
   private editRol = '/api/usuarios/editar'
 
-  constructor(private http: HttpClient) { /*this.headers.append("Content-Type", "application/json"); this.headers.append("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));*/}
+  constructor(private http: HttpClient) {}
     
     create(dto: CreateUserDTO){
       return this.http.post<User>(this.apiUrl, dto);
