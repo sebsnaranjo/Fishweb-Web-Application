@@ -5,10 +5,14 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    display: none;
+    }
+
 .menu{
     background-color: white;
     height: 85px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

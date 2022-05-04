@@ -47,7 +47,7 @@ const routes: Routes = [
       { path: 'mensaje', canActivate: [MessageGuard], component: MensajeComponent },
       { path: 'ajuste-variables', canActivate: [VariableSettingGuard], component: AjustesVariablesComponent},
       { path: 'reportes', canActivate: [ReportsGuard], component: ReportsComponent},
-            /* { path: 'permiso-usuarios', component: UsersPermissionComponent }, */
+      /* { path: 'permiso-usuarios', component: UsersPermissionComponent }, */
       { path: '', redirectTo: 'inicio', pathMatch: 'full' },
     ]
   },
