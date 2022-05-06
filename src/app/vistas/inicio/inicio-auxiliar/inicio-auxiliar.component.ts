@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-auxiliar',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioAuxiliarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  redireccionar_controlar() {
+    this.router.navigate(['/controlar'])
+  }
+
+  /* se tiene que redireccionar al chat */
+  redireccionar_informar() {
+    this.router.navigate(['/inicio-auxiliar'])
   }
 
 }
