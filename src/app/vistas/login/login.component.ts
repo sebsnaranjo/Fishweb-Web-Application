@@ -24,15 +24,16 @@ export class LoginComponent{
 
   loginF = new FormGroup({
     email: new FormControl('', Validators.required),
-    clave: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   });
 
   async loggear(values) {
-    this.AuthService.login(values.email, values.clave).subscribe( (data) => {
-      sessionStorage.setItem(environment.TOKEN, data.data.token);
-      this.AuthService.token(data.data.token, data.data.user.rolId);
-      this.AuthService.getIdRol();
+    this.AuthService.login(values.email, values.password).subscribe( (data) => {
+      sessionStorage.setItem(environment.TOKEN, data.token);
+      this.AuthService.token(data.token);
+      let roleee = this.AuthService.getIdRol();
       let rol = this.AuthService.getIdRol();
+      console.log("Este es el rol:", rol)
       if(rol == 1){
         this.router.navigate(['/inicio-super-administrador'])
       } else if (rol == 2) {

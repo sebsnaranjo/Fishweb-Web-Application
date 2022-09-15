@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  HOST: 'http://localhost:10778',
-  REGISTRO: 'http://localhost:10778',
+  HOST: 'http://localhost:3000',
+  REGISTRO: 'http://localhost:3000',
   //llave para acceder al token
   TOKEN: 'access_token',
   expiration: 'expiresIn',

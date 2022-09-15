@@ -5,31 +5,32 @@ import { Observable } from 'rxjs';
 import { TokenDecodeI } from '../modelos/token.interface';
 import jwt_decode from 'jwt-decode';
 import { EncryptService } from './encrypt.service';
-import { UserRolModel } from '../modelos/auth.interface';
+import { IAuth, ILogin, UserRolModel } from '../modelos/auth.interface';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = '/api/Account/login';
+  private apiUrl = '/api/auth/signin';
   public currentUser = null;
 
   constructor(private http: HttpClient, private encrypt: EncryptService, private injector:Injector) {
     this.currentUser = this.getIdRol();
   }
 
-  login(email: string, clave: string): Observable<any> {
-    return this.http.post<string>(this.apiUrl, { email, clave })
+  login(email: string, password: string): Observable<IAuth> {
+    return this.http.post<IAuth>(this.apiUrl, { email, password })
   }
 
-  token(token: string, rol_id: number): void {
+  token(token: string): void {
     const decode = jwt_decode<TokenDecodeI>(token);
     
     let expiration_encrypt = this.encrypt.encrypt(JSON.stringify(decode.exp));
     sessionStorage.setItem(environment.expiration, expiration_encrypt);
-    let rolId_encrypt = this.encrypt.encrypt(JSON.stringify(rol_id));
-    sessionStorage.setItem(environment.rolId, rolId_encrypt);
+
+    let rol_encrypt = this.encrypt.encrypt(JSON.stringify(decode.rol[0].name));
+    sessionStorage.setItem(environment.rolId, rol_encrypt);
   }
 
   isLoggedIn(): boolean {
