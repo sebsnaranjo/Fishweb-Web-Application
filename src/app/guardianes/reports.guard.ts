@@ -13,7 +13,7 @@ export class ReportsGuard implements CanActivate {
     var _extractedtoken = loggintoken.split('.')[1];
     var _atobdata = atob(_extractedtoken);
     var _finaldata= JSON.parse(_atobdata);
-    if(_finaldata.role == 'Super Administrador' || _finaldata.role == 'Administrador' || _finaldata.role == 'Auxiliar'){
+    if(_finaldata.rol[0].id_rol == 1 || _finaldata.rol[0].id_rol == 2 || _finaldata.rol[0].id_rol == 3){
       return true
     } 
     alert('No tienes permiso');
