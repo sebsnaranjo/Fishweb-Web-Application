@@ -31,7 +31,6 @@ export class LoginComponent{
     this.AuthService.login(values.email, values.password).subscribe( (data) => {
       sessionStorage.setItem(environment.TOKEN, data.token);
       this.AuthService.token(data.token);
-      let roleee = this.AuthService.getIdRol();
       let rol = this.AuthService.getIdRol();
       console.log("Este es el rol:", rol)
       if(rol == 1){
