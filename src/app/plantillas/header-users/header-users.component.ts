@@ -10,6 +10,8 @@ import { AuthService } from 'src/app/servicios/auth.service';
 })
 export class HeaderUsersComponent implements OnInit {
 
+  rol_user: number = this.authService.getIdRol();
+
   public get currentUser() {
     return this.authService.currentUser;
   }
@@ -17,6 +19,7 @@ export class HeaderUsersComponent implements OnInit {
   constructor(private router:Router, private authService:AuthService) { }
 
   ngOnInit(): void {
+  
   }
 
   logout() {
@@ -24,6 +27,7 @@ export class HeaderUsersComponent implements OnInit {
     sessionStorage.removeItem(environment.rolId);
     sessionStorage.removeItem(environment.expiration);
     this.router.navigate(['inicio']);
+    sessionStorage.clear();
   }
 
 }
