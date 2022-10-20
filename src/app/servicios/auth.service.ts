@@ -44,8 +44,8 @@ export class AuthService {
 
   getIdRol(){
     let idrol = sessionStorage.getItem(environment.rolId)||'';
-    let idrol2 = this.encrypt.decrypt(idrol);
-    return idrol2;
+    let rol = this.encrypt.decrypt(idrol);
+    return rol;
   }
 
 }

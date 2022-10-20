@@ -16,7 +16,9 @@ export class ManagementusersService {
   private apiUrl = '/api/usuarios/listado-nombres';
   private apiUrleditar = '/api/usuarios/editar';
   private apiUrlUser = '/api/usuarios/search/';
-  private editRol = '/api/usuarios/editar'
+  private editRol = '/api/usuarios/editar';
+
+  private getUsers = '/api/auth/getAll';
 
   constructor(private http: HttpClient) {}
     
@@ -25,7 +27,7 @@ export class ManagementusersService {
     }
 
     getAll(){
-      return this.http.get<User[]>(this.apiUrl);
+      return  this.http.get<User[]>(this.getUsers);
     }
 
     change(changes: UserChange){
