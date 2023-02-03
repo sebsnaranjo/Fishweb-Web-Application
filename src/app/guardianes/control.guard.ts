@@ -15,7 +15,7 @@ export class ControlGuard implements CanActivate {
     console.log("Este es el atob",_atobdata);
     var _finaldata= JSON.parse(_atobdata);
     console.log("Este es el finalDATA",_finaldata);
-    if(_finaldata.rol[0].id_rol == 1 || _finaldata.rol[0].id_rol == 2){
+    if(_finaldata.rol.id_rol == 1 || _finaldata.rol.id_rol == 2){
       return true
     } 
     alert('No tienes permiso');

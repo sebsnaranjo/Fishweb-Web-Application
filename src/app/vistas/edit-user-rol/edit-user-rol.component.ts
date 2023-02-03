@@ -22,36 +22,34 @@ export class EditUserRolComponent implements OnInit {
   selectedValue: number;
 
   editForm = new FormGroup({
-    id: new FormControl(''),
-    nombre: new FormControl(''),
-    apellido: new FormControl(''),
+    _id: new FormControl(''),
+    name: new FormControl(''),
+    lastname: new FormControl(''),
     email: new FormControl(''),
-    rolId: new FormControl(''),
-    fullName: new FormControl(''),
+    rol: new FormControl('')
   });
 
   ngOnInit(): void {
     let id = this.activerouter.snapshot.paramMap.get('id');
     this.managementusers.editUserRol(id).subscribe((data) => {
-      this.dataUser = data.data;
+      this.dataUser = data;
       this.editar(this.dataUser);
     });
   }
 
   editar(dataEdit: UserEditI) {
     this.editForm = new FormGroup({
-      id: new FormControl(dataEdit.id, Validators.required),
-      nombre: new FormControl(dataEdit.nombre, Validators.required),
-      apellido: new FormControl(dataEdit.apellido, Validators.required),
+      _id: new FormControl(dataEdit._id, Validators.required),
+      name: new FormControl(dataEdit.name, Validators.required),
+      lastname: new FormControl(dataEdit.lastname, Validators.required),
       email: new FormControl(dataEdit.email, Validators.required),
-      rolId: new FormControl(dataEdit.rolId, Validators.required),
-      fullName: new FormControl(dataEdit.fullName, Validators.required),
+      roles: new FormControl(dataEdit.roles, Validators.required),
     });
   }
 
   putRol(form: UserEditI) {
     const updateUser: UserChange = {
-      idUser: this.dataUser.id,
+      idUser: this.dataUser._id,
       rolUser: this.selectedValue,
     };
 

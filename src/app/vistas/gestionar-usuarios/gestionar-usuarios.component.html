@@ -23,15 +23,15 @@
       <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="rolId">
+    <ng-container matColumnDef="roles">
       <th mat-header-cell *matHeaderCellDef> Rol </th>
-      <td mat-cell *matCellDef="let element"> {{element.rol}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.roles.name_rol}} </td>
     </ng-container>
 
     <ng-container matColumnDef="button">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell class="btnRol" *matCellDef="let element">
-        <button (click)="editUserRol(element.id)" class="btn_send btn btn-outline-dark">Editar rol</button>
+        <button (click)="editUserRol(element._id)" class="btn_send btn btn-outline-dark">Editar rol</button>
       </td>
     </ng-container>
 

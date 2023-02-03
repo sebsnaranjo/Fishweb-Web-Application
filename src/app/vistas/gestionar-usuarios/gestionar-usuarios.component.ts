@@ -20,7 +20,7 @@ export class GestionarUsuariosComponent implements OnInit {
   displayedColumns: string[] = [
     'nombre',
     'apellido',
-    'rolId',
+    'roles',
     'button',
   ];
   dataSource = new MatTableDataSource<User>();

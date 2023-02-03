@@ -29,7 +29,7 @@ export class AuthService {
     let expiration_encrypt = this.encrypt.encrypt(JSON.stringify(decode.exp));
     sessionStorage.setItem(environment.expiration, expiration_encrypt);
 
-    let rol_encrypt = this.encrypt.encrypt(JSON.stringify(decode.rol[0].id_rol));
+    let rol_encrypt = this.encrypt.encrypt(JSON.stringify(decode.rol.id_rol));
     sessionStorage.setItem(environment.rolId, rol_encrypt);
   }
 
