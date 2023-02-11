@@ -20,7 +20,8 @@ export interface TokenDecodeI {
   iat: number;
   exp: number;
   rol: {
-    id: string;
-    name: string;
+    _id: string;
+    id_rol: number;
+    name_rol: string;
   };
 }

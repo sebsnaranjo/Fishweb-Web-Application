@@ -15,7 +15,7 @@ export class ManagementusersService {
 
   private apiUrl = '/api/usuarios/listado-nombres';
   private apiUrleditar = '/api/usuarios/editar';
-  private apiUrlUser = '/api/usuarios/search/';
+  private apiUrlUser = 'api/auth/getUser/';
   private editRol = '/api/usuarios/editar';
 
   private getUsers = '/api/auth/getAll';

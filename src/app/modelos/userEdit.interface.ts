@@ -1,8 +1,7 @@
 export class UserEditI{
-    id: number;
-    nombre: string;
-    apellido: string;
+    _id: number;
+    name: string;
+    lastname: string;
     email: string;
-    rolId: number;
-    fullName: string;
+    roles: string;
 }

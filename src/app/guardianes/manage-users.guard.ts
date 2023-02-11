@@ -13,7 +13,7 @@ export class ManageUsersGuard implements CanActivate {
     var _extractedtoken = loggintoken.split('.')[1];
     var _atobdata = atob(_extractedtoken);
     var _finaldata= JSON.parse(_atobdata);
-    if(_finaldata.rol[0].id_rol == 1 || _finaldata.rol[0].id_rol == 2){
+    if(_finaldata.rol.id_rol == 1 || _finaldata.rol.id_rol == 2){
       return true
     } 
     alert('No tienes permiso');
