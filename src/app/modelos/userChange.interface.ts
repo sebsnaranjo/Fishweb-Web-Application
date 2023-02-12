@@ -1,4 +1,10 @@
 export interface UserChange {
     idUser: number,
-    rolUser: number,
+    _id: number,
+}
+
+export interface RolChange {
+    roles: { 
+        _id: number,
+    }
 }

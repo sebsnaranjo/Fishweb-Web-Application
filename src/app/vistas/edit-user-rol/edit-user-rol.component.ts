@@ -50,14 +50,18 @@ export class EditUserRolComponent implements OnInit {
   putRol(form: UserEditI) {
     const updateUser: UserChange = {
       idUser: this.dataUser._id,
-      rolUser: this.selectedValue,
+      _id: this.selectedValue,
     };
+    
+    const roles = {
+      roles: {
+        _id: this.selectedValue
+      }
+    }
 
-    console.log(updateUser);
-
-    this.managementusers.change(updateUser).subscribe((data) => {
+    this.managementusers.change(updateUser.idUser, roles).subscribe((data) => {
       console.log(data);
     });
-    this.router.navigate(['gestionarUsuarios']);
+    this.router.navigate(['gestionar-usuarios']);
   }
 }

@@ -13,6 +13,8 @@
     color: black;
     font-family: 'DM Sans', sans-serif;
     font-weight: bold;
+    position: absolute;
+    bottom: auto;
 }
 
 .contenedor {

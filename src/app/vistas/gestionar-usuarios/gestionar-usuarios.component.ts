@@ -65,7 +65,7 @@ export class GestionarUsuariosComponent implements OnInit {
     resp.subscribe((report) => (this.dataSource.data = report as User[]));
   }
 
-  public change(): void {
+/*   public change(): void {
     const updateUser: UserChange = {
       idUser: 5,
       rolUser: 2,
@@ -73,7 +73,7 @@ export class GestionarUsuariosComponent implements OnInit {
     this.managmentUser.change(updateUser).subscribe((data) => {
       console.log(data);
     });
-  }
+  } */
 
   editUserRol(id) {
     this.router.navigate(['edit-rol', id]);

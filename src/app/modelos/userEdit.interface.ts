@@ -3,5 +3,8 @@ export class UserEditI{
     name: string;
     lastname: string;
     email: string;
-    roles: string;
+    roles: {
+        id_rol: number;
+        name_rol: string;
+    }
 }

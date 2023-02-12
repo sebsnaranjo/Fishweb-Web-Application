@@ -14,11 +14,11 @@ import { EditRolI } from '../modelos/rolEdit.interface';
 export class ManagementusersService {
 
   private apiUrl = '/api/usuarios/listado-nombres';
-  private apiUrleditar = '/api/usuarios/editar';
+  private apiUrleditar = '/api/users/putUser'; //se usa
   private apiUrlUser = 'api/auth/getUser/';
   private editRol = '/api/usuarios/editar';
 
-  private getUsers = '/api/auth/getAll';
+  private getUsers = '/api/users/getAll'; //se usa
 
   constructor(private http: HttpClient) {}
     
@@ -26,22 +26,19 @@ export class ManagementusersService {
       return this.http.post<User>(this.apiUrl, dto);
     }
 
+    //Servicio para obtener todos los usuarios.
     getAll(){
       return  this.http.get<User[]>(this.getUsers);
     }
 
-    change(changes: UserChange){
-      return this.http.put<UserChange>(this.apiUrleditar, changes)
+    //Servicio para realizar el cambio de rol.
+    change(id: number, rol_change: any){
+      return this.http.put<UserChange>(`${this.apiUrleditar}/${id}`, rol_change);
     }
 
+    //Servicio para obtener el usuario por ID, se usa para: Cambiar el rol.
     editUserRol(id):Observable<any>{
       let direccion = this.apiUrlUser + id;
       return this.http.get<any>(direccion);
     }
-
-    editIdRol(form:EditRolI):Observable<EditRolI>{
-      let direccion = this.editRol;
-      return this.http.put<EditRolI>(direccion, form)
-    }
-
 }

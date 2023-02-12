@@ -17,6 +17,8 @@ export class ReportsComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.panelOpenState = false;
+    console.log(this.panelOpenState)
   }
 
 }
