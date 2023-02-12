@@ -42,6 +42,9 @@ import { AjustesVariablesComponent } from './vistas/ajustes-variables/ajustes-va
 import { HeaderUsersComponent } from './plantillas/header-users/header-users.component';
 import { UsersComponent } from './layaouts/users/users.component';
 import { HomeViewComponent } from './layaouts/home-view/home-view.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -87,7 +90,10 @@ import { HomeViewComponent } from './layaouts/home-view/home-view.component';
     MatSlideToggleModule,
     MatMenuModule,
     BrowserModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    MatNativeDateModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

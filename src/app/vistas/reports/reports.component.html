@@ -64,3 +64,67 @@
     </div>
   </mat-expansion-panel>
 </div>
+
+
+<div class="contenedor">
+  <div class="container container_style">
+    <h1 class="font_bold">Descarga tu reporte</h1>
+    <h2>Rango de fecha</h2>
+    <mat-form-field>
+      <mat-label class="mat-label">Rango de fecha</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Fecha inicio">
+        <input matEndDate placeholder="Fecha fin">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    <h2>Tipo de variables a incluir</h2>
+    <div style="display: flex; justify-content: center;">
+      <div style="display: flex; flex-direction: column; margin-right: 20px;">
+        <mat-checkbox>PH</mat-checkbox>
+        <mat-checkbox>Temperatura</mat-checkbox>
+        <mat-checkbox>Nivel del agua</mat-checkbox>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <mat-checkbox>Temperatura ambiente</mat-checkbox>
+        <mat-checkbox>Tiempo de alimentación</mat-checkbox>
+        <mat-checkbox>Recirculación del agua</mat-checkbox>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" class="btn_report">Descargar reporte</button>
+  </div>
+</div>
+
+<div class="contenedor">
+  <div class="container container_style">
+    <h1 class="font_bold">Generar grafica</h1>
+    <h2>Rango de fecha</h2>
+    <mat-form-field>
+      <mat-label class="mat-label">Rango de fecha</mat-label>
+      <mat-date-range-input [rangePicker]="picker_two">
+        <input matStartDate placeholder="Fecha inicio">
+        <input matEndDate placeholder="Fecha fin">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker_two"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker_two></mat-date-range-picker>
+    </mat-form-field>
+    <h2>Tipo de variable que desea ver</h2>
+    <mat-form-field appearance="fill" class="select_box">
+      <mat-label>Seleccione una opción</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option>None</mat-option>
+        <mat-option value="option1">Option 1</mat-option>
+        <mat-option value="option2">Option 2</mat-option>
+        <mat-option value="option3">Option 3</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" class="btn_report">Generar grafica</button>
+  </div>
+</div>
+
+
+
+
+

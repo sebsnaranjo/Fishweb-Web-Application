@@ -8,6 +8,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class ReportsComponent implements OnInit {
   variables: FormGroup;
   panelOpenState = false;
+  selected = 'option2';
   constructor(fb: FormBuilder) {
     this.variables = fb.group({
       ph: false,

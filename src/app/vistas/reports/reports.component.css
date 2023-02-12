@@ -259,12 +259,18 @@ mat-expansion-panel {
   border-radius: 50px;
 }
 
-.mat_expansion_estilo div, mat-panel-title{
+.mat_expansion_estilo div, 
+mat-panel-title, 
+.contenedor h2, 
+.mat-date-range-input,
+.mat-label,
+.mat-checkbox {
   font-family: 'DM Sans', sans-serif !important;
 }
 
 .font_bold {
   font-weight: bold;
+  font-family: "DM Sans", sans-serif !important;
 }
 
 .font_color_yellow {
@@ -279,4 +285,88 @@ mat-expansion-panel {
 .mat_expansion_title {
   font-size: 20px;
   color: white;
+}
+
+/* Fecha y variable*/
+
+.container_style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedor {
+  background-color: #e2e2e2;
+  width: 50%;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 40px;
+}
+
+h1{
+  margin-top: 20px;
+}
+
+.mat-checkbox {
+  font-size: 15px;
+}
+
+/* ESTILOS PARA DATE PICKER*/
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #DAAA00 !important;
+}
+
+::ng-deep .mat-checkbox-ripple .mat-ripple-element {
+  background-color: #DAAA00 !important;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #DAAA00 !important;
+ }
+
+ ::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #DAAA00  !important;;
+ }
+
+ mat-datepicker-toggle {
+  color: #007b3e  !important;
+ }
+
+ /* ESTILOS PARA SELECT BOX*/
+
+ ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #DAAA00;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #DAAA00;
+}
+
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow{
+  color: #DAAA00;
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+  color: #DAAA00;
+}
+
+.select_box {
+  width: 60%;
+}
+
+.btn_report {
+  width: 30%;
+  height: 50px;
+  margin: 20px 0 20px 0;
+  border-style: none;
+  background-color: #007b3e;
+  border-radius: 50px;
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
 }
