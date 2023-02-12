@@ -7,22 +7,22 @@
                     <form [formGroup]="registreFormGroup">
 
                         <div class="form-group">
-                            <input formControlName="rolid" matInput placeholder="Rol" class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.rolid.hasError('required')">
+                            <input formControlName="roles" matInput placeholder="Rol" class="registreCamp form-control">
+                            <mat-error class="error" *ngIf="registreFormGroup.controls.roles.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
                         <div class="form-group">
-                            <input formControlName="nombre" matInput placeholder="Nombre"
+                            <input formControlName="name" matInput placeholder="Nombre"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.nombre.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroup.controls.name.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
                         <div class="form-group">
-                            <input formControlName="apellido" matInput placeholder="Apellido"
+                            <input formControlName="lastname" matInput placeholder="Apellido"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.apellido.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroup.controls.lastname.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
@@ -34,12 +34,12 @@
                             </mat-error>
                         </div>
                         <div class="form-group">
-                            <input formControlName="clave" type="password" matInput placeholder="Contraseña"
+                            <input formControlName="password" type="password" matInput placeholder="Contraseña"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.clave.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroup.controls.password.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.clave.hasError('minlength')">
+                            <mat-error class="error" *ngIf="registreFormGroup.controls.password.hasError('minlength')">
                                 Debe tener como mínimo 7 caracteres
                             </mat-error>
                         </div>
@@ -61,22 +61,22 @@
                     <h2 class="titleRegistre"> Registrar Auxiliar </h2>
                     <form [formGroup]="registreFormGroup">
                         <div class="form-group">
-                            <input formControlName="rolid" matInput placeholder="Rol" class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.rolid.hasError('required')">
+                            <input formControlName="roles" matInput placeholder="Rol" class="registreCamp form-control">
+                            <mat-error class="error" *ngIf="registreFormGroup.controls.roles.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
                         <div class="form-group">
-                            <input formControlName="nombre" matInput placeholder="Nombre"
+                            <input formControlName="name" matInput placeholder="Nombre"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.nombre.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroup.controls.name.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
                         <div class="form-group">
-                            <input formControlName="apellido" matInput placeholder="Apellido"
+                            <input formControlName="lastname" matInput placeholder="Apellido"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.apellido.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroup.controls.lastname.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
@@ -88,12 +88,12 @@
                             </mat-error>
                         </div>
                         <div class="form-group">
-                            <input formControlName="clave" type="password" matInput placeholder="Contraseña"
+                            <input formControlName="password" type="password" matInput placeholder="Contraseña"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.clave.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroup.controls.password.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.clave.hasError('minlength')">
+                            <mat-error class="error" *ngIf="registreFormGroup.controls.password.hasError('minlength')">
                                 Debe tener como mínimo 8 caracteres
                             </mat-error>
                         </div>

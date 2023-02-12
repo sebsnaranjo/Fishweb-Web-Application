@@ -1,4 +1,4 @@
-.titleMessage {
+/*.titleMessage {
     font-family: 'DM Sans', sans-serif;
     font-size: 22px;
     font-weight: bold;
@@ -170,3 +170,252 @@
         font-size: 13px;
     }
   }
+
+.feed-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.feed-time {
+  width: 30%;
+  text-align: center;
+  padding: 10px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.feed-input {
+  width: 40%;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+@media (max-width: 767px) {
+  .feed-container {
+    flex-direction: column;
+  }
+
+  .feed-time,
+  .feed-input {
+    width: 100%;
+  }
+}
+*/
+
+/*input[type="text"] {
+  background-color: white;
+  color: black;
+  width: 85%;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  }*/
+
+.container1 {
+  width: 65%;
+  margin: 30px auto;
+  background-color: #007B3E;
+  border-radius: 15px;
+}
+.container2 {
+  width: 65%;
+  margin: 65px auto;
+  background-color: #007B3E;
+  border-radius: 15px;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'DM Sans', sans-serif;
+  padding-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cycle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+ 
+}
+.boton-container{
+  display: flex;
+  justify-content: center;
+}
+.boton-guardar {
+  background-color: #007B3E; 
+  color: white; 
+  border: none; 
+  border-radius: 30px; 
+  padding: 20px 60px; 
+  text-align: center; 
+  display: inline-block;
+  font-size: 16px; 
+  margin: 15px 10px; 
+  cursor: pointer; 
+  font-family: 'DM Sans', sans-serif;
+}
+
+h4{
+  font-size: 20px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.cycle {
+  background-color: #007B3E;
+  color: white;
+  width: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif !important;
+
+}
+
+.time-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: bold;
+}
+.time-input{
+
+  background-color: white;
+  color: black;
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  border: none ;
+
+}
+.hour, .minute {
+  background-color: white;
+  color: black;
+  width: 45%;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.amount {
+  background-color: white;
+  color: black;
+  width: 5%;
+  padding: 10px 80px;
+  border-radius: 10px;
+  text-align: center;
+}
+.quantity-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+
+.quantity-input {
+  background-color: white;
+  color: black;
+  width: 90%;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+}
+.quantity {
+  background-color: white;
+  color: black;
+  width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+.container3 {
+  width: 65%;
+  margin: 0 auto;
+  background-color: #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.title {
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.center-row {
+  display: flex;
+  justify-content: center;
+}
+
+.variable-container {
+  width: 50%;
+  margin-bottom: 5px;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+}
+
+
+.center-variable {
+  width: 100%;
+}
+
+.data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.data-input {
+  background-color: white;
+  color: black;
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  }
+.data {
+  background-color: white;
+  color: black;
+  width: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .variable-container {
+    width: 100%;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .cycle-container {
+    width: 100%;
+  }
+}

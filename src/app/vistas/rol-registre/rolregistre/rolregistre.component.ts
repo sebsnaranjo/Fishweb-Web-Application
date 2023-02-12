@@ -17,11 +17,11 @@ export class RolregistreComponent implements OnInit {
 
   createFormGroup(){
     return new FormGroup({
-    rolid: new FormControl('',[Validators.required]),
-    nombre: new FormControl('',[Validators.required]),
-    apellido: new FormControl('',[Validators.required]),
+    roles: new FormControl('',[Validators.required]),
+    name: new FormControl('',[Validators.required]),
+    lastname: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email]),
-    clave: new FormControl('',[Validators.required, Validators.minLength(7)]),
+    password: new FormControl('',[Validators.required, Validators.minLength(7)]),
   });
   }
   
@@ -35,11 +35,11 @@ export class RolregistreComponent implements OnInit {
 registre(){
    if (this.registreFormGroup.valid){
      var model = new UsuarioModel()
-     model.rolid = this.registreFormGroup.controls["rolid"].value;
-     model.nombre = this.registreFormGroup.controls["nombre"].value;
-     model.apellido = this.registreFormGroup.controls["apellido"].value;
+     model.roles = this.registreFormGroup.controls["roles"].value;
+     model.name = this.registreFormGroup.controls["name"].value;
+     model.lastname = this.registreFormGroup.controls["lastname"].value;
      model.email = this.registreFormGroup.controls["email"].value;
-     model.clave = this.registreFormGroup.controls["clave"].value;
+     model.password = this.registreFormGroup.controls["password"].value;
 
      this.RegistreService.RegisterRol(model).subscribe(
        data => { 

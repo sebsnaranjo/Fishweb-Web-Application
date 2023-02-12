@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class RegistrorolService {
 
   headers = new HttpHeaders().set("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));
-  private url: string = environment.REGISTRO + '/api/usuarios/registroUsuarios';
+  private url: string = environment.REGISTRO + '/api/auth/registre';
 
   constructor(
     private http: HttpClient
@@ -23,7 +23,15 @@ export class RegistrorolService {
   }
 
   RegisterRol(registre: UsuarioModel) {
-   return this.http.post<string>(this.url , registre );
+    const userWithRole = {
+      roles: [registre.roles],
+      name: registre.name,
+      lastname: registre.lastname,
+      email: registre.email,
+      password: registre.password
+     
+    }
+   return this.http.post<string>(this.url , userWithRole );
   }
 
  

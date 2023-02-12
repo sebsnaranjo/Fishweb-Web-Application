@@ -1,8 +1,8 @@
 export class UsuarioModel{
     id: number;
-    rolid: number;
-    nombre: string;
-    apellido: string;
+    roles: number;
+    name: string;
+    lastname: string;
     email: string;
-    clave: string;
+    password: string;
 }

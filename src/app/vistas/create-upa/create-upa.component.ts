@@ -59,14 +59,15 @@ export class CreateUpaComponent {
     })
     //registro administrador
   }
+  
   registre(){
     if (this.registreFormGroup.valid){
       var model = new UsuarioModel()
-      model.rolid = this.registreFormGroup.controls["rolid"].value;
-      model.nombre = this.registreFormGroup.controls["nombre"].value;
-      model.apellido = this.registreFormGroup.controls["apellido"].value;
+      model.roles = this.registreFormGroup.controls["rolid"].value;
+      model.name = this.registreFormGroup.controls["nombre"].value;
+      model.lastname = this.registreFormGroup.controls["apellido"].value;
       model.email = this.registreFormGroup.controls["email"].value;
-      model.clave = this.registreFormGroup.controls["clave"].value;
+      model.password = this.registreFormGroup.controls["clave"].value;
  
       this.RegistreService.RegisterRol(model).subscribe(
         data => { 
