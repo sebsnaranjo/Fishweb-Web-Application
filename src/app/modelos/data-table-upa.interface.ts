@@ -8,4 +8,10 @@ export interface DataTableUpa {
     temperaturaAmbiente: string,
 }
 
+export interface UpaModel {
+    id: string,
+    name: string
+    location: string
+}
+
 export interface CreateDataUpaDTO extends Omit<DataTableUpa, 'id'> {}

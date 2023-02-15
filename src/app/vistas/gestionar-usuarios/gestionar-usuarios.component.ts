@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/modelos/user.interface';
 import { ManagementusersService } from 'src/app/servicios/managementusers.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,7 @@ import { UserChange } from 'src/app/modelos/userChange.interface';
 /* import { UrlSegment } from '@angular/router';
 import { Output, EventEmitter } from '@angular/core'; */
 import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
 /* import { ActivatedRoute } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'; */
@@ -15,7 +16,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'; */
   templateUrl: './gestionar-usuarios.component.html',
   styleUrls: ['./gestionar-usuarios.component.css'],
 })
-export class GestionarUsuariosComponent implements OnInit {
+export class GestionarUsuariosComponent implements OnInit, AfterViewInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   ELEMENT_DATA: User[];
   displayedColumns: string[] = [
     'nombre',
@@ -30,6 +32,10 @@ export class GestionarUsuariosComponent implements OnInit {
     private router: Router
   ) /* private activerouter: ActivatedRoute */
   {}
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+  }
 
   /*   dataUser: User;
 
@@ -61,6 +67,9 @@ export class GestionarUsuariosComponent implements OnInit {
   }
 
   public getUsers() {
+    this.managmentUser.getAll().subscribe((data) => {
+      console.log(data);
+    })
     let resp = this.managmentUser.getAll();
     resp.subscribe((report) => (this.dataSource.data = report as User[]));
   }

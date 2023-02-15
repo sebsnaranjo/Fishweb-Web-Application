@@ -25,6 +25,7 @@ import { RegistreGuard } from './guardianes/registre.guard';
 import { MessageGuard } from './guardianes/message.guard';
 import { ReportsGuard } from './guardianes/reports.guard';
 import { VariableSettingGuard } from './guardianes/variable-setting.guard';
+import { InfoUpaComponent } from './vistas/info-upa/info-upa.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,7 @@ const routes: Routes = [
       { path: 'gestionar-usuarios', canActivate: [ManageUsersGuard], component: GestionarUsuariosComponent },
       { path: 'edit-rol/:id', canActivate: [ManageUsersGuard], component: EditUserRolComponent },
       { path: 'crear-upa', canActivate: [CreateUpaGuard], component: CreateUpaComponent },
+      { path: 'informacion-upa/:id', canActivate: [CreateUpaGuard], component: InfoUpaComponent},
       { path: 'controlar', canActivate: [ControlGuard], component: ControlarComponent },
       { path: 'mensaje', canActivate: [MessageGuard], component: MensajeComponent },
       { path: 'ajuste-variables', canActivate: [VariableSettingGuard], component: AjustesVariablesComponent},

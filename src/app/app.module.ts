@@ -45,6 +45,9 @@ import { HomeViewComponent } from './layaouts/home-view/home-view.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
+import { GestionarUpasComponent } from './vistas/gestionar-upas/gestionar-upas.component';
+import { InfoUpaComponent } from './vistas/info-upa/info-upa.component';
+import { MatPaginatorModule}  from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     AjustesVariablesComponent,
     HeaderUsersComponent,
     UsersComponent,
-    HomeViewComponent
+    HomeViewComponent,
+    GestionarUpasComponent,
+    InfoUpaComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +98,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatExpansionModule,
     MatDatepickerModule,
     MatCheckboxModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatPaginatorModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
