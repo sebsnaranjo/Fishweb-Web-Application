@@ -1,23 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { DataTableUpa } from 'src/app/modelos/data-table-upa.interface';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { DataTableUpa, TableFrame } from 'src/app/modelos/data-table-upa.interface';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { FrameService } from 'src/app/servicios/frame.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-data-table-upa',
   templateUrl: './data-table-upa.component.html',
   styleUrls: ['./data-table-upa.component.css']
 })
-export class DataTableUpaComponent implements OnInit {
-
-  ELEMENT_DATA: DataTableUpa[];
-  displayedColumns: string[] = ['fecha', 'hora', 'ph', 'temperatura', 'nivelAgua', 'temperaturaAmbiente'];
-  dataSource = UPA_DATA;
+export class DataTableUpaComponent implements OnInit, AfterViewInit{
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  ELEMENT_DATA: TableFrame[];
+  displayedColumns: string[] = ['createdAt', 'ph', 'temperatura', 'conductividad_electrica', 'nivelAgua', 'turbidez'];
+  /* dataSource = UPA_DATA; */
+  dataSource = new MatTableDataSource<TableFrame>();
   //dataSource = new MatTableDataSource<DataTableUpa>();
   
-  constructor(private router:Router) { }
+  constructor(
+    private frameService: FrameService,
+    private router:Router
+  ) { }
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+  }
 
   ngOnInit(): void {
+    this.getFrames();
+    this.dataSource.sort = this.sort;
   }
 
  // filtrar(event: Event) {
@@ -27,6 +41,15 @@ export class DataTableUpaComponent implements OnInit {
 
   obtenerReportes(){
     /* this.router.navigate(['editRol']); */
+  }
+  
+
+  public getFrames() {
+    this.frameService.getFrame().subscribe((data: TableFrame[]) => {
+      console.log(data);
+    })
+    let resp = this.frameService.getFrame();
+    resp.subscribe((report) => (this.dataSource.data = report as unknown as TableFrame[]));
   }
 
 }

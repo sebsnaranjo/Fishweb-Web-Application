@@ -6,43 +6,52 @@
     </mat-form-field>-->
   </div>
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 tabla-gestion">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 tabla-gestion">
 
-    <ng-container matColumnDef="fecha">
+    <mat-sort-header mat-sort-header="createdAt">Fecha</mat-sort-header>
+
+    <ng-container matColumnDef="createdAt">
       <th mat-header-cell *matHeaderCellDef> Fecha </th>
-      <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="hora">
-      <th mat-header-cell *matHeaderCellDef> Hora </th>
-      <td mat-cell *matCellDef="let element"> {{element.hora}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.createdAt  | date: 'dd/MM/yyyy HH:mm:ss' }} </td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="ph">
       <th mat-header-cell *matHeaderCellDef> pH </th>
-      <td mat-cell *matCellDef="let element"> {{element.ph}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.Datos.PH}} </td>
     </ng-container>
 
     <ng-container matColumnDef="temperatura">
       <th mat-header-cell *matHeaderCellDef> Temperatura </th>
-      <td mat-cell *matCellDef="let element"> {{element.temperatura}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.Datos.Temperatura}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="conductividad_electrica">
+      <th mat-header-cell *matHeaderCellDef> C. Electrica </th>
+      <td mat-cell *matCellDef="let element"> {{element.Datos.Conductividad_Electrica}} </td>
     </ng-container>
 
     <ng-container matColumnDef="nivelAgua">
       <th mat-header-cell *matHeaderCellDef> Nivel del agua </th>
-      <td mat-cell *matCellDef="let element"> {{element.nivelAgua}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.Datos.Nivel_Agua}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="temperaturaAmbiente">
-      <th mat-header-cell *matHeaderCellDef> Temperatura ambiente </th>
-      <td mat-cell *matCellDef="let element"> {{element.temperaturaAmbiente}} </td>
+    <ng-container matColumnDef="turbidez">
+      <th mat-header-cell *matHeaderCellDef> Turbidez </th>
+      <td mat-cell *matCellDef="let element"> {{element.Datos.Turbidez}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
   </table>
+
+  <mat-paginator 
+    [pageSizeOptions]="[5, 7]"
+    showFirstLastButtons
+    [pageSize]="7"
+    aria-label="Select page of periodic elements">
+  </mat-paginator>  
 
   <div class="button">
     <button (click)="obtenerReportes()" class="btn_send">Obtener reportes</button>

@@ -48,6 +48,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { GestionarUpasComponent } from './vistas/gestionar-upas/gestionar-upas.component';
 import { InfoUpaComponent } from './vistas/info-upa/info-upa.component';
 import { MatPaginatorModule}  from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { MatPaginatorModule}  from '@angular/material/paginator';
     MatDatepickerModule,
     MatCheckboxModule,
     MatNativeDateModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

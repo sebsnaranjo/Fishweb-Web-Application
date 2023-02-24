@@ -23,8 +23,9 @@ export class GestionarUpasComponent implements OnInit, AfterViewInit {
     private upasService: UpasService,
     private router: Router
   ) { }
+
   ngAfterViewInit(): void {
-        this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
@@ -36,7 +37,7 @@ export class GestionarUpasComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filtro.trim().toLowerCase();
   }
 
-    public getUsers() {
+  public getUsers() {
     this.upasService.getUPAs().subscribe((data) => {
       console.log(data);
     })

@@ -27,7 +27,7 @@ mat-form-field {
   height: auto;
 }
 
-.table-camp table {
+.table-camp table, mat-paginator {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
