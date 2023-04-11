@@ -37,11 +37,9 @@ export class FrameService {
   } */
 
   
-  getReport(datos): Observable<any> {
-    const url = `${environment.HOST}/api/frame/getReport`;
-
+  getReport(datos: any): Observable<any> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(url, datos, { headers: headers, responseType: 'arraybuffer' });
+    return this.http.post(this.getReportUrl, datos, { headers: headers, responseType: 'arraybuffer' });
 
   }
 
