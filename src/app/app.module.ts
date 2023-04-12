@@ -49,6 +49,8 @@ import { GestionarUpasComponent } from './vistas/gestionar-upas/gestionar-upas.c
 import { InfoUpaComponent } from './vistas/info-upa/info-upa.component';
 import { MatPaginatorModule}  from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { NgChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -101,7 +103,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatCheckboxModule,
     MatNativeDateModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    NgChartsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

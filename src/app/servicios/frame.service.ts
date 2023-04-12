@@ -43,8 +43,8 @@ export class FrameService {
 
   }
 
-  private handleError(error: any): Observable<any> {
+/*   private handleError(error: any): Observable<any> {
     console.error('Ocurrió un error', error);
     return Observable.throw(error.message || error);
-  }
+  } */
 }

@@ -91,9 +91,8 @@
         <mat-checkbox [(ngModel)]="nivelAguaSelected">Nivel del agua</mat-checkbox>
       </div>
       <div style="display: flex; flex-direction: column;">
-        <mat-checkbox [(ngModel)]="temperaturaAmbienteSelected">Temperatura ambiente</mat-checkbox>
-        <mat-checkbox [(ngModel)]="tiempoAlimentacionSelected">Tiempo de alimentación</mat-checkbox>
-        <mat-checkbox [(ngModel)]="recirculacionAguaSelected">Recirculación del agua</mat-checkbox>
+        <mat-checkbox [(ngModel)]="turbidezSelected">Turbidez</mat-checkbox>
+        <mat-checkbox [(ngModel)]="oxigenoDisueltoSelected">Oxigeno disuelto</mat-checkbox>
       </div>
     </div>
     <button mat-raised-button color="primary" class="btn_report" (click)="generateReport()">Descargar reporte</button>
@@ -129,7 +128,15 @@
 
     <button mat-raised-button color="primary" class="btn_report">Generar grafica</button>
 
-
+    <canvas 
+      baseChart class="chart"
+      [data]="lineChartData"
+      [options]="lineChartOptions"
+      [type]="lineChartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"
+    >
+    </canvas>
 
   </div>
 </div>

@@ -18,8 +18,8 @@ export class ReportsComponent implements OnInit {
   pHSelected: boolean = false;
   temperaturaSelected: boolean;
   nivelAguaSelected: boolean;
-  temperaturaAmbienteSelected: boolean;
-  tiempoAlimentacionSelected: boolean;
+  turbidezSelected: boolean;
+  oxigenoDisueltoSelected: boolean;
   recirculacionAguaSelected: boolean;
   fechaInicio: Date = new Date();;
   fechaFin: Date = new Date();;
@@ -40,28 +40,28 @@ export class ReportsComponent implements OnInit {
     {
       "_id": "63f5840290297b6f5e87c413",
       "Datos": {
-        "Temperatura": 90
+        "Temperatura": 1
       },
       "createdAt": "2023-02-22T02:54:58.152Z"
     },
     {
       "_id": "63f6db967f6f6fab6ef0d58a",
       "Datos": {
-        "Temperatura": 90
+        "Temperatura": 9
       },
       "createdAt": "2023-02-23T03:20:54.465Z"
     },
     {
       "_id": "63f82d7f895bfdb075db69f9",
       "Datos": {
-        "Temperatura": 90
+        "Temperatura": 3
       },
       "createdAt": "2023-02-24T03:22:39.530Z"
     },
     {
       "_id": "63f83dad6077ad8f32931a3a",
       "Datos": {
-        "Temperatura": 90
+        "Temperatura": 6
       },
       "createdAt": "2023-02-24T04:31:41.052Z"
     }
@@ -74,9 +74,9 @@ export class ReportsComponent implements OnInit {
     Chart.register(Annotation)
   }
 
-  private Huys: any = this.datos;
-  private phsData: number[] =  this.Huys.map((item: any) => item.Datos.PH);
-  private datesCollection: string[] =this.Huys.map((item:any) => new Date(item.createdAt).toLocaleString());
+  public Huys: any = this.datos;
+  public phsData: number[] =  this.Huys.map((item: any) => item.Datos.Temperatura);
+  public datesCollection: string[] =this.Huys.map((item:any) => new Date(item.createdAt).toLocaleString());
 
   ngOnInit(): void {
     this.panelOpenState = false;
@@ -176,13 +176,39 @@ export class ReportsComponent implements OnInit {
     ) */
   }
 
+  /* Metodo que se encarga de generar los reportes */
+
   generateReport() {
 
-    const datos = {
+/*     const datos = {
       "fechaInicio": "2023-01-23T03:20:54.465Z",
       "fechaFin": "2023-03-23T03:20:54.465Z",
       "variables": ["PH"]
+    } */
+
+    const datos = {
+      "fechaInicio": this.fechaInicio.toISOString(),
+      "fechaFin": this.fechaFin.toISOString(),
+      "variables": [] as string[]
+    };
+  
+    if (this.pHSelected) {
+      datos.variables.push("PH");
     }
+    if (this.temperaturaSelected) {
+      datos.variables.push("Temperatura");
+    }
+    if (this.nivelAguaSelected) {
+      datos.variables.push("Nivel_Agua");
+    }
+    if (this.turbidezSelected) {
+      datos.variables.push("Turbidez");
+    }
+    if (this.oxigenoDisueltoSelected) {
+      datos.variables.push("Oxigeno_Disuelto");
+    }
+
+    console.log("ESTE ES EL ARREGLO", datos)
 
     this.frameService.getReport(datos).subscribe((pdfData: any) => {
       const blob = new Blob([pdfData], { type: 'application/pdf' });

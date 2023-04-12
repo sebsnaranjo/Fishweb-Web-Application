@@ -33,21 +33,21 @@ export class EditUserRolComponent implements OnInit {
     let id = this.activerouter.snapshot.paramMap.get('id');
     this.managementusers.editUserRol(id).subscribe((data) => {
       this.dataUser = data;
-      this.editar(this.dataUser);
+      /* this.editar(this.dataUser); */
     });
   }
 
-  editar(dataEdit: UserEditI) {
+/*   editar(dataEdit: UserEditI) {
     this.editForm = new FormGroup({
       _id: new FormControl(dataEdit._id, Validators.required),
       name: new FormControl(dataEdit.name, Validators.required),
       lastname: new FormControl(dataEdit.lastname, Validators.required),
       email: new FormControl(dataEdit.email, Validators.required),
-      roles: new FormControl(dataEdit.roles, Validators.required),
+      rol: new FormControl(dataEdit.roles.id_rol, Validators.required),
     });
-  }
+  } */
 
-  putRol(form: UserEditI) {
+  putRol(form: any) {
     const updateUser: UserChange = {
       idUser: this.dataUser._id,
       _id: this.selectedValue,
