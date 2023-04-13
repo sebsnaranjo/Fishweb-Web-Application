@@ -12,6 +12,7 @@ export class FrameService {
 
   private apiUrl = '/api/frame/getAll'
   private getReportUrl = '/api/frame/getReport'
+  private getGraphUrl = '/api/frame/getFrameVariablesDate'
 
   constructor(
     private http: HttpClient
@@ -40,7 +41,10 @@ export class FrameService {
   getReport(datos: any): Observable<any> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.getReportUrl, datos, { headers: headers, responseType: 'arraybuffer' });
+  }
 
+  getGraph(datos: any): Observable<any> {
+    return this.http.post(this.getGraphUrl, datos);
   }
 
 /*   private handleError(error: any): Observable<any> {
