@@ -19,14 +19,14 @@
 
         <div [ngSwitch]="rol_user">
             <ul class="menu_items" *ngSwitchCase='1'>
-                <li><a routerLink="/crear-upa">Registro UPA</a></li>
+                <li><a routerLink="/crear-upa">UPAs</a></li>
                 <li><a routerLink="/registro">Registro usuario</a></li>
                 <li><a routerLink="/gestionar-usuarios">Usuarios</a></li>
                 <li><a routerLink="/ajuste-variables">Ajuste de variables</a></li>
                 <li><a routerLink="/controlar">Control</a></li>
                 <li><a routerLink="/reportes">Reportes</a></li>
                 <li><a routerLink="/inicio-super-administrador">Inicio</a></li>
-                <li class="active"><a>Ver perfil</a></li>
+                <li class="active"><a>Perfil</a></li>
                 <li><button class="button_logout" type="submit">Cerrar sesión</button></li>
             </ul>
             <ul class="menu_items" *ngSwitchCase='2'>

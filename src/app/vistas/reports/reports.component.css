@@ -316,7 +316,7 @@ h1{
 /* ESTILOS PARA DATE PICKER*/
 
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-  background-color: #DAAA00 !important;
+  background-color: red !important;
 }
 
 ::ng-deep .mat-checkbox-ripple .mat-ripple-element {
@@ -330,29 +330,32 @@ h1{
 
  ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
-  background-color: #DAAA00  !important;;
+  background-color: #DAAA00  !important;
+  --mdc-checkbox__ripple: #DAAA00;
  }
 
  mat-datepicker-toggle {
-  color: #007b3e  !important;
+  color: #007b3e ;
  }
+
+
 
  /* ESTILOS PARA SELECT BOX*/
 
  ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
-  background-color: #DAAA00;
+  background-color: #DAAA00 !important;
 }
 
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-  color: #DAAA00;
+  color: #DAAA00 !important;
 }
 
 ::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow{
-  color: #DAAA00;
+  color: #DAAA00 !important;
 }
 
 ::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
-  color: #DAAA00;
+  color: #DAAA00 !important;
 }
 
 .select_box {
@@ -369,4 +372,32 @@ h1{
   color: white;
   font-family: "DM Sans", sans-serif;
   font-size: 16px;
+}
+
+/*  ACTUALIZACION (PROBLEMAS DESPUES DE DEPENDENCIAS)*/
+
+.mat-mdc-checkbox.mat-accent {
+  --mdc-checkbox-selected-checkmark-color: #fff;
+  --mdc-checkbox-selected-focus-icon-color: #DAAA00;
+  --mdc-checkbox-selected-hover-icon-color: #DAAA00;
+  --mdc-checkbox-selected-icon-color: #DAAA00;
+  --mdc-checkbox-selected-pressed-icon-color: #DAAA00;
+  --mdc-checkbox-unselected-focus-icon-color: #212121;
+  --mdc-checkbox-unselected-hover-icon-color: #212121;
+  --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
+  --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.38);
+  --mdc-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+  --mdc-checkbox-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+}
+
+::ng-deep .mat-mdc-checkbox.mat-accent .mdc-checkbox--selected~.mdc-checkbox__ripple {
+  background: #DAAA00 !important;
+}
+
+::ng-deep .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: #007b3e !important;
+}
+
+::ng-deep .mdc-text-field--filled .mdc-line-ripple::after {
+  border-bottom-color: var(--mdc-theme-primary, #007b3e)!important;
 }
