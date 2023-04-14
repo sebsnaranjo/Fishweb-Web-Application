@@ -216,15 +216,16 @@
   }*/
 
 .container1 {
-  width: 65%;
+  width: 100%;
   margin: 30px auto;
-  background-color: #007B3E;
+  background-color: #007b3e;
   border-radius: 15px;
 }
+
 .container2 {
   width: 65%;
   margin: 65px auto;
-  background-color: #007B3E;
+  background-color: #007b3e;
   border-radius: 15px;
 }
 
@@ -232,8 +233,8 @@
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  font-family: 'DM Sans', sans-serif;
-  padding-top: 20px;
+  font-family: "DM Sans", sans-serif;
+  padding-top: 5px;
 }
 
 .row {
@@ -246,41 +247,41 @@
   flex-direction: column;
   align-items: center;
   width: 50%;
- 
 }
-.boton-container{
+
+.boton-container {
   display: flex;
   justify-content: center;
 }
+
 .boton-guardar {
-  background-color: #007B3E; 
-  color: white; 
-  border: none; 
-  border-radius: 30px; 
-  padding: 20px 60px; 
-  text-align: center; 
+  background-color: #007b3e;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 20px 60px;
+  text-align: center;
   display: inline-block;
-  font-size: 16px; 
-  margin: 15px 10px; 
-  cursor: pointer; 
-  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  margin: 15px 10px;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
 }
 
-h4{
+h4 {
   font-size: 20px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 .cycle {
-  background-color: #007B3E;
+  background-color: #007b3e;
   color: white;
   width: 80%;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 0px;
   text-align: center;
-  font-family: 'DM Sans', sans-serif !important;
-
+  font-family: "DM Sans", sans-serif !important;
 }
 
 .time-container {
@@ -288,21 +289,22 @@ h4{
   justify-content: space-between;
   width: 100%;
   margin-top: 10px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: bold;
 }
-.time-input{
 
+.time-input {
   background-color: white;
   color: black;
   width: 90%;
   padding: 10px;
   border-radius: 10px;
   text-align: center;
-  border: none ;
-
+  border: none;
 }
-.hour, .minute {
+
+.hour,
+.minute {
   background-color: white;
   color: black;
   width: 45%;
@@ -319,6 +321,7 @@ h4{
   border-radius: 10px;
   text-align: center;
 }
+
 .quantity-container {
   display: flex;
   justify-content: center;
@@ -335,6 +338,7 @@ h4{
   text-align: center;
   border: none;
 }
+
 .quantity {
   background-color: white;
   color: black;
@@ -343,8 +347,9 @@ h4{
   border-radius: 10px;
   text-align: center;
 }
+
 .container3 {
-  width: 65%;
+  width: 80%;
   margin: 0 auto;
   background-color: #ccc;
   border-radius: 10px;
@@ -355,7 +360,7 @@ h4{
 
 .title {
   text-align: center;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: bold;
   margin-top: 40px;
 }
@@ -374,9 +379,8 @@ h4{
   width: 50%;
   margin-bottom: 5px;
   text-align: center;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
-
 
 .center-variable {
   width: 100%;
@@ -388,6 +392,7 @@ h4{
   align-items: center;
   height: 100px;
 }
+
 .data-input {
   background-color: white;
   color: black;
@@ -396,7 +401,8 @@ h4{
   border-radius: 10px;
   text-align: center;
   border: none;
-  }
+}
+
 .data {
   background-color: white;
   color: black;
@@ -405,14 +411,40 @@ h4{
   border-radius: 10px;
   text-align: center;
 }
+
+.form-field {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.input-field {
+  width: 200px;
+  text-align: center;
+}
+
+.btn-save {
+  background-color: #007b3e;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 40px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+}
+.boton-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
 @media (max-width: 768px) {
   .variable-container {
     width: 100%;
   }
 }
-
-
-
 
 @media (max-width: 768px) {
   .cycle-container {

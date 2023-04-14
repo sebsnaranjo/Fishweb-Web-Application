@@ -50,6 +50,7 @@ import { InfoUpaComponent } from './vistas/info-upa/info-upa.component';
 import { MatPaginatorModule}  from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { NgChartsModule } from 'ng2-charts';
+import { UsersProfileComponent } from './vistas/users-profile/users-profile.component';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { NgChartsModule } from 'ng2-charts';
     UsersComponent,
     HomeViewComponent,
     GestionarUpasComponent,
-    InfoUpaComponent
+    InfoUpaComponent,
+    UsersProfileComponent
   ],
   imports: [
     BrowserModule,
