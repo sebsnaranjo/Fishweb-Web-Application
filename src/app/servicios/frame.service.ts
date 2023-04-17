@@ -13,6 +13,7 @@ export class FrameService {
   private apiUrl = '/api/frame/getAll'
   private getReportUrl = '/api/frame/getReport'
   private getGraphUrl = '/api/frame/getFrameVariablesDate'
+  private getLastFrameUrl = '/api/frame/getLast'
 
   constructor(
     private http: HttpClient
@@ -22,22 +23,10 @@ export class FrameService {
     return this.http.get<TableFrame[]>(this.apiUrl);
   }
 
-/*   getReport(fechaInicio: Date, fechaFin: Date, variables: string[]) {
+  getLastFrame(){
+    return this.http.get(this.getLastFrameUrl);
+  }
 
-    const params = {
-      fechaInicio: "2023-02-23T05:00:00.000Z",
-      fechaFin: "2023-02-24T05:00:00.000Z",
-      variables: [
-          "PH"
-      ]
-    };
-    const options = {
-      responseType: 'arraybuffer'
-    };
-    return this.http.post<any>(this.getReportUrl, params, { observe: 'response', responseType: 'arraybuffer' });
-  } */
-
-  
   getReport(datos: any): Observable<any> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.getReportUrl, datos, { headers: headers, responseType: 'arraybuffer' });
@@ -47,8 +36,5 @@ export class FrameService {
     return this.http.post(this.getGraphUrl, datos);
   }
 
-/*   private handleError(error: any): Observable<any> {
-    console.error('Ocurrió un error', error);
-    return Observable.throw(error.message || error);
-  } */
+
 }

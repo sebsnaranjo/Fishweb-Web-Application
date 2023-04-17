@@ -12,9 +12,13 @@
 }
 
 mat-form-field {
-  width: 70%;
+  width: 70% !important;
   font-family: "DM Sans", sans-serif;
   font-size: 18px;
+}
+
+.mdc-data-table__table {
+  min-width: 70%;
 }
 
 .mat-input-underline {

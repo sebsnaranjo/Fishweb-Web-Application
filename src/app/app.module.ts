@@ -51,6 +51,7 @@ import { MatPaginatorModule}  from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { NgChartsModule } from 'ng2-charts';
 import { UsersProfileComponent } from './vistas/users-profile/users-profile.component';
+import { NotificationsComponent } from './vistas/notifications/notifications.component';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { UsersProfileComponent } from './vistas/users-profile/users-profile.comp
     HomeViewComponent,
     GestionarUpasComponent,
     InfoUpaComponent,
-    UsersProfileComponent
+    UsersProfileComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

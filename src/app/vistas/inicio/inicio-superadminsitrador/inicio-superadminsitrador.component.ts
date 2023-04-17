@@ -14,7 +14,7 @@ export class InicioSuperadminsitradorComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    this.alert();
+    
   }
 
   redireccionar_controlar() {
@@ -23,17 +23,6 @@ export class InicioSuperadminsitradorComponent implements OnInit {
 
   redireccionar_usuarios() {
     this.router.navigate(['/gestionar-usuarios'])
-  }
-
-  alert(){
-    if(this.temperatura >= 50){
-      console.log("Hola")
-      Swal.fire({
-        icon: 'warning',
-        title: 'Cuidado',
-        text: 'Something went wrong!',
-      })
-    }
   }
 
 }

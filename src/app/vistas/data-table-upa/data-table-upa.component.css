@@ -33,6 +33,10 @@ mat-form-field {
   margin-right: auto;
 }
 
+.mdc-data-table__table {
+  min-width: 70%;
+}
+
 .button {
   text-align: center;
   margin-top: 35px;

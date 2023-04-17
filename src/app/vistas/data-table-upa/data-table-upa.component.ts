@@ -27,23 +27,20 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit{
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sortingDataAccessor = (item, property) => {
+      switch(property) {
+        case 'createdAt': return new Date(item.createdAt);
+        default: return item[property];
+      }
+    };
+    this.dataSource.sort = this.sort;
+    this.dataSource.sort.sort({id: 'createdAt', start: 'desc', disableClear: true});
   }
 
   ngOnInit(): void {
     this.getFrames();
-    this.dataSource.sort = this.sort;
-  }
-
- // filtrar(event: Event) {
-   // const filtro = (event.target as HTMLInputElement).value;
-    //this.dataSource.filter = filtro.trim().toLowerCase();
-  //}
-
-  obtenerReportes(){
-    /* this.router.navigate(['editRol']); */
   }
   
-
   public getFrames() {
     this.frameService.getFrame().subscribe((data: TableFrame[]) => {
       console.log(data);
@@ -54,16 +51,11 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit{
 
 }
 export interface Upa{
-    fecha: string;
-    hora: string;
-    ph: number;
-    temperatura: number;
-    nivelAgua: number;
-    temperaturaAmbiente: number;
-
+  fecha: string;
+  hora: string;
+  ph: number;
+  temperatura: number;
+  nivelAgua: number;
+  temperaturaAmbiente: number
 }
-const UPA_DATA: Upa[] = [
-  {fecha: '2 de Abril 2022', hora: '5:35 A.M', ph: 6, temperatura: 15.0 , nivelAgua: 9,temperaturaAmbiente: 13.5},
-  {fecha: '2 de Abril 2022', hora: '6:45 A.M', ph: 7, temperatura: 16.0 , nivelAgua: 10,temperaturaAmbiente: 18.3},
-  {fecha: '2 de Abril 2022', hora: '10:35 A.M', ph: 6, temperatura: 15.0 , nivelAgua: 9,temperaturaAmbiente: 20.5}
-]
+

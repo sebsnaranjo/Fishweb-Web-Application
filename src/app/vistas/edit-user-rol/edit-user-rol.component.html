@@ -1,8 +1,8 @@
 <div>
-  <form [formGroup]="editForm" (ngSubmit)="putRol(editForm.value)">
+  <form [formGroup]="editForm" *ngIf="dataUser" (ngSubmit)="putRol(editForm.value)">
     <h2>
       El usuario al que le desea cambiar su rol corresponde a:
-      {{ editForm.value.name }}
+      {{ dataUser.name  }}
     </h2>
     <div class="info">
       <!--             <div class="form-group">
@@ -11,13 +11,13 @@
       <div class="container-one">
         <div class="form-group data">
           <label class="text"> El nombre completo es: </label><br>
-          <label>{{ editForm.value.name }}</label>
+          <label>{{ dataUser.name }}</label>
         </div>
       </div>
       <div class="container-dos">
         <div class="form-group data">
           <label class="text"> El email es: </label><br>
-          <label>{{ editForm.value.email }}</label>
+          <label>{{ dataUser.email }}</label>
         </div>
       </div>
     </div>
