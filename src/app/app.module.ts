@@ -52,6 +52,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { NgChartsModule } from 'ng2-charts';
 import { UsersProfileComponent } from './vistas/users-profile/users-profile.component';
 import { NotificationsComponent } from './vistas/notifications/notifications.component';
+import { FrameUpaComponent } from './vistas/frame-upa/frame-upa.component';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import { NotificationsComponent } from './vistas/notifications/notifications.com
     GestionarUpasComponent,
     InfoUpaComponent,
     UsersProfileComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    FrameUpaComponent
   ],
   imports: [
     BrowserModule,

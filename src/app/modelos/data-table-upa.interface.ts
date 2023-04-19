@@ -1,46 +1,57 @@
 export interface DataTableUpa {
-    [id: number]: any,
-    fecha: string,
-    hora: string,
-    ph: string,
-    temperatura: string,
-    nivelAgua: number,
-    temperaturaAmbiente: string,
+  [id: number]: any;
+  fecha: string;
+  hora: string;
+  ph: string;
+  temperatura: string;
+  nivelAgua: number;
+  temperaturaAmbiente: string;
 }
-
 export interface UpaModel {
-    id: string,
-    name: string
-    location: string
+  id: string;
+  name: string;
+  location: string;
 }
-
+export class EstacionMeteorologica {
+  temperatura: number;
+  humedad: number;
+  velocidad_viento: number;
+  dir_viento: number;
+  lluvia: number;
+  _id: string;
+}
+export class Datos {
+  PH: number;
+  Temperatura: number;
+  Conductividad_Electrica: number;
+  Nivel_Agua: number;
+  Turbidez: number;
+  Oxigeno_Disuelto: number;
+  _id: string;
+}
 export class TableFrame {
-    _id: string;
-    nombreUpa: string;
-    type_com: boolean;
-    dir_esclavo: number;
-    funtion: string;
-    dire_registro: number;
-    estacion_meteorologica: [
-        temperatura: null,
-        humedad: null,
-        velocidad_viento: number,
-        dir_viento: number,
-        lluvia: number,
-        _id: string
-    ];
-    datos: [
-        ph: number,
-        temperatura: number,
-        conductividad_electrica: number,
-        nivel_agua: 10,
-        turbidez: 4,
-        oxigeno_disuelto: number,
-        _id: string
-    ];
-    crc: 5;
-    createdAt: Date;
-    updatedAt: Date
+  _id: string;
+  NombreUpa: string;
+  Type_Com: boolean;
+  Dir_Esclavo: number;
+  Funtion: string;
+  Dire_Registro: number;
+  Estacion_Meteorologica: EstacionMeteorologica;
+  Datos: Datos;
+  CRC: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+export class Location {
+  name: string;
+  _id: string;
+}
+export class Upa {
+  _id: string;
+  name: string;
+  location: Location;
+  __v: number;
 }
 
 export interface CreateDataUpaDTO extends Omit<DataTableUpa, 'id'> {}

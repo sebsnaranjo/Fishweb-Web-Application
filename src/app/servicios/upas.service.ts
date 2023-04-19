@@ -11,6 +11,8 @@ export class UpasService {
   headers = new HttpHeaders().set("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));
   private apiUrl = '/api/upas/crear';
   private apiGet = '/api/upa/getupa'
+  private getUsers = '/api/upa/userby';
+  private getFrames = '/api/upa/frameby';
 
   constructor(
     private http: HttpClient
@@ -26,4 +28,15 @@ export class UpasService {
   getUPAs()  {
     return this.http.get<UpaModel>(this.apiGet)
   }
+
+  //Obtiene los usuarios vinculados a una UPA
+  getUsersUPA(id: string) {
+    return this.http.get(`${this.getUsers}/${id}`);
+  }
+
+  //Obtiene los tramas(JSON) vinculados a una UPA
+  getFrameUPA(id: string) {
+    return this.http.get(`${this.getFrames}/${id}`);
+  }
+
 }

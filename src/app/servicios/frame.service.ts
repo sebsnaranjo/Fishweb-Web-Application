@@ -23,8 +23,8 @@ export class FrameService {
     return this.http.get<TableFrame[]>(this.apiUrl);
   }
 
-  getLastFrame(){
-    return this.http.get(this.getLastFrameUrl);
+  getLastFrame(): Observable<TableFrame> {
+    return this.http.get<TableFrame>(this.getLastFrameUrl);
   }
 
   getReport(datos: any): Observable<any> {
