@@ -8,7 +8,7 @@ export interface DataTableUpa {
   temperaturaAmbiente: string;
 }
 export interface UpaModel {
-  id: string;
+  _id: string;
   name: string;
   location: string;
 }
@@ -29,17 +29,27 @@ export class Datos {
   Oxigeno_Disuelto: number;
   _id: string;
 }
-export class TableFrame {
+
+export class Actuadores {
+  Alarmas: number;
+  Recirculacion: number;
+  Alimentacion: number;
+  Oxigeno: number;
   _id: string;
+}
+
+export class TableFrame {
+  _id?: string;
   NombreUpa: string;
-  Type_Com: boolean;
+  Type_Com: number;
   Dir_Esclavo: number;
   Funtion: string;
   Dire_Registro: number;
   Estacion_Meteorologica: EstacionMeteorologica;
   Datos: Datos;
+  Actuadores: Actuadores;
   CRC: string;
-  createdAt: string;
+  createdAt: Date;
   updatedAt: string;
   __v: number;
 }

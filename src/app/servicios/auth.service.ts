@@ -31,6 +31,9 @@ export class AuthService {
 
     let rol_encrypt = this.encrypt.encrypt(JSON.stringify(decode.rol.id_rol));
     sessionStorage.setItem(environment.rolId, rol_encrypt);
+
+    let upa_encrypt = this.encrypt.encrypt(JSON.stringify(decode.upa));
+    sessionStorage.setItem(environment.upaId, upa_encrypt);
   }
 
   isLoggedIn(): boolean {
@@ -46,6 +49,12 @@ export class AuthService {
     let idrol = sessionStorage.getItem(environment.rolId)||'';
     let rol = this.encrypt.decrypt(idrol);
     return rol;
+  }
+
+  getIdUpa(){
+    let idupa = sessionStorage.getItem(environment.upaId)||'';
+    let upa = this.encrypt.decrypt(idupa).replace(/"/g, '');
+    return upa;
   }
 
 }

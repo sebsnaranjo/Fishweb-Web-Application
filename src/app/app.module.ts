@@ -42,8 +42,8 @@ import { AjustesVariablesComponent } from './vistas/ajustes-variables/ajustes-va
 import { HeaderUsersComponent } from './plantillas/header-users/header-users.component';
 import { UsersComponent } from './layaouts/users/users.component';
 import { HomeViewComponent } from './layaouts/home-view/home-view.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import { GestionarUpasComponent } from './vistas/gestionar-upas/gestionar-upas.component';
 import { InfoUpaComponent } from './vistas/info-upa/info-upa.component';

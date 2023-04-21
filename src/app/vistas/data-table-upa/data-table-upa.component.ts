@@ -42,10 +42,10 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit{
   }
   
   public getFrames() {
-    this.frameService.getFrame().subscribe((data: TableFrame[]) => {
-      console.log(data);
+    this.frameService.getAllFrameByUpa().subscribe((data: TableFrame[]) => {
+      console.log("GET FRAMES", data);
     })
-    let resp = this.frameService.getFrame();
+    let resp = this.frameService.getAllFrameByUpa();
     resp.subscribe((report) => (this.dataSource.data = report as unknown as TableFrame[]));
   }
 

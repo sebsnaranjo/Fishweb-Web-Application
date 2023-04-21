@@ -365,6 +365,12 @@ h4 {
   margin-top: 40px;
 }
 
+.subtitle {
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+  margin-top: 15px;
+}
+
 .row {
   display: flex;
   justify-content: space-between;
@@ -450,4 +456,11 @@ h4 {
   .cycle-container {
     width: 100%;
   }
+}
+
+.container_comunication {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

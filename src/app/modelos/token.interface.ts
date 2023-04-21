@@ -19,6 +19,7 @@ export interface TokenDecodeI {
   email: string;
   iat: number;
   exp: number;
+  upa: string;
   rol: {
     _id: string;
     id_rol: number;
