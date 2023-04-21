@@ -27,13 +27,13 @@
                             </mat-error>
                         </div>
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
-                              {{ selectedUpa ? selectedUpa.name : 'Selecciona una UPA' }}
-                            </button>
-                            <div class="dropdown-menu" [class.show]="isDropdownOpen">
-                              <a class="dropdown-item" *ngFor="let upa of upas" (click)="selectUpa(upa)">{{ upa.name }}</a>
-                            </div>
-                          </div>
+                    <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+                      {{ selectedUpa ? selectedUpa.name : 'Selecciona una UPA' }}
+                    </button>
+                    <div class="dropdown-menu-container" [class.show]="isDropdownOpen">
+                      <a class="dropdown-item" *ngFor="let upa of upas" (click)="selectUpa(upa)">{{ upa.name }}</a>
+                    </div>
+                  </div>
                         <div class="form-group">
                             <input formControlName="email" matInput placeholder="Correo Electronico"
                                 class="registreCamp form-control">
@@ -88,14 +88,14 @@
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
-                              {{ selectedUpa ? selectedUpa.name : 'Selecciona una UPA' }}
-                            </button>
-                            <div class="dropdown-menu" [class.show]="isDropdownOpen">
-                              <a class="dropdown-item" *ngFor="let upa of upas" (click)="selectUpa(upa)">{{ upa.name }}</a>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+                                {{ selectedUpa ? selectedUpa.name : 'Selecciona una UPA' }}
+                                </button>
+                                <div class="dropdown-menu-container" [class.show]="isDropdownOpen">
+                                <a class="dropdown-item" *ngFor="let upa of upas" (click)="selectUpa(upa)">{{ upa.name }}</a>
+                                </div>
                             </div>
-                          </div>
                         <div class="form-group">
                             <input formControlName="email" matInput placeholder="Correo Electronico"
                                 class="registreCamp form-control">

@@ -47,7 +47,7 @@ registre(){
      model.lastname = this.registreFormGroup.controls["lastname"].value;
      model.email = this.registreFormGroup.controls["email"].value;
      model.password = this.registreFormGroup.controls["password"].value;
-     model.upaId = this.registreFormGroup.controls['upaId'].value;
+     model.upaId = this.registreFormGroup.controls["upaId"].value;
 
     
 
@@ -96,12 +96,7 @@ registre(){
       text: 'El campo password es requerido y debe tener al menos 7 caracteres',
       icon: 'error'
     });
-  } else if (this.registreFormGroup.controls['upaId'].invalid) {
-    Swal.fire({
-      title: 'Formulario Invalido',
-      text: 'Debe seleccionar una UPA',
-      icon: 'error'
-    });
+  
   } else {
     Swal.fire({
       title: 'Formulario Invalido',
@@ -122,7 +117,7 @@ registre(){
   }
   
   selectUpa(upa: UpaModel) {
-    this.registreFormGroup.controls['upaId'].setValue(upa._id);
+    this.registreFormGroup.controls["upaId"].setValue(upa._id);
     this.selectedUpa = upa;
     this.isDropdownOpen = false;
   }

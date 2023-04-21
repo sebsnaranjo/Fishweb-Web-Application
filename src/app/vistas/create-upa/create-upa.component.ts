@@ -33,6 +33,7 @@ export class CreateUpaComponent implements OnInit{
     apellido: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email]),
     clave: new FormControl('',[Validators.required, Validators.minLength(7)]),
+    
   });
   }
 

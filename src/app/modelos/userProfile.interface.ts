@@ -6,7 +6,7 @@ export interface UsuarioProfile {
 
 
   export interface UpaModel {
-   
+    _id: string;
     name: string;
     location:string;
 

@@ -261,12 +261,13 @@ h2 {
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  
-  .dropdown-toggle {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+.dropdown-toggle {
     color: #000;
     background-color: #fff;
     border: none;
@@ -274,9 +275,19 @@ h2 {
     padding: 10px;
     width: 200px;
     text-align: center;
+
+}
+.dropdown-menu-container {
+
+    min-width: 200px;
+
+    justify-content: center;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   
-  .dropdown-menu {
+
+.dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
@@ -288,24 +299,34 @@ h2 {
     background-color: #fff;
     border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .show {
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.show {
     display: block;
-  }
-  
-  .dropdown-item {
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+.dropdown-item {
     color: #000;
     font-size: 16px;
     padding: 10px;
-  }
-  
-  .dropdown-item:hover {
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+.dropdown-item:hover {
     background-color: #f1f1f1;
-  }
-  
-  
-  
+}
+
+
+
 
 
 
