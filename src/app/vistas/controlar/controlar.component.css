@@ -87,6 +87,29 @@ h2 {
   margin-right: auto;
 }
 
+.btn_report {
+  width: 30%;
+  height: 50px;
+  margin: 20px 0 20px 0;
+  border-style: none;
+  background-color: #ebe6e6;
+  border-radius: 50px;
+  color: #007b3e;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+}
+
+.margin_btn {
+  margin-left: 10px;
+}
+
+.container_comunication {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Ajuste para el tamaño */
 /* :host
   ::ng-deep

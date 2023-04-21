@@ -27,11 +27,12 @@ export class NotificationsComponent implements OnInit {
   }
 
   alert(){
-    this.frameService.getLastFrame().subscribe((data: any) => {
+    this.frameService.getlastFrameByUpa().subscribe((data: any) => {
       console.log(data);
 
       const condiciones = {
-        Temperatura: {min: -10, max: 40},
+        PH: {min: 10, max: 13},
+        Temperatura: {min: 14, max: 15},
         Conductividad_Electrica: {min: 0, max: 2},
         Nivel_Agua: {min: 0, max: 100},
         Turbidez: {min: 0, max: 10},

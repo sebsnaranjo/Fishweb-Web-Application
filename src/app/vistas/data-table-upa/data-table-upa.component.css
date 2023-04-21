@@ -28,13 +28,13 @@ mat-form-field {
 }
 
 .table-camp table, mat-paginator {
-  width: 70%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .mdc-data-table__table {
-  min-width: 70%;
+  min-width: 80%;
 }
 
 .button {

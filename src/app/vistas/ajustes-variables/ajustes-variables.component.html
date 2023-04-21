@@ -1,50 +1,126 @@
 <div class="titulo">
-  <h3 class="title">En esta sección podras ajustar las <br> variables según tu necesidad</h3>
+  <h3 class="title">
+    En esta sección podras ajustar las <br />
+    variables según tu necesidad
+  </h3>
 </div>
 <div class="container3">
-
   <h3 class="title">Variables de laboratorio</h3>
-<mat-tab-group>
-  <mat-tab label="PH" >
-    <mat-form-field class="form-field">
-      <input matInput type="number" placeholder="PH" class="input-field" [(ngModel)]="valuePH">
+  <h2 class="subtitle">Selecciona el modo de transmisión: </h2>
+  <div class="container_comunication">
+    <mat-form-field>
+        <mat-label>Seleccionar modo de transmisión</mat-label>
+        <mat-select
+          [(value)]="modoTransmision"
+          (selectionChange)="onConnectionTypeChange()"
+        >
+          <mat-option value="1">Punto a punto</mat-option>
+          <mat-option value="2">Broadcast</mat-option>
+        </mat-select>
     </mat-form-field>
-    <div class="boton-container">
-    <button mat-button class="btn-save" (click)="saveValuePH()">Guardar</button></div>
-  </mat-tab>
-  <mat-tab label="TEMPERATURA">
-    <mat-form-field class="form-field">
-      <input matInput type="number" placeholder="Temperatura" [(ngModel)]="valueTemperatura">
+    
+    <mat-form-field *ngIf="rtuView">
+        <mat-select placeholder="Selecciona una RTU" [(value)]="rtuValue">
+          <mat-option value="1">RTU 1</mat-option>
+        </mat-select>
     </mat-form-field>
-    <div class="boton-container">
-    <button mat-button class="btn-save" (click)="saveValueTemperatura()">Guardar</button></div>
-  </mat-tab>
-  <mat-tab label="CONDUCTIVIDAD">
-    <mat-form-field class="form-field">
-      <input matInput type="number" placeholder="Conductividad" [(ngModel)]="valueConductividad">
-    </mat-form-field>
-    <div class="boton-container">
-    <button mat-button class="btn-save" (click)="saveValueConductividad()">Guardar</button></div>
-  </mat-tab>
-  <mat-tab label="NIVEL DEL AGUA">
-    <mat-form-field class="form-field">
-      <input matInput type="number" placeholder="Nivel de Agua" [(ngModel)]="valueNivelAgua">
-    </mat-form-field>
-    <div class="boton-container">
-    <button mat-button class="btn-save" (click)="saveValueNivelAgua()">Guardar</button></div>
-  </mat-tab>
-  <mat-tab label="TURBIDEZ">
-    <mat-form-field class="form-field">
-      <input matInput type="number" placeholder="Turbidez" [(ngModel)]="valueTurbidez">
-    </mat-form-field>
-    <div class="boton-container">
-    <button mat-button class="btn-save" (click)="saveValueTurbidez()">Guardar</button></div>
-  </mat-tab>
-  <mat-tab label="OXIGENO DISUELTO">
-    <mat-form-field class="form-field">
-      <input matInput type="number" placeholder="Oxígeno Disuelto" [(ngModel)]="valueOxigenoDisuelto">
-    </mat-form-field>
-    <div class="boton-container">
-    <button mat-button class="btn-save" (click)="saveValueOxigenoDisuelto()">Guardar</button></div>
-  </mat-tab>
-</mat-tab-group>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="PH">
+      <mat-form-field class="form-field">
+        <input
+          matInput
+          type="number"
+          placeholder="PH"
+          class="input-field"
+          [(ngModel)]="valuePH"
+        />
+      </mat-form-field>
+      <div class="boton-container">
+        <button mat-button class="btn-save" (click)="saveValuePH()">
+          Guardar
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="TEMPERATURA">
+      <mat-form-field class="form-field">
+        <input
+          matInput
+          type="number"
+          placeholder="Temperatura"
+          [(ngModel)]="valueTemperatura"
+        />
+      </mat-form-field>
+      <div class="boton-container">
+        <button mat-button class="btn-save" (click)="saveValueTemperatura()">
+          Guardar
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="CONDUCTIVIDAD">
+      <mat-form-field class="form-field">
+        <input
+          matInput
+          type="number"
+          placeholder="Conductividad"
+          [(ngModel)]="valueConductividad"
+        />
+      </mat-form-field>
+      <div class="boton-container">
+        <button mat-button class="btn-save" (click)="saveValueConductividad()">
+          Guardar
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="NIVEL DEL AGUA">
+      <mat-form-field class="form-field">
+        <input
+          matInput
+          type="number"
+          placeholder="Nivel de Agua"
+          [(ngModel)]="valueNivelAgua"
+        />
+      </mat-form-field>
+      <div class="boton-container">
+        <button mat-button class="btn-save" (click)="saveValueNivelAgua()">
+          Guardar
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="TURBIDEZ">
+      <mat-form-field class="form-field">
+        <input
+          matInput
+          type="number"
+          placeholder="Turbidez"
+          [(ngModel)]="valueTurbidez"
+        />
+      </mat-form-field>
+      <div class="boton-container">
+        <button mat-button class="btn-save" (click)="saveValueTurbidez()">
+          Guardar
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="OXIGENO DISUELTO">
+      <mat-form-field class="form-field">
+        <input
+          matInput
+          type="number"
+          placeholder="Oxígeno Disuelto"
+          [(ngModel)]="valueOxigenoDisuelto"
+        />
+      </mat-form-field>
+      <div class="boton-container">
+        <button
+          mat-button
+          class="btn-save"
+          (click)="saveValueOxigenoDisuelto()"
+        >
+          Guardar
+        </button>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

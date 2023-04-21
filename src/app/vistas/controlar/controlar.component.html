@@ -1,4 +1,24 @@
-<h2>En esta sección puedes controlar las funciones habilitadas para el laboratorio, recuerda: </h2>
+<h2>En esta sección puedes controlar las funciones habilitadas para el laboratorio </h2>
+<h2>Primero debes seleccionar el tipo de comunicación: </h2>
+<div class="container_comunication">
+    <mat-form-field>
+        <mat-label>Seleccionar modo de transmisión</mat-label>
+        <mat-select
+          [(value)]="modoTransmision"
+          (selectionChange)="onConnectionTypeChange()"
+        >
+          <mat-option value="1">Punto a punto</mat-option>
+          <mat-option value="2">Broadcast</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field *ngIf="rtuView">
+        <mat-select placeholder="Selecciona una RTU" [(value)]="rtuValue">
+          <mat-option value="1">RTU 1</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
 <div class="camp">
     <div class="container">
         <div class="section-one">
@@ -6,7 +26,8 @@
             <p>Aquí activiras o desactivaras las alarmas presentes en el laboratorio</p>
         </div>
         <div class="section-two">
-            <mat-slide-toggle></mat-slide-toggle>
+            <button mat-raised-button color="primary" class="btn_report"  (click)="activarAlarma()">Activar</button>
+            <button mat-raised-button color="primary" class="btn_report margin_btn"   (click)="desactivarAlarma()">Desactivar</button>
         </div>
     </div>
     <div class="container">
@@ -15,7 +36,8 @@
             <p>Aquí activiras o desactivaras el proceso de recirculación del agua</p>
         </div>
         <div class="section-two">
-            <mat-slide-toggle class=""></mat-slide-toggle>
+            <button mat-raised-button color="primary" class="btn_report" (click)="activarRecirculacion()">Activar</button>
+            <button mat-raised-button color="primary" class="btn_report margin_btn" (click)="desactivarRecirculacion()">Desactivar</button>
         </div>
     </div>
 </div>
@@ -26,7 +48,8 @@
             <p>Aquí activiras o desactivaras los dispensadores de alimentos</p>
         </div>
         <div class="section-two">
-            <mat-slide-toggle></mat-slide-toggle>
+            <button mat-raised-button color="primary" class="btn_report" (click)="activarAlimentacion()">Activar</button>
+            <button mat-raised-button color="primary" class="btn_report margin_btn" (click)="desactivarAlimentacion()">Desactivar</button>
         </div>
     </div>
     <div class="container">
@@ -35,7 +58,8 @@
             <p>Aquí activiras o desactivaras el oxigeno de los tanques</p>
         </div>
         <div class="section-two">
-            <mat-slide-toggle class=""></mat-slide-toggle>
+            <button mat-raised-button color="primary" class="btn_report" (click)="activarOxigeno()">Activar</button>
+            <button mat-raised-button color="primary" class="btn_report margin_btn" (click)="desactivarOxigeno()">Desactivar</button>
         </div>
     </div>
 </div>

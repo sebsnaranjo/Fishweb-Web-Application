@@ -47,6 +47,7 @@ export class AuthService {
       return true;
     }
   }
+
   getIdUpa(){
     let idupa = sessionStorage.getItem(environment.upaId)||'';
     let upa = this.encrypt.decrypt(idupa).replace(/"/g, '');
@@ -64,6 +65,7 @@ export class AuthService {
     let user = this.encrypt.decrypt(iduser).replace(/"/g, '');
     return user;
   }
+  
   getIdUser2(){
     let iduser = sessionStorage.getItem(environment.userId)||'';
     let users = this.encrypt.decrypt(iduser).replace(/"/g, '');
