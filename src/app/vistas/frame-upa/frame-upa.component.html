@@ -1,0 +1,61 @@
+<div class="table-camp">
+  <div class="tittle">
+    <h2>Valores de la sensorica en la UPA</h2>
+    <br>
+  </div>
+
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8 tabla-gestion"
+  >
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">{{ element.createdAt | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ph">
+        <th mat-header-cell *matHeaderCellDef>PH</th>
+        <td mat-cell *matCellDef="let element">{{ element.Datos.PH }}</td>
+      </ng-container>
+
+    <!-- Locacion Column -->
+    <ng-container matColumnDef="temperatura">
+      <th mat-header-cell *matHeaderCellDef>Temperatura</th>
+      <td mat-cell *matCellDef="let element">{{ element.Datos.Temperatura }}</td>
+    </ng-container>
+
+    <!-- Button Column -->
+    <ng-container matColumnDef="c_electrica">
+      <th mat-header-cell *matHeaderCellDef>Conductividad Electrica</th>
+      <td mat-cell *matCellDef="let element">{{ element.Datos.Conductividad_Electrica }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nivel_agua">
+      <th mat-header-cell *matHeaderCellDef>Nivel Agua</th>
+      <td mat-cell *matCellDef="let element">{{ element.Datos.Nivel_Agua }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="turbidez">
+        <th mat-header-cell *matHeaderCellDef>Turbidez</th>
+        <td mat-cell *matCellDef="let element">{{ element.Datos.Turbidez }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="oxigeno_disuelto">
+        <th mat-header-cell *matHeaderCellDef>Oxigeno Disuelto</th>
+        <td mat-cell *matCellDef="let element">{{ element.Datos.Oxigeno_Disuelto }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 7]"
+    showFirstLastButtons
+    [pageSize]="7"
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>

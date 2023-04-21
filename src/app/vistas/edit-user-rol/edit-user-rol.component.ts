@@ -20,6 +20,7 @@ export class EditUserRolComponent implements OnInit {
 
   dataUser: UserEditI;
   selectedValue: number;
+  idUser: any;
 
   editForm = new FormGroup({
     _id: new FormControl(''),
@@ -31,6 +32,7 @@ export class EditUserRolComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.activerouter.snapshot.paramMap.get('id');
+    this.idUser = id;
     this.managementusers.editUserRol(id).subscribe((data) => {
       this.dataUser = data;
       /* this.editar(this.dataUser); */
