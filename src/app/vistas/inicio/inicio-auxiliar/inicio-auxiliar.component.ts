@@ -17,9 +17,11 @@ export class InicioAuxiliarComponent implements OnInit {
     this.router.navigate(['/controlar'])
   }
 
+  
+
   /* se tiene que redireccionar al chat */
   redireccionar_informar() {
-    this.router.navigate(['/inicio-auxiliar'])
+    this.router.navigate(['/mensaje'])
   }
 
 }

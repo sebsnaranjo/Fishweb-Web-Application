@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MessageService } from 'src/app/servicios/chat.service';
+import { ManagementusersService } from 'src/app/servicios/managementusers.service';
+import { UserI } from 'src/app/modelos/user.interface';
+import { Message } from 'src/app/modelos/message.interface';
 @Component({
   selector: 'app-message-box',
   templateUrl: './message-box.component.html',
@@ -7,22 +10,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageBoxComponent implements OnInit {
 
-  displayedColumns = ['from', 'datetime', 'send'];
-  dataSource = ELEMENT_DATA;
+  
+  selectedChat: Message | null;
 
-  constructor() { }
+  chats: Message[] = [];
+
+
+  constructor(private chatService: MessageService, private userService:ManagementusersService) { }
+
 
   ngOnInit(): void {
+    
+    this.chatService.getChatByUserId().subscribe(
+      (chats) => {
+        this.chats = chats;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    
+  
+}
+
+
+showFullMessage = false;
+
+
+showMessage(chat: Message): void {
+  this.selectedChat = chat;
+  this.showFullMessage = true;
+}
+
+  hideMessage(): void {
+    this.selectedChat = null;
+    this.showFullMessage = false;
   }
 
 
-}
-export interface Element {
-  from: string;
-  datetime: string;
-  send: string;
-}
-const ELEMENT_DATA: Element[] = [
-  {from: 'loperasofi@gmail.com',datetime: '8 de octubre',send:'El vergel'},
 
-];
+}
+
+

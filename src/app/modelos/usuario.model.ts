@@ -5,4 +5,5 @@ export class UsuarioModel{
     lastname: string;
     email: string;
     password: string;
+    upaId: string;
 }

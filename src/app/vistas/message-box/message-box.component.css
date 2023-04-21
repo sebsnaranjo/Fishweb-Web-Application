@@ -1,44 +1,56 @@
-*, *:before, *:after {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
-}
-.titleMessage {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 45px;
-    margin-bottom: 40px;
+.container {
+  background-color: #f2f2f2;
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 700px;
+  height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 10px;
 }
 
-table {
-  width: 60%;
-  margin-left: 300px;
-  margin-bottom: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  }
-  .tittle{
-      font-family: 'DM Sans', sans-serif;
-      font-weight: bold;
-      font-size: 15px;
-    
-  }
-  .infoMessage{
-    font-family: 'DM Sans', sans-serif;
-  }
-  .iconMail{
-      color: grey;
-      margin-right: 5px;
-  }
-  @media screen and (max-width: 960px) {
- 
-    .titleMessage  {
-        font-size: 30px;
-        text-align: center;
-        margin-bottom: 20px;
-        margin-left: 0px;
-    }
+h2 {
+  text-align: center;
+}
+
+.table {
+  margin-bottom: 0;
+  margin-left: 100px;
+}
+
+.btn-success {
+  background-color: green;
+  border-color: green;
+}
+
+.message-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-content {
+  background-color: #fff;
+  padding: 20px;
+  max-width: 600px;
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  word-wrap: break-word;
+}
+
+.message-content h3 {
+  margin-top: 0;
+}
+
+.message-content p {
+  margin-bottom: 0;
 }

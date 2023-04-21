@@ -32,8 +32,11 @@ export class AuthService {
     let rol_encrypt = this.encrypt.encrypt(JSON.stringify(decode.rol.id_rol));
     sessionStorage.setItem(environment.rolId, rol_encrypt);
 
-    let upa_encrypt = this.encrypt.encrypt(JSON.stringify(decode.upa));
-    sessionStorage.setItem(environment.upaId, upa_encrypt);
+    let id_user_encrypt = this.encrypt.encrypt(JSON.stringify(decode.id));
+    sessionStorage.setItem(environment.userId, id_user_encrypt);
+
+    let upa_user_encrypt = this.encrypt.encrypt(JSON.stringify(decode.upa));
+    sessionStorage.setItem(environment.upaId, upa_user_encrypt);
   }
 
   isLoggedIn(): boolean {
@@ -45,16 +48,28 @@ export class AuthService {
     }
   }
 
+  getIdUpa(){
+    let idupa = sessionStorage.getItem(environment.upaId)||'';
+    let upa = this.encrypt.decrypt(idupa).replace(/"/g, '');
+    return upa;
+  }
+
   getIdRol(){
     let idrol = sessionStorage.getItem(environment.rolId)||'';
     let rol = this.encrypt.decrypt(idrol);
     return rol;
   }
 
-  getIdUpa(){
-    let idupa = sessionStorage.getItem(environment.upaId)||'';
-    let upa = this.encrypt.decrypt(idupa).replace(/"/g, '');
-    return upa;
+  getIdUser(){
+    let iduser = sessionStorage.getItem(environment.userId)||'';
+    let user = this.encrypt.decrypt(iduser).replace(/"/g, '');
+    return user;
+  }
+  
+  getIdUser2(){
+    let iduser = sessionStorage.getItem(environment.userId)||'';
+    let users = this.encrypt.decrypt(iduser).replace(/"/g, '');
+    return users;
   }
 
 }

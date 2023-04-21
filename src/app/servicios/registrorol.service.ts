@@ -28,7 +28,8 @@ export class RegistrorolService {
       name: registre.name,
       lastname: registre.lastname,
       email: registre.email,
-      password: registre.password
+      password: registre.password,
+      upaId: registre.upaId
      
     }
    return this.http.post<string>(this.url , userWithRole );

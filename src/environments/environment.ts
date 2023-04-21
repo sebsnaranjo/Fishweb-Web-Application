@@ -10,6 +10,7 @@ export const environment = {
   TOKEN: 'access_token',
   expiration: 'expiresIn',
   rolId: 'rol_id',
+  userId: 'user_id',
   upaId: 'upa_id'
 };
 

@@ -5,6 +5,7 @@ import { RegistrorolService } from 'src/app/servicios/registrorol.service';
 import { UpasService } from 'src/app/servicios/upas.service';
 import { environment } from 'src/environments/environment';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
+import { UpaModel } from 'src/app/modelos/data-table-upa.interface';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,7 +13,8 @@ import Swal from 'sweetalert2';
   templateUrl: './create-upa.component.html',
   styleUrls: ['./create-upa.component.css']
 })
-export class CreateUpaComponent {
+export class CreateUpaComponent implements OnInit{
+  
 
   alerts(){
     Swal.fire({
@@ -33,12 +35,24 @@ export class CreateUpaComponent {
     clave: new FormControl('',[Validators.required, Validators.minLength(7)]),
   });
   }
+
+  upas: UpaModel[] = [];
+  selectedUpa: UpaModel;
+  isDropdownOpen = false;
+
   constructor(
     private UpaService: UpasService,
     private router:Router,
     private AdminUser: RegistrorolService,
     private RegistreService: RegistrorolService
   ) {   this.registreFormGroup = this.createFormGroup(); }
+
+  
+  ngOnInit(): void {
+    this.UpaService.getUPAs().subscribe(data => {
+      this.upas = [];
+    });
+  }
 
   crearUpaF = new FormGroup({
     nameUpa: new FormControl('', Validators.required),
@@ -83,4 +97,23 @@ export class CreateUpaComponent {
     }
    }
 
+   toggleDropdown() {
+    if (!this.isDropdownOpen) {
+      this.UpaService.getUPAs().subscribe(upas => {
+        this.upas = upas;
+        this.isDropdownOpen = true;
+      });
+    } else {
+      this.isDropdownOpen = false;
+    }
+  }
+  
+  selectUpa(upa: UpaModel) {
+    this.selectedUpa = upa;
+    this.isDropdownOpen = false;
+  }
+  
+
 }
+
+

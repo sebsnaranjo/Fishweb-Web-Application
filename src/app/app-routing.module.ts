@@ -13,6 +13,7 @@ import { InicioAdministradorComponent } from './vistas/inicio/inicio-administrad
 import { InicioSuperadminsitradorComponent } from './vistas/inicio/inicio-superadminsitrador/inicio-superadminsitrador.component';
 import { ControlarComponent } from './vistas/controlar/controlar.component';
 import { MensajeComponent } from './vistas/mensaje/mensaje.component';
+import { MessageBoxComponent } from './vistas/message-box/message-box.component';
 import { UsersPermissionComponent } from './vistas/users-permission/users-permission.component';
 import { ReportsComponent } from './vistas/reports/reports.component';
 import { UsersComponent } from './layaouts/users/users.component';
@@ -26,6 +27,8 @@ import { MessageGuard } from './guardianes/message.guard';
 import { ReportsGuard } from './guardianes/reports.guard';
 import { VariableSettingGuard } from './guardianes/variable-setting.guard';
 import { InfoUpaComponent } from './vistas/info-upa/info-upa.component';
+import { UsersProfileComponent } from './vistas/users-profile/users-profile.component';
+
 
 const routes: Routes = [
   {
@@ -43,10 +46,12 @@ const routes: Routes = [
       { path: 'registro', canActivate: [RegistreGuard], component: RolregistreComponent },
       { path: 'gestionar-usuarios', canActivate: [ManageUsersGuard], component: GestionarUsuariosComponent },
       { path: 'edit-rol/:id', canActivate: [ManageUsersGuard], component: EditUserRolComponent },
+      { path: 'perfil', canActivate: [ManageUsersGuard], component: UsersProfileComponent},
       { path: 'crear-upa', canActivate: [CreateUpaGuard], component: CreateUpaComponent },
       { path: 'informacion-upa/:id', canActivate: [CreateUpaGuard], component: InfoUpaComponent},
       { path: 'controlar', canActivate: [ControlGuard], component: ControlarComponent },
       { path: 'mensaje', canActivate: [MessageGuard], component: MensajeComponent },
+      { path: 'mensajes', canActivate: [MessageGuard], component: MessageBoxComponent },
       { path: 'ajuste-variables', canActivate: [VariableSettingGuard], component: AjustesVariablesComponent},
       { path: 'reportes', canActivate: [ReportsGuard], component: ReportsComponent},
       /* { path: 'permiso-usuarios', component: UsersPermissionComponent }, */
