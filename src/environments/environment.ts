@@ -9,7 +9,9 @@ export const environment = {
   //llave para acceder al token
   TOKEN: 'access_token',
   expiration: 'expiresIn',
-  rolId: 'rol_id'
+  rolId: 'rol_id',
+  userId: 'user_id',
+  upaId: 'upa_id'
 };
 
 /*

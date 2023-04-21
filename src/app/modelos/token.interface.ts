@@ -14,9 +14,11 @@ export interface TokenI {
 }
 
 export interface TokenDecodeI {
+  id: string;
   name: string;
   lastname: string;
   email: string;
+  upa: string;
   iat: number;
   exp: number;
   rol: {

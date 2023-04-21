@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/modelos/user.interface';
+import { UserI } from 'src/app/modelos/user.interface';
 import { ManagementusersService } from 'src/app/servicios/managementusers.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserChange } from 'src/app/modelos/userChange.interface';
@@ -17,12 +17,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'; */
 })
 export class UsersPermissionComponent implements OnInit {
 
-  ELEMENT_DATA: User[];
+  ELEMENT_DATA: UserI[];
   displayedColumns: string[] = [
     'nombre',
     'button',
   ];
-  dataSource = new MatTableDataSource<User>();
+  dataSource = new MatTableDataSource<UserI>();
 
   constructor(
     private managmentUser: ManagementusersService,

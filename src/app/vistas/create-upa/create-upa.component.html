@@ -6,62 +6,70 @@
                 <input matInput placeholder="Nombre para la UPA" formControlName="nameUpa" required
                     class="registreCamp form-control">
             </div>
+
             <div class="form-group">
-                <textarea class="form-control" placeholder="Descripcion" id="exampleTextarea" formControlName="descript" rows="3"></textarea>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+                      {{ selectedUpa ? selectedUpa.name : 'Selecciona una UPA' }}
+                    </button>
+                    <div class="dropdown-menu" [class.show]="isDropdownOpen">
+                      <a class="dropdown-item" *ngFor="let upa of upas" (click)="selectUpa(upa)">{{ upa.name }}</a>
+                    </div>
+                  </div>
+                  
             </div>
             <div class="form-group">
-                <input matInput placeholder="Cantidad de actividades" formControlName="numberAct" required
+                <input matInput placeholder="Localización" formControlName="numberAct" required
                     class="registreCamp form-control">
-            </div>
-       
-        <h1 class="titleRegistre"> Administrador Inicial </h1>
-        <form [formGroup]="registreFormGroup" >
-            
-           
-            <div class="form-group">
-                <input formControlName="rolid" matInput placeholder="Rol" class="registreCamp form-control">
-                <mat-error class="error" *ngIf="registreFormGroup.controls.rolid.hasError('required')">
-                    Este campo es<strong> obligatorio</strong>
-                </mat-error>
-            </div>
-            <div class="form-group">
-                <input formControlName="nombre" matInput placeholder="Nombre"
-                    class="registreCamp form-control">
-                <mat-error class="error" *ngIf="registreFormGroup.controls.nombre.hasError('required')">
-                    Este campo es<strong> obligatorio</strong>
-                </mat-error>
-            </div>
-            <div class="form-group">
-                <input formControlName="apellido" matInput placeholder="Apellido"
-                    class="registreCamp form-control">
-                <mat-error class="error" *ngIf="registreFormGroup.controls.apellido.hasError('required')">
-                    Este campo es<strong> obligatorio</strong>
-                </mat-error>
-            </div>
-            <div class="form-group">
-                <input formControlName="email" matInput placeholder="Correo Electronico"
-                    class="registreCamp form-control">
-                <mat-error class="error" *ngIf="registreFormGroup.controls.email.hasError('required')">
-                    Este campo es<strong> obligatorio</strong>
-                </mat-error>
-            </div>
-            <div class="form-group">
-                <input formControlName="clave" type="password" matInput placeholder="Contraseña"
-                    class="registreCamp form-control">
-                <mat-error class="error" *ngIf="registreFormGroup.controls.clave.hasError('required')">
-                    Este campo es<strong> obligatorio</strong>
-                </mat-error>
-                <mat-error class="error" *ngIf="registreFormGroup.controls.clave.hasError('minlength')">
-                    Debe tener como mínimo 7 caracteres
-                </mat-error>
             </div>
 
-            <div class="form-group form-group-btn-send">
-                <button (click)="registre()"  (click)="createUPA(crearUpaF.value)"mat-raised-button id="basic" type="submit" class="btn_send btn btn-outline-dark">Crear</button>
-            </div>
-        
+            <h1 class="titleRegistre"> Administrador Inicial </h1>
+            <form [formGroup]="registreFormGroup">
+
+
+                <div class="form-group">
+                    <input formControlName="rolid" matInput placeholder="Rol" class="registreCamp form-control">
+                    <mat-error class="error" *ngIf="registreFormGroup.controls.rolid.hasError('required')">
+                        Este campo es<strong> obligatorio</strong>
+                    </mat-error>
+                </div>
+                <div class="form-group">
+                    <input formControlName="nombre" matInput placeholder="Nombre" class="registreCamp form-control">
+                    <mat-error class="error" *ngIf="registreFormGroup.controls.nombre.hasError('required')">
+                        Este campo es<strong> obligatorio</strong>
+                    </mat-error>
+                </div>
+                <div class="form-group">
+                    <input formControlName="apellido" matInput placeholder="Apellido" class="registreCamp form-control">
+                    <mat-error class="error" *ngIf="registreFormGroup.controls.apellido.hasError('required')">
+                        Este campo es<strong> obligatorio</strong>
+                    </mat-error>
+                </div>
+                <div class="form-group">
+                    <input formControlName="email" matInput placeholder="Correo Electronico"
+                        class="registreCamp form-control">
+                    <mat-error class="error" *ngIf="registreFormGroup.controls.email.hasError('required')">
+                        Este campo es<strong> obligatorio</strong>
+                    </mat-error>
+                </div>
+                <div class="form-group">
+                    <input formControlName="clave" type="password" matInput placeholder="Contraseña"
+                        class="registreCamp form-control">
+                    <mat-error class="error" *ngIf="registreFormGroup.controls.clave.hasError('required')">
+                        Este campo es<strong> obligatorio</strong>
+                    </mat-error>
+                    <mat-error class="error" *ngIf="registreFormGroup.controls.clave.hasError('minlength')">
+                        Debe tener como mínimo 7 caracteres
+                    </mat-error>
+                </div>
+
+                <div class="form-group form-group-btn-send">
+                    <button (click)="registre()" (click)="createUPA(crearUpaF.value)" mat-raised-button id="basic"
+                        type="submit" class="btn_send btn btn-outline-dark">Crear</button>
+                </div>
+
+            </form>
         </form>
-    </form>
     </div>
 </div>
 

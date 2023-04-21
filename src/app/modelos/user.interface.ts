@@ -8,12 +8,16 @@
     fullName: string,
 } */
 
-export interface User {
+export interface UserI {
     _id: string,
     name: string,
     lastname: string,
     password: string,
+    email:string,
     roles: string,
+    upaId: string
 }
 
-export interface CreateUserDTO extends Omit<User, 'id'> {}
+  
+
+export interface CreateUserDTO extends Omit<UserI, 'id'> {}

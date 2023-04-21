@@ -1,24 +1,36 @@
-<h2 class="titleMessage"> Estos son tus mensajes </h2>
-<div class ="messageContent"> 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
-          <ng-container matColumnDef="from">
-            <mat-header-cell class="tittle" *matHeaderCellDef> Mensaje de </mat-header-cell>
-            <mat-cell *matCellDef="let element"><mat-icon class="iconMail">mail</mat-icon> {{element.from}} </mat-cell>
-          </ng-container>
-    
-          <ng-container matColumnDef="datetime">
-            <mat-header-cell class="tittle" *matHeaderCellDef> Fecha y hora </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.datetime}} </mat-cell>
-          </ng-container>
-      
-          <ng-container matColumnDef="send">
-            <mat-header-cell class="tittle" *matHeaderCellDef> Enviado desde </mat-header-cell>
-            <mat-cell class="infoMessage" *matCellDef="let element"> {{element.send}} </mat-cell>
-          </ng-container>
-    
-          <mat-header-row  *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </table>
-      
+<div class="container">
+  <h2>Mensajes</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Asunto</th>
+        <th>Mensaje</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let chat of chats">
+        <td>{{ chat.from }}</td>
+        <td>{{ chat.subject }}</td>
+        <td>
+          <button class="btn btn-success" (click)="showMessage(chat)">Ver mensaje completo</button>
+          <div *ngIf="showFullMessage && selectedChat === chat" class="message-popup">
+            <div class="message-content">
+              <p>{{ selectedChat.message }}</p>
+              <button class="btn btn-secondary" (click)="hideMessage()">Cerrar</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+
+
+
+
+
+
+ 

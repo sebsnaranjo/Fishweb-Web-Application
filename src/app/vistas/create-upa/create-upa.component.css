@@ -198,6 +198,12 @@ h2{
     justify-content: center;
     text-align: center;
   }
+  .dropdown-menu {
+    background-color: white;
+    text-align: center;
+    width: 30px;
+  }
+  
   
   .btn-outline-dark{
   

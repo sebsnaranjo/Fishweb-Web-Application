@@ -1,40 +1,26 @@
-<h1 class="title">Bienvenido a tu perfil</h1>
 <div class="container">
- 
-    <div class="profile">
-      <div class="profile-picture">
-        <i class="fas fa-user-circle"></i>
-      </div>
-      <form class="profile-form">
-        <div class="form-group">
-          <label for="name">Nombre:</label>
-          <input type="text" id="name" name="name">
-        </div>
-        <div class="form-group">
-          <label for="email">Correo:</label>
-          <input type="email" id="email" name="email">
-        </div>
-        <div class="form-group">
-          <label for="password">Contraseña:</label>
-          <input type="password" id="password" name="password">
-        </div>
-        <div class="form-group">
-          <label for="role">Rol:</label>
-          <select id="role" name="role">
-            <option value="user">Usuario</option>
-            <option value="admin">Administrador</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="location">Ubicación:</label>
-          <input type="text" id="location" name="location">
-        </div>
-        <button type="submit" class="btn-save">Editar</button>
-      </form>
-     
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <i class="fa fa-user-circle fa-5x"></i>
     </div>
-   
+    <div class="col-md-8">
+      <div class="form-group">
+        <label for="fullName">Nombre completo:</label>
+        <input id="fullName" type="text" class="form-control" [value]="user?.fullName" readonly>
+      </div>
+      <div class="form-group">
+        <label for="email">Correo electrónico:</label>
+        <input id="email" type="email" class="form-control" [value]="user?.email" readonly>
+      </div>
+      <div class="form-group">
+        <label for="upa">UPA:</label>
+        <input id="upa" type="text" class="form-control" [value]="upa.name" readonly>
+      </div>
+      <div class="form-group">
+        <label for="upa">LOCATION:</label>
+        <input id="upa" type="text" class="form-control" [value]="upa.location.name" readonly>
+      </div>
+    </div>
   </div>
-  <div class="container-btn">
-  <button class="btn-logout">Cerrar sesión</button>
 </div>
+

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { User } from 'src/app/modelos/user.interface';
+import { UserI } from 'src/app/modelos/user.interface';
 import { ManagementusersService } from 'src/app/servicios/managementusers.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserChange } from 'src/app/modelos/userChange.interface';
@@ -18,14 +18,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'; */
 })
 export class GestionarUsuariosComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  ELEMENT_DATA: User[];
+  ELEMENT_DATA: UserI[];
   displayedColumns: string[] = [
     'nombre',
     'apellido',
     'roles',
     'button',
   ];
-  dataSource = new MatTableDataSource<User>();
+  dataSource = new MatTableDataSource<UserI>();
 
   constructor(
     private managmentUser: ManagementusersService,
@@ -71,7 +71,7 @@ export class GestionarUsuariosComponent implements OnInit, AfterViewInit {
       console.log(data);
     })
     let resp = this.managmentUser.getAll();
-    resp.subscribe((report) => (this.dataSource.data = report as User[]));
+    resp.subscribe((report) => (this.dataSource.data = report as UserI[]));
   }
 
 /*   public change(): void {

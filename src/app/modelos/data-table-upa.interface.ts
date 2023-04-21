@@ -9,7 +9,7 @@ export interface DataTableUpa {
 }
 
 export interface UpaModel {
-    id: string,
+    _id: string,
     name: string
     location: string
 }

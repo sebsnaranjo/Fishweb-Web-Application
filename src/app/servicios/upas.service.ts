@@ -2,18 +2,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UpaModel } from '../modelos/data-table-upa.interface';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UpasService {
 
+  upaId : string = this.authService.getIdUpa();
+
   headers = new HttpHeaders().set("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));
   private apiUrl = '/api/upas/crear';
   private apiGet = '/api/upa/getupa'
+  private upaUrl = '/api/upa/upaName'
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) { 
     this.headers.append("Content-Type", "application/json");
     this.headers.append("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));
@@ -24,6 +29,13 @@ export class UpasService {
   }
 
   getUPAs()  {
-    return this.http.get<UpaModel>(this.apiGet)
+    return this.http.get<UpaModel[]>(this.apiGet)
   }
-}
+  
+  getNameUpaById(){
+
+    return this.http.get<any>(`${this.upaUrl}/${this.upaId}`);
+    
+  }
+  }
+
