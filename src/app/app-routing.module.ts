@@ -47,7 +47,7 @@ const routes: Routes = [
       { path: 'registro', canActivate: [RegistreGuard], component: RolregistreComponent },
       { path: 'gestionar-usuarios', canActivate: [ManageUsersGuard], component: GestionarUsuariosComponent },
       { path: 'edit-rol/:id', canActivate: [ManageUsersGuard], component: EditUserRolComponent },
-      { path: 'perfil', canActivate: [ManageUsersGuard], component: UsersProfileComponent},
+      { path: 'perfil', component: UsersProfileComponent},
       { path: 'olvido-clave', component: ForgotPasswordComponent},
       { path: 'restaurar-clave/:token', component: ResetPasswordComponent},
       { path: 'crear-upa', canActivate: [CreateUpaGuard], component: CreateUpaComponent },
