@@ -35,8 +35,11 @@ export class AuthService {
     let id_user_encrypt = this.encrypt.encrypt(JSON.stringify(decode.id));
     sessionStorage.setItem(environment.userId, id_user_encrypt);
 
-    let upa_user_encrypt = this.encrypt.encrypt(JSON.stringify(decode.upa));
-    sessionStorage.setItem(environment.upaId, upa_user_encrypt);
+    let upa_encrypt = this.encrypt.encrypt(JSON.stringify(decode.upa));
+    sessionStorage.setItem(environment.upaId, upa_encrypt);
+
+    let email_encrypt = this.encrypt.encrypt(JSON.stringify(decode.email));
+    sessionStorage.setItem(environment.email, email_encrypt);
   }
 
   isLoggedIn(): boolean {
@@ -65,11 +68,12 @@ export class AuthService {
     let user = this.encrypt.decrypt(iduser).replace(/"/g, '');
     return user;
   }
-  
-  getIdUser2(){
-    let iduser = sessionStorage.getItem(environment.userId)||'';
-    let users = this.encrypt.decrypt(iduser).replace(/"/g, '');
-    return users;
+
+  getEmailUser(){
+    let emailUser = sessionStorage.getItem(environment.email)||'';
+    let email = this.encrypt.decrypt(emailUser).replace(/"/g, '');
+    return email;
   }
+ 
 
 }

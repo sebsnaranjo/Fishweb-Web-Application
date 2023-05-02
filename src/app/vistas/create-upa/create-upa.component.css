@@ -102,14 +102,16 @@ h1 .text_info{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -50px;
+    margin-top: -100px;
+
 }
 
 .mailbox{
-    margin: 100px auto 100px auto;
+    margin: 200px auto 200px auto;
     width: 550px;
-    height: auto;
+    height: 400px;
     border-radius: 40px;
+
 }
 
 .mailbox h1 {

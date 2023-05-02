@@ -7,114 +7,63 @@ import { environment } from 'src/environments/environment';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { UpaModel } from 'src/app/modelos/data-table-upa.interface';
 import Swal from 'sweetalert2';
+import { UpaModels } from 'src/app/modelos/upa.model';
 
 @Component({
   selector: 'app-create-upa',
   templateUrl: './create-upa.component.html',
   styleUrls: ['./create-upa.component.css']
 })
-export class CreateUpaComponent implements OnInit{
+export class CreateUpaComponent {
   
+registreUpaFormGroup: FormGroup;
 
-  alerts(){
-    Swal.fire({
-      title: 'Registro exitoso',
-      text: 'El registro se hizo con exito',
-      icon: 'success'
-    });
-  }
-
-  registreFormGroup: FormGroup;
-
-  createFormGroup(){
-    return new FormGroup({
-    rolid: new FormControl('',[Validators.required]),
-    nombre: new FormControl('',[Validators.required]),
-    apellido: new FormControl('',[Validators.required]),
-    email: new FormControl('',[Validators.required, Validators.email]),
-    clave: new FormControl('',[Validators.required, Validators.minLength(7)]),
-    
+createGroup(){
+  return new FormGroup({
+    name: new FormControl('',[Validators.required]),
+    location: new FormControl('',[Validators.required]),
   });
-  }
+}
 
-  upas: UpaModel[] = [];
-  selectedUpa: UpaModel;
-  isDropdownOpen = false;
+  constructor(private upaService: UpasService) {
+    this.registreUpaFormGroup = this.createGroup();
+    }
 
-  constructor(
-    private UpaService: UpasService,
-    private router:Router,
-    private AdminUser: RegistrorolService,
-    private RegistreService: RegistrorolService
-  ) {   this.registreFormGroup = this.createFormGroup(); }
-
-  
-  ngOnInit(): void {
-    this.UpaService.getUPAs().subscribe(data => {
-      this.upas = [];
-    });
-  }
-
-  crearUpaF = new FormGroup({
-    nameUpa: new FormControl('', Validators.required),
-    descript: new FormControl('', Validators.required),
-    numberAct: new FormControl('', Validators.required),
-    id: new FormControl('', Validators.required),
-    nameAdmin: new FormControl('', Validators.required),
-    lastname: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
-  });
-
-  async createUPA(values) {
-    this.UpaService.crearUpa(values.nameUpa, values.descript, values.numberAct).subscribe( (data) => {
-      console.log(data);
-      this.alerts();
-      //this.router.navigate(['inicio'])
-    })
-    //registro administrador
-  }
   
   registre(){
-    if (this.registreFormGroup.valid){
-      var model = new UsuarioModel()
-      model.roles = this.registreFormGroup.controls["rolid"].value;
-      model.name = this.registreFormGroup.controls["nombre"].value;
-      model.lastname = this.registreFormGroup.controls["apellido"].value;
-      model.email = this.registreFormGroup.controls["email"].value;
-      model.password = this.registreFormGroup.controls["clave"].value;
+    if (this.registreUpaFormGroup.valid){
+      var model = new UpaModels()
+        model.name = this.registreUpaFormGroup.controls["name"].value;
+        model.location = this.registreUpaFormGroup.controls["location"].value ;
+
+        
+
+
+        this.upaService.crearUpa(model).subscribe(
+          data => {
+            Swal.fire({
+              title: 'Registro exitoso',
+              text: 'El registro se hizo con exito',
+              icon: 'success'
+            });
+          },
+          err => { 
+            Swal.fire({
+              title: 'Registro fallo',
+              text: 'El registro no se pudo realizar',
+              icon: 'error'
+            });} )
+
+        }
+    }
+  
+  }
+
  
-      this.RegistreService.RegisterRol(model).subscribe(
-        data => { 
-          this.alerts();  }, 
-      err => { 
-        } )
-    }else{
-       Swal.fire({
-      title: 'Formulario Invalido',
-      text: 'El registro no se pudo realizar',
-      icon: 'error'
-    });
-    }
-   }
-
-   toggleDropdown() {
-    if (!this.isDropdownOpen) {
-      this.UpaService.getUPAs().subscribe(upas => {
-        this.upas = upas;
-        this.isDropdownOpen = true;
-      });
-    } else {
-      this.isDropdownOpen = false;
-    }
-  }
   
-  selectUpa(upa: UpaModel) {
-    this.selectedUpa = upa;
-    this.isDropdownOpen = false;
-  }
+  
   
 
-}
+
 
 

@@ -1,7 +1,9 @@
 export interface UsuarioProfile {
-    fullName: string;
-    email: string;
-    upa: string;
+
+    fullName: string,
+    email: string,
+    upa: string
+  
   }
 
 

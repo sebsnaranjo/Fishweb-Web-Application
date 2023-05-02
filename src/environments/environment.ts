@@ -11,7 +11,8 @@ export const environment = {
   expiration: 'expiresIn',
   rolId: 'rol_id',
   userId: 'user_id',
-  upaId: 'upa_id'
+  upaId: 'upa_id',
+  email: 'email_user'
 };
 
 /*

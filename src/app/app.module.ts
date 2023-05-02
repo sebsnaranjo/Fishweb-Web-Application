@@ -53,6 +53,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { UsersProfileComponent } from './vistas/users-profile/users-profile.component';
 import { NotificationsComponent } from './vistas/notifications/notifications.component';
 import { FrameUpaComponent } from './vistas/frame-upa/frame-upa.component';
+import { ForgotPasswordComponent } from './vistas/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './vistas/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -86,7 +88,9 @@ import { FrameUpaComponent } from './vistas/frame-upa/frame-upa.component';
     InfoUpaComponent,
     UsersProfileComponent,
     NotificationsComponent,
-    FrameUpaComponent
+    FrameUpaComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
