@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TableFrame } from 'src/app/modelos/data-table-upa.interface';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { FrameService } from 'src/app/servicios/frame.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
@@ -15,18 +17,36 @@ export class ControlarComponent implements OnInit {
   rtuView: boolean = false;
   typeComValue: number;
 
+  idRol: number = this.authService.getIdRol();
+  idUpa: string = this.authService.getIdUpa();
+  idUpaParametrer: any;
+
   lastFrame: TableFrame;
 
-  constructor(private frameService: FrameService) { }
+  constructor(
+    private frameService: FrameService,
+    private authService: AuthService,
+    private activerouter: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
+    this.idUpaParametrer = this.activerouter.snapshot.paramMap.get('id');
     this.getFrame();
+    if(this.idRol === 1){
+      this.lastFrame.NombreUpa = this.idUpa;
+    }
   }
 
   getFrame() {
-    this.frameService.getlastFrameByUpa().subscribe((data) => {
-      this.lastFrame = data;
-    })
+    if(this.idRol === 1){
+      this.frameService.getlastFrameByUpaAdmin(this.idUpaParametrer).subscribe((data) => {
+        this.lastFrame = data;
+      })
+    } else {
+      this.frameService.getlastFrameByUpa().subscribe((data) => {
+        this.lastFrame = data;
+      })
+    }
   }
 
   onConnectionTypeChange() {

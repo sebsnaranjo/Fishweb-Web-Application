@@ -38,6 +38,10 @@ export class FrameService {
     return this.http.get<TableFrame>(`${this.getLastFrameUpaUrl}/${this.idUpaUser}`);
   }
 
+  getlastFrameByUpaAdmin(id: string): Observable<TableFrame> {
+    return this.http.get<TableFrame>(`${this.getLastFrameUpaUrl}/${id}`);
+  }
+
   getAllFrameByUpa(): Observable<TableFrame[]> {
     return this.http.get<TableFrame[]>(`${this.getAllFrameUpaUrl}/${this.idUpaUser}`);
   }
