@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UpaModel } from '../modelos/data-table-upa.interface';
+import { UpaModels } from '../modelos/upa.model';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -12,11 +13,12 @@ export class UpasService {
   upaId : string = this.authService.getIdUpa();
 
   headers = new HttpHeaders().set("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));
-  private apiUrl = '/api/upas/crear';
+  private apiUrl = '/api/upa/createUpa';
   private apiGet = '/api/upa/getupa'
   private upaUrl = '/api/upa/upaName'
   private getUsers = '/api/upa/userby';
   private getFrames = '/api/upa/frameby';
+  private emailUrl = '/api/upa/enviarMail';
 
   constructor(
     private http: HttpClient,
@@ -26,8 +28,12 @@ export class UpasService {
     this.headers.append("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));
   }
 
-  crearUpa(nombre: string, descripcion: string, cantidadactividades: number){
-    return this.http.post<string>(this.apiUrl, {nombre, descripcion, cantidadactividades}, {headers: this.headers});
+  crearUpa(create: UpaModels){
+    const upaCreate = {
+      name: create.name,
+      location: create.location
+    }
+    return this.http.post<string>(this.apiUrl, {name: upaCreate.name, location: {name: upaCreate.location}});
   }
 
   getUPAs()  {
@@ -48,6 +54,10 @@ export class UpasService {
   //Obtiene los tramas(JSON) vinculados a una UPA
   getFrameUPA(id: string) {
     return this.http.get(`${this.getFrames}/${id}`);
+  }
+
+  sendWarningEmail(emailData: {email: string, message: string}) {
+    return this.http.post(this.emailUrl, emailData);
   }
 
 }

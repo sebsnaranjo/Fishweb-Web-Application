@@ -12,8 +12,8 @@ import { UpasService } from 'src/app/servicios/upas.service';
 })
 export class UsersProfileComponent implements OnInit {
 
-  user: UsuarioProfile;
-  upa: any;
+  user:UsuarioProfile;
+  upa: any = {};
 
 
   constructor(private userService: UsersService, private upaService: UpasService) {}
@@ -22,7 +22,12 @@ ngOnInit(): void {
     
   this.userService.getUserbyId().subscribe(
     (response) => {
-      this.user = response.userResponse;
+      console.log(response); // Verifica la respuesta en la consola
+      this.user = {
+        fullName: response.userResponse.fullName,
+        email: response.userResponse.email,
+        upa: response.userResponse.upa
+      };
     },
     (error) => {
       console.log(error);
