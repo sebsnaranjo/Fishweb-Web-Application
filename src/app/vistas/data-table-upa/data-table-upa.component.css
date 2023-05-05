@@ -1,6 +1,13 @@
+.title-upa{
+  margin-top: 40px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
 .filter {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 mat-form-field {

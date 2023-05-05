@@ -19,6 +19,7 @@ export class UpasService {
   private getUsers = '/api/upa/userby';
   private getFrames = '/api/upa/frameby';
   private emailUrl = '/api/upa/enviarMail';
+  private getUpaId = '/api/upa/'
 
   constructor(
     private http: HttpClient,
@@ -54,6 +55,11 @@ export class UpasService {
   //Obtiene los tramas(JSON) vinculados a una UPA
   getFrameUPA(id: string) {
     return this.http.get(`${this.getFrames}/${id}`);
+  }
+
+  //Obtiene la UPA vinculada al id
+  getUpaById(id: string){
+    return this.http.get(`${this.getUpaId}/${id}`);
   }
 
   sendWarningEmail(emailData: {email: string, message: string}) {

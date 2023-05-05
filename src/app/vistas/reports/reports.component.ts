@@ -3,15 +3,26 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FrameService } from 'src/app/servicios/frame.service';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import {
-  Chart,
-  ChartConfiguration,
-  ChartEvent,
-  ChartItem,
-  ChartType,
-} from 'chart.js';
+import { Chart, ChartConfiguration, ChartEvent, ChartItem, ChartType } from 'chart.js';
 import { default as Annotation } from 'chartjs-plugin-annotation';
 import { BaseChartDirective } from 'ng2-charts';
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import pdfFonts from "pdfmake/build/vfs_fonts";
+import { AuthService } from 'src/app/servicios/auth.service';
+import { UpasService } from 'src/app/servicios/upas.service';
+
+PdfMakeWrapper.setFonts(pdfFonts);
+
+interface DataResponse {
+  fecha: string;
+  PH: string;
+  Temperatura: string;
+  Turbidez: string;
+  Nivel_Agua: string;
+  Oxigeno_Disuelto: string;
+}
+
+type TableRow = (string)[];
 
 @Component({
   selector: 'app-reports',
@@ -19,6 +30,7 @@ import { BaseChartDirective } from 'ng2-charts';
   styleUrls: ['./reports.component.css'],
 })
 export class ReportsComponent implements OnInit {
+
   pHSelected: boolean = false;
   temperaturaSelected: boolean;
   nivelAguaSelected: boolean;
@@ -44,17 +56,22 @@ export class ReportsComponent implements OnInit {
 
   datos = [];
 
-/*   public Huys: any = [];
-  public phsData: number[] = [];
-  public datesCollection: string[] = []; */
+  idUpa: string;
+  nombreUpa: string;
+
+  rolUser: any;
+
+  upas: any[] = [];
+  selectedUpaId: string;
+  nombreUpaUser: string;
 
   constructor(
     private http: HttpClient,
     private frameService: FrameService,
-    private sanitizer: DomSanitizer
-  ) {
-    Chart.register(Annotation);
-  }
+    private sanitizer: DomSanitizer,
+    private authService: AuthService,
+    private upasService: UpasService
+  ) { Chart.register(Annotation); }
 
   public Huys: any[] = [];
   public phsData: number[] = [];
@@ -63,6 +80,17 @@ export class ReportsComponent implements OnInit {
   ngOnInit(): void {
     this.panelOpenState = false;
     console.log(this.panelOpenState);
+
+    this.idUpa = this.authService.getIdUpa();
+
+    this.upasService.getUpaById(this.idUpa).subscribe((data:any) => {
+      this.nombreUpa = data.name;
+    })
+
+    this.rolUser = this.authService.getIdRol();
+    console.log("ROL", this.rolUser)
+
+    this.getUPAs();
   }
 
   onDateRangeChange(event: any) {
@@ -75,9 +103,9 @@ export class ReportsComponent implements OnInit {
     this.fechaFinGraph = event.value.end;
   }
 
-  /* Metodo que se encarga de generar los reportes */
+  /* Metodo que se encarga de generar los reportes (Ya no se usa) */
 
-  generateReport() {
+/*   generateReport() {
     const datos = {
       fechaInicio: this.fechaInicio.toISOString(),
       fechaFin: this.fechaFin.toISOString(),
@@ -107,13 +135,34 @@ export class ReportsComponent implements OnInit {
       const url = window.URL.createObjectURL(blob);
       this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     });
+  } */
+
+  /**
+  * Metodo que se encargar de generar la grafica
+  */
+  getUPAs() {
+    this.upasService.getUPAs().subscribe(data => {
+      console.log("UPAS", data)
+      this.upas = data;
+    })
   }
 
   generateGraph() {
+
+    if(this.rolUser == '1'){
+      this.nombreUpaUser = this.selectedUpaId;
+      this.upasService.getUpaById(this.selectedUpaId).subscribe((data:any) => {
+        this.nombreUpa = data.name;
+      })
+    } else {
+      this.nombreUpaUser = this.idUpa;
+    }
+
     const datos = {
       fechaInicio: this.fechaInicio.toISOString(),
       fechaFin: this.fechaFin.toISOString(),
       variables: [] as string[],
+      nombreUpa: this.nombreUpaUser
     };
   
     if (this.selected !== 'Ninguna') {
@@ -262,4 +311,169 @@ export class ReportsComponent implements OnInit {
 
     this.chart?.update();
   }
+
+  /**
+  * Metodo que se encargar de generar el PDF
+  */
+
+  async generate() {
+
+    if(this.rolUser == '1'){
+      this.nombreUpaUser = this.selectedUpaId;
+      this.upasService.getUpaById(this.selectedUpaId).subscribe((data:any) => {
+        this.nombreUpa = data.name;
+      })
+    } else {
+      this.nombreUpaUser = this.idUpa;
+    }
+    
+    const datos = {
+      fechaInicio: this.fechaInicio.toISOString(),
+      fechaFin: this.fechaFin.toISOString(),
+      variables: [] as string[],
+      nombreUpa: this.nombreUpaUser
+    };
+
+    if (this.pHSelected) {
+      datos.variables.push('PH');
+    }
+    if (this.temperaturaSelected) {
+      datos.variables.push('Temperatura');
+    }
+    if (this.nivelAguaSelected) {
+      datos.variables.push('Nivel_Agua');
+    }
+    if (this.turbidezSelected) {
+      datos.variables.push('Turbidez');
+    }
+    if (this.oxigenoDisueltoSelected) {
+      datos.variables.push('Oxigeno_Disuelto');
+    }
+
+    const pdf = new PdfMakeWrapper();
+    const data = await this.fetchData();
+
+    pdf.pageSize('A4'); // Establece el tamaño de la página
+    pdf.pageMargins([40, 60, 40, 60]); // Establece los márgenes de la página: [izquierda, superior, derecha, inferior]
+
+    // Obtener la fecha actual
+    const currentDate = new Date();
+
+    // Formatear la fecha como 'AAAA-MM-DD'
+    const formattedDate = currentDate.toISOString().slice(0, 10);
+
+    pdf.add([
+      {
+        text: `Fecha del reporte: ${formattedDate}`,
+        bold: false,
+        fontSize: 10,
+        alignment: 'right',
+      }
+    ]);
+
+    pdf.add([
+      {
+        text: 'REPORTE DE VARIABLES',
+        bold: true,
+        fontSize: 20,
+        alignment: 'center',
+        margin: [0, 20, 0, 20], // Agrega un margen inferior para separar el título de la tabla
+      }
+    ]);
+
+    pdf.add([
+      {
+        text: `Este informe corresponde a la UPA: ${this.nombreUpa}`,
+        bold: false,
+        fontSize: 16,
+        alignment: 'center',
+        margin: [0, 0, 0, 25], // Agrega un margen inferior para separar el título de la tabla
+      }
+    ]);
+
+    // Crear una cadena de texto con las variables seleccionadas, separadas por comas
+    const selectedVariablesText = datos.variables.join(', ');
+
+    // Crear una cadena de texto con las fechas de inicio y fin
+    const dateRangeText = `${datos.fechaInicio.slice(0, 10)} - ${datos.fechaFin.slice(0, 10)}`;
+
+    pdf.add([
+      {
+        text: `En la siguiente tabla se evidencia el valor de las variables seleccionadas (${selectedVariablesText}) en el rango de fechas establecido (${dateRangeText})`,
+        bold: false,
+        fontSize: 13,
+        alignment: 'left',
+        margin: [10, 0, 0, 25], // Agrega un margen inferior para separar el texto de la tabla
+      }
+    ]);
+  
+    pdf.add(this.createTable(data, datos.variables));
+  
+    pdf.create().open();
+  }
+
+  createTable(data: DataResponse[], selectedVariables: string[]): any {
+    const headers = ['Fecha', ...selectedVariables];
+    const tableBody = [headers, ...this.extractData(data, selectedVariables)];
+    const numColumns = headers.length;
+    const columnWidth = (100 / numColumns) + '%'; // Establece el ancho de las columnas en porcentaje
+    const columnWidths = Array(numColumns).fill(columnWidth); // Crea un array con el ancho de cada columna
+  
+    return {
+      table: {
+        widths: columnWidths, // Agrega los anchos de las columnas
+        headerRows: 1,
+        body: tableBody,
+      },
+    };
+  }
+
+  extractData(data: DataResponse[], selectedVariables: string[]): TableRow[] {
+    return data.map((row) =>
+      [row.fecha, ...selectedVariables.map((variable) => row[variable])],
+    );
+  }
+
+  async fetchData(): Promise<DataResponse[]> {
+
+    if(this.rolUser == '1'){
+      this.nombreUpaUser = this.selectedUpaId;
+      this.upasService.getUpaById(this.selectedUpaId).subscribe((data:any) => {
+        this.nombreUpa = data.name;
+      })
+    } else {
+      this.nombreUpaUser = this.idUpa;
+    }
+    const datos = {
+      fechaInicio: this.fechaInicio.toISOString(),
+      fechaFin: this.fechaFin.toISOString(),
+      variables: [] as string[],
+      nombreUpa: this.nombreUpaUser
+    };
+
+    if (this.pHSelected) {
+      datos.variables.push('PH');
+    }
+    if (this.temperaturaSelected) {
+      datos.variables.push('Temperatura');
+    }
+    if (this.nivelAguaSelected) {
+      datos.variables.push('Nivel_Agua');
+    }
+    if (this.turbidezSelected) {
+      datos.variables.push('Turbidez');
+    }
+    if (this.oxigenoDisueltoSelected) {
+      datos.variables.push('Oxigeno_Disuelto');
+    }
+  
+    return fetch('http://localhost:3000/api/frame/getDataReport', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(datos),
+    }).then((response) => response.json());
+  }
+
 }

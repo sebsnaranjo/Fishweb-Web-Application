@@ -287,6 +287,24 @@ mat-panel-title,
   color: white;
 }
 
+.text-select-upa{
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0 10px 0;
+}
+
+.mat-select-upa {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.mat-select-upa mat-form-field {
+  width: 50%;
+}
+
 /* Fecha y variable*/
 
 .container_style {
