@@ -1,0 +1,137 @@
+h2 {
+    margin-top: 50px;
+    font-size: 35px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .info {
+    width: 100%;
+    height: auto;
+    margin-top: 80px;
+    text-align: center;
+  }
+  
+  .info label {
+    font-family: "DM Sans", sans-serif;
+    font-size: 25px;
+  }
+  
+  .info {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .text {
+    font-weight: bold;
+  }
+  
+  .container-one {
+    float: left;
+    width: 40%;
+    height: 250px;
+    margin: 0px auto auto auto;
+    background-color: #ebe6e6;
+    border-radius: 50px;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container-dos {
+    float: left;
+    width: 40%;
+    height: 250px;
+    margin: 0px auto;
+    background-color: #ebe6e6;
+    border-radius: 50px;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .data {
+    margin-top: 20px;
+  }
+  
+  .select {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  mat-form-field {
+    width: 70%;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+  }
+  
+  .mat-input-underline {
+    color: #007b3e;
+  }
+  
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #007b3e !important;
+  }
+  
+  ::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #007b3e !important;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+    color: #007b3e !important;
+  }
+  
+  ::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #007b3e !important;
+  }
+  
+  ::ng-deep .mat-select-arrow-wrapper .ng-tns-c154-1 {
+    color: #007b3e !important;
+  }
+  
+  .button {
+    text-align: center;
+  }
+  
+  .btn_send {
+    width: 310px;
+    height: 47px;
+    background-color: #007b3e;
+    font-size: 15px;
+    font-family: "DM Sans", sans-serif !important;
+    border-style: none;
+    border-radius: 70px;
+    position: relative;
+    text-align: center;
+    margin: 0 auto 30px;
+    padding: 7px 13px;
+    color: white;
+    transition: 0.3s;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Guia para modificar colores del select */
+  
+  /* ::ng-deep .mat-form-field {
+  
+      .mat-form-field-label {
+          color: slategray;
+      }
+      .mat-form-field-underline {
+          background-color: slategray;
+      }
+      .mat-form-field-ripple {
+          background-color: slategray;
+      }
+      .mat-form-field-required-marker {
+          color: slategray;
+      }
+  } */
+  

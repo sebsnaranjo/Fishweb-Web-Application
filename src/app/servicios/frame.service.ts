@@ -47,6 +47,10 @@ export class FrameService {
     return this.http.get<TableFrame[]>(`${this.getAllFrameUpaUrl}/${this.idUpaUser}`);
   }
 
+  getAllFrameByUpaURL(idUpa: string): Observable<TableFrame[]> {
+    return this.http.get<TableFrame[]>(`${this.getAllFrameUpaUrl}/${idUpa}`);
+  }
+
   getReport(datos: any): Observable<any> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.getReportUrl, datos, { headers: headers, responseType: 'arraybuffer' });

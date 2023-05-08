@@ -38,9 +38,10 @@ export class ControlarComponent implements OnInit {
   }
 
   getFrame() {
-    if(this.idRol === 1){
+    if(this.idRol == 1){
       this.frameService.getlastFrameByUpaAdmin(this.idUpaParametrer).subscribe((data) => {
         this.lastFrame = data;
+        this.lastFrame.NombreUpa = this.idUpaParametrer;
       })
     } else {
       this.frameService.getlastFrameByUpa().subscribe((data) => {

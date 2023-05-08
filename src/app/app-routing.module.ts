@@ -30,6 +30,7 @@ import { InfoUpaComponent } from './vistas/info-upa/info-upa.component';
 import { UsersProfileComponent } from './vistas/users-profile/users-profile.component';
 import { ForgotPasswordComponent } from './vistas/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './vistas/reset-password/reset-password.component';
+import { EditRolSaComponent } from './vistas/super-admin/edit-rol-sa/edit-rol-sa.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,7 @@ const routes: Routes = [
       { path: 'mensajes', canActivate: [MessageGuard], component: MessageBoxComponent },
       { path: 'ajuste-variables', canActivate: [VariableSettingGuard], component: AjustesVariablesComponent},
       { path: 'reportes', canActivate: [ReportsGuard], component: ReportsComponent},
+      { path: 'edit-rol-superadmin/:id', canActivate: [ManageUsersGuard], component: EditRolSaComponent },
 
       /* { path: 'permiso-usuarios', component: UsersPermissionComponent }, */
       { path: '', redirectTo: 'inicio', pathMatch: 'full' },

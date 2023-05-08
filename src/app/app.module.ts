@@ -55,6 +55,9 @@ import { NotificationsComponent } from './vistas/notifications/notifications.com
 import { FrameUpaComponent } from './vistas/frame-upa/frame-upa.component';
 import { ForgotPasswordComponent } from './vistas/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './vistas/reset-password/reset-password.component';
+import { EditRolSaComponent } from './vistas/super-admin/edit-rol-sa/edit-rol-sa.component';
+import { ControlarSaComponent } from './vistas/super-admin/controlar-sa/controlar-sa.component';
+import { GestionarUsuariosSaComponent } from './vistas/super-admin/gestionar-usuarios-sa/gestionar-usuarios-sa.component';
 
 
 @NgModule({
@@ -90,7 +93,10 @@ import { ResetPasswordComponent } from './vistas/reset-password/reset-password.c
     NotificationsComponent,
     FrameUpaComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    EditRolSaComponent,
+    ControlarSaComponent,
+    GestionarUsuariosSaComponent
   ],
   imports: [
     BrowserModule,
