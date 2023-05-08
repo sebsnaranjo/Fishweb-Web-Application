@@ -1,4 +1,4 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -9,14 +9,18 @@ export class InterceptorService implements HttpInterceptor {
 
   constructor() { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = sessionStorage.token;
+    const token = sessionStorage.access_token;
 
     if(!token) {
       return next.handle(req);
     }
 
+    const headers = new HttpHeaders({
+      'x-acces-token': token,
+    });
+
     const reqClone = req.clone({
-      headers: req.headers.set('Authorization', `Bearer ${token}`),
+      headers
     })
 
     return next.handle(reqClone);
