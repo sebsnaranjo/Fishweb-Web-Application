@@ -69,6 +69,8 @@ export class AuthService {
     return user;
   }
 
+  
+
   getEmailUser(){
     let emailUser = sessionStorage.getItem(environment.email)||'';
     let email = this.encrypt.decrypt(emailUser).replace(/"/g, '');

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { UserI, CreateUserDTO } from '../modelos/user.interface';
 import { AuthService } from './auth.service';
@@ -22,6 +22,7 @@ export class UsersService {
   private userUrl = '/api/users/getUser'
   private forgotUrl = '/api/users/forgetPassword'
   private resetPass = '/api/users/resetPass?token=${token}'
+  private urlUpdate = '/api/auth/updateUser/'
 
   constructor(
     private http: HttpClient,
@@ -32,11 +33,23 @@ export class UsersService {
       return this.http.post<UserI>(this.apiUrl, dto);
     }
 
-    getUserbyId(){
+    getUserbyId(cacheBuster: number){
+
+      const options = {
+        headers: new HttpHeaders({
+          'Cache-Control': 'no-cache'
+        })
+      };
     
-      return this.http.get<any>(`${this.userUrl}/${this.userId}`);
+      return this.http.get<any>(`${this.userUrl}/${this.userId}`, options);
     
     }
+
+    updateUser(user: any){
+      const { id, name, lastname } = user;
+      return this.http.put<any>(`${this.urlUpdate}/${this.userId}`, { name, lastname });
+    }
+
     forgotPassword(email: string){
 
       const body = {email: email};

@@ -15,11 +15,25 @@ import Swal from 'sweetalert2';
 export class RolregistreComponent implements OnInit {
 
 
-  registreFormGroup: FormGroup;
+  registreFormGroupAdmin: FormGroup;
+  registreFormGroupAux: FormGroup;
 
-  createFormGroup(){
+  createFormGroupAdmin(){
+  
     return new FormGroup({
-    roles: new FormControl('',[Validators.required]),
+    roles: new FormControl('2',[Validators.required]),
+    name: new FormControl('',[Validators.required]),
+    lastname: new FormControl('',[Validators.required]),
+    email: new FormControl('',[Validators.required, Validators.email]),
+    password: new FormControl('',[Validators.required, Validators.minLength(7)]),
+    upaId: new FormControl('', [Validators.required]),
+  });
+  }
+  
+  createFormGroupAux(){
+  
+    return new FormGroup({
+    roles: new FormControl('3',[Validators.required]),
     name: new FormControl('',[Validators.required]),
     lastname: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email]),
@@ -32,24 +46,26 @@ export class RolregistreComponent implements OnInit {
   isDropdownOpen = false;
 
   constructor(private fb: FormBuilder, private RegistreService: RegistrorolService, private UpaService: UpasService,) {
-    this.registreFormGroup = this.createFormGroup();
+    this.registreFormGroupAdmin = this.createFormGroupAdmin();
+    this.registreFormGroupAux = this.createFormGroupAux();
    }
 
   ngOnInit(): void {
   }
-registre(){
+registreAdmin(){
   
    
-   if (this.registreFormGroup.valid){
+   if (this.registreFormGroupAdmin.valid){
      var model = new UsuarioModel()
-     model.roles = parseInt(this.registreFormGroup.controls["roles"].value);
-     model.name = this.registreFormGroup.controls["name"].value;
-     model.lastname = this.registreFormGroup.controls["lastname"].value;
-     model.email = this.registreFormGroup.controls["email"].value;
-     model.password = this.registreFormGroup.controls["password"].value;
-     model.upaId = this.registreFormGroup.controls["upaId"].value;
-
     
+     model.roles = parseInt(this.registreFormGroupAdmin.controls["roles"].value);
+     model.name = this.registreFormGroupAdmin.controls["name"].value;
+     model.lastname = this.registreFormGroupAdmin.controls["lastname"].value;
+     model.email = this.registreFormGroupAdmin.controls["email"].value;
+     model.password = this.registreFormGroupAdmin.controls["password"].value;
+     model.upaId = this.registreFormGroupAdmin.controls["upaId"].value;
+
+     this.registreFormGroupAdmin.reset();
 
      this.RegistreService.RegisterRol(model).subscribe(
        data => { 
@@ -66,31 +82,31 @@ registre(){
         icon: 'error'
       });} )
    }else{
-    if (this.registreFormGroup.controls['roles'].invalid) {
+    if (this.registreFormGroupAdmin.controls['roles'].invalid) {
       Swal.fire({
         title: 'Formulario Invalido',
         text: 'El campo roles es requerido',
         icon: 'error'
     });
-  } else if (this.registreFormGroup.controls['name'].invalid) {
+  } else if (this.registreFormGroupAdmin.controls['name'].invalid) {
     Swal.fire({
       title: 'Formulario Invalido',
       text: 'El campo nombre es requerido',
       icon: 'error'
     });
-  } else if (this.registreFormGroup.controls['lastname'].invalid) {
+  } else if (this.registreFormGroupAdmin.controls['lastname'].invalid) {
     Swal.fire({
       title: 'Formulario Invalido',
       text: 'El campo apellido es requerido',
       icon: 'error'
     });
-  } else if (this.registreFormGroup.controls['email'].invalid) {
+  } else if (this.registreFormGroupAdmin.controls['email'].invalid) {
     Swal.fire({
       title: 'Formulario Invalido',
       text: 'El campo email es requerido y debe ser un correo válido',
       icon: 'error'
     });
-  } else if (this.registreFormGroup.controls['password'].invalid) {
+  } else if (this.registreFormGroupAdmin.controls['password'].invalid) {
     Swal.fire({
       title: 'Formulario Invalido',
       text: 'El campo password es requerido y debe tener al menos 7 caracteres',
@@ -105,6 +121,75 @@ registre(){
     });
    }
   }}
+  registreAux(){
+  
+   
+    if (this.registreFormGroupAux.valid){
+      var model = new UsuarioModel()
+     
+      model.roles = parseInt(this.registreFormGroupAux.controls["roles"].value);
+      model.name = this.registreFormGroupAux.controls["name"].value;
+      model.lastname = this.registreFormGroupAux.controls["lastname"].value;
+      model.email = this.registreFormGroupAux.controls["email"].value;
+      model.password = this.registreFormGroupAux.controls["password"].value;
+      model.upaId = this.registreFormGroupAux.controls["upaId"].value;
+ 
+      this.registreFormGroupAux.reset();
+ 
+      this.RegistreService.RegisterRol(model).subscribe(
+        data => { 
+         Swal.fire({
+           title: 'Registro exitoso',
+           text: 'El registro se hizo con exito',
+           icon: 'success'
+         });
+         }, 
+      err => { 
+       Swal.fire({
+         title: 'Registro fallo',
+         text: 'El registro no se pudo realizar',
+         icon: 'error'
+       });} )
+    }else{
+     if (this.registreFormGroupAux.controls['roles'].invalid) {
+       Swal.fire({
+         title: 'Formulario Invalido',
+         text: 'El campo roles es requerido',
+         icon: 'error'
+     });
+   } else if (this.registreFormGroupAux.controls['name'].invalid) {
+     Swal.fire({
+       title: 'Formulario Invalido',
+       text: 'El campo nombre es requerido',
+       icon: 'error'
+     });
+   } else if (this.registreFormGroupAux.controls['lastname'].invalid) {
+     Swal.fire({
+       title: 'Formulario Invalido',
+       text: 'El campo apellido es requerido',
+       icon: 'error'
+     });
+   } else if (this.registreFormGroupAux.controls['email'].invalid) {
+     Swal.fire({
+       title: 'Formulario Invalido',
+       text: 'El campo email es requerido y debe ser un correo válido',
+       icon: 'error'
+     });
+   } else if (this.registreFormGroupAux.controls['password'].invalid) {
+     Swal.fire({
+       title: 'Formulario Invalido',
+       text: 'El campo password es requerido y debe tener al menos 7 caracteres',
+       icon: 'error'
+     });
+   
+   } else {
+     Swal.fire({
+       title: 'Formulario Invalido',
+       
+       icon: 'error'
+     });
+    }
+   }}
   toggleDropdown() {
     if (!this.isDropdownOpen) {
       this.UpaService.getUPAs().subscribe(upas => {
@@ -117,7 +202,8 @@ registre(){
   }
   
   selectUpa(upa: UpaModel) {
-    this.registreFormGroup.controls["upaId"].setValue(upa._id);
+    this.registreFormGroupAdmin.controls["upaId"].setValue(upa._id);
+    this.registreFormGroupAux.controls["upaId"].setValue(upa._id);
     this.selectedUpa = upa;
     this.isDropdownOpen = false;
   }

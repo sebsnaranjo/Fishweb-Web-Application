@@ -4,25 +4,24 @@
             <div class="mailbox_content">
                 <div class="background mailbox">
                     <h2 class="titleRegistre"> Registrar Administrador </h2>
-                    <form [formGroup]="registreFormGroup">
-
+                    <form [formGroup]="registreFormGroupAdmin">
                         <div class="form-group">
-                            <input formControlName="roles" matInput placeholder="Rol" class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.roles.hasError('required')">
+                            <input formControlName="roles" matInput placeholder="Rol" class="registreCamp form-control" hidden>
+                            <mat-error class="error" *ngIf="registreFormGroupAdmin.controls.roles.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
                         <div class="form-group">
                             <input formControlName="name" matInput placeholder="Nombre"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.name.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroupAdmin.controls.name.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
                         <div class="form-group">
                             <input formControlName="lastname" matInput placeholder="Apellido"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.lastname.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroupAdmin.controls.lastname.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
@@ -37,23 +36,23 @@
                         <div class="form-group">
                             <input formControlName="email" matInput placeholder="Correo Electronico"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.email.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroupAdmin.controls.email.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
                         <div class="form-group">
                             <input formControlName="password" type="password" matInput placeholder="Contraseña"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.password.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroupAdmin.controls.password.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.password.hasError('minlength')">
+                            <mat-error class="error" *ngIf="registreFormGroupAdmin.controls.password.hasError('minlength')">
                                 Debe tener como mínimo 7 caracteres
                             </mat-error>
                         </div>
 
                         <div class="form-group form-group-btn-send">
-                            <button (click)="registre()" id="basic" type="submit"
+                            <button (click)="registreAdmin()" id="basic" type="submit"
                                 class="btn_send btn btn-outline-dark">Registrar Administrador</button>
                         </div>
 
@@ -67,24 +66,24 @@
             <div class="mailbox_content">
                 <div class="background mailbox">
                     <h2 class="titleRegistre"> Registrar Auxiliar </h2>
-                    <form [formGroup]="registreFormGroup">
+                    <form [formGroup]="registreFormGroupAux">
                         <div class="form-group">
-                            <input formControlName="roles" matInput placeholder="Rol" class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.roles.hasError('required')">
+                            <input formControlName="roles" matInput placeholder="Rol" class="registreCamp form-control" hidden>
+                            <mat-error class="error" *ngIf="registreFormGroupAux.controls.roles.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
                         <div class="form-group">
                             <input formControlName="name" matInput placeholder="Nombre"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.name.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroupAux.controls.name.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
                         <div class="form-group">
                             <input formControlName="lastname" matInput placeholder="Apellido"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.lastname.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroupAux.controls.lastname.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
@@ -99,23 +98,23 @@
                         <div class="form-group">
                             <input formControlName="email" matInput placeholder="Correo Electronico"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.email.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroupAux.controls.email.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>
                         <div class="form-group">
                             <input formControlName="password" type="password" matInput placeholder="Contraseña"
                                 class="registreCamp form-control">
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.password.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroupAux.controls.password.hasError('required')">
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
-                            <mat-error class="error" *ngIf="registreFormGroup.controls.password.hasError('minlength')">
+                            <mat-error class="error" *ngIf="registreFormGroupAux.controls.password.hasError('minlength')">
                                 Debe tener como mínimo 8 caracteres
                             </mat-error>
                         </div>
 
                         <div class="form-group form-group-btn-send">
-                            <button (click)="registre()" id="basic" type="submit"
+                            <button (click)="registreAux()" id="basic" type="submit"
                                 class="btn_send btn btn-outline-dark">Registrar Auxiliar</button>
                         </div>
 

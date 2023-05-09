@@ -40,7 +40,7 @@ export class UpasService {
     return this.http.get<UpaModel[]>(this.apiGet)
   }
   
-  getNameUpaById(){
+  getNameUpaById(cacheBuster: number){
 
     return this.http.get<any>(`${this.upaUrl}/${this.upaId}`);
     
