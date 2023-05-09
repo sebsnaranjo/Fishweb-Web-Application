@@ -15,6 +15,7 @@ export class FrameService {
 
   private apiUrl = '/api/frame/getAll'
   private getReportUrl = '/api/frame/getReport'
+  private getReportUrl2 = '/api/frame/getDataReport'
   private getGraphUrl = '/api/frame/getFrameVariablesDate'
   private getLastFrameUrl = '/api/frame/getLast'
   private getLastFrameUpaUrl = '/api/frame/getLastFrameUpa'
@@ -38,13 +39,25 @@ export class FrameService {
     return this.http.get<TableFrame>(`${this.getLastFrameUpaUrl}/${this.idUpaUser}`);
   }
 
+  getlastFrameByUpaAdmin(id: string): Observable<TableFrame> {
+    return this.http.get<TableFrame>(`${this.getLastFrameUpaUrl}/${id}`);
+  }
+
   getAllFrameByUpa(): Observable<TableFrame[]> {
     return this.http.get<TableFrame[]>(`${this.getAllFrameUpaUrl}/${this.idUpaUser}`);
+  }
+
+  getAllFrameByUpaURL(idUpa: string): Observable<TableFrame[]> {
+    return this.http.get<TableFrame[]>(`${this.getAllFrameUpaUrl}/${idUpa}`);
   }
 
   getReport(datos: any): Observable<any> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.getReportUrl, datos, { headers: headers, responseType: 'arraybuffer' });
+  }
+
+  getDataReport(datos: any): Observable<any> {
+    return this.http.post(this.getReportUrl2, datos);
   }
 
   getGraph(datos: any): Observable<any> {

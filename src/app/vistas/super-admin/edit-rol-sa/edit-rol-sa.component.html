@@ -1,0 +1,37 @@
+
+    <form [formGroup]="editForm" *ngIf="dataUser" (ngSubmit)="putRol(editForm.value)">
+      <h2>
+        El usuario al que le desea cambiar su rol corresponde a:
+        {{ dataUser.name  }}
+      </h2>
+      <div class="info">
+        <!--             <div class="form-group">
+                  <label>{{ editForm.value.id }}</label>
+              </div> -->
+        <div class="container-one">
+          <div class="form-group data">
+            <label class="text"> El nombre completo es: </label><br>
+            <label>{{ dataUser.name }}</label>
+          </div>
+        </div>
+        <div class="container-dos">
+          <div class="form-group data">
+            <label class="text"> El email es: </label><br>
+            <label>{{ dataUser.email }}</label>
+          </div>
+        </div>
+      </div>
+      <div class="select">
+        <mat-form-field appearance="fill">
+          <mat-label>Cambiar rol a:</mat-label>
+          <mat-select [(value)]="selectedValue">
+            <mat-option value="63cdf283a2f4000701a1ee53">Andimistrador</mat-option>
+            <mat-option value="63cdf283a2f4000701a1ee54">Auxiliar</mat-option>
+          </mat-select>
+        </mat-form-field>
+  <!--       {{ selectedValue }} -->
+      </div>
+      <div class="button">
+          <button type="submit" class="btn_send">Guardar</button>
+      </div>
+    </form>

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { FrameService } from 'src/app/servicios/frame.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { UpasService } from 'src/app/servicios/upas.service';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-data-table-upa',
@@ -12,16 +14,20 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./data-table-upa.component.css']
 })
 export class DataTableUpaComponent implements OnInit, AfterViewInit{
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   ELEMENT_DATA: TableFrame[];
   displayedColumns: string[] = ['createdAt', 'ph', 'temperatura', 'conductividad_electrica', 'nivelAgua', 'turbidez'];
-  /* dataSource = UPA_DATA; */
   dataSource = new MatTableDataSource<TableFrame>();
-  //dataSource = new MatTableDataSource<DataTableUpa>();
-  
+
+  idUpa: string;
+  nameUpa: string;
+
   constructor(
     private frameService: FrameService,
+    private upasService: UpasService,
+    private authService: AuthService,
     private router:Router
   ) { }
 
@@ -39,6 +45,10 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit{
 
   ngOnInit(): void {
     this.getFrames();
+    this.idUpa = this.authService.getIdUpa();
+    this.upasService.getUpaById(this.idUpa).subscribe((data:any) => {
+      this.nameUpa = data.name;
+    })
   }
   
   public getFrames() {

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UpaModel } from '../modelos/data-table-upa.interface';
+import { TableFrame, UpaModel } from '../modelos/data-table-upa.interface';
 import { UpaModels } from '../modelos/upa.model';
 import { AuthService } from './auth.service';
 
@@ -19,6 +19,7 @@ export class UpasService {
   private getUsers = '/api/upa/userby';
   private getFrames = '/api/upa/frameby';
   private emailUrl = '/api/upa/enviarMail';
+  private getUpaId = '/api/upa/'
 
   constructor(
     private http: HttpClient,
@@ -52,8 +53,13 @@ export class UpasService {
   }
 
   //Obtiene los tramas(JSON) vinculados a una UPA
-  getFrameUPA(id: string) {
-    return this.http.get(`${this.getFrames}/${id}`);
+  getFrameUPA(id: string): Observable<TableFrame[]> {
+    return this.http.get<TableFrame[]>(`${this.getFrames}/${id}`);
+  }
+
+  //Obtiene la UPA vinculada al id
+  getUpaById(id: string){
+    return this.http.get(`${this.getUpaId}/${id}`);
   }
 
   sendWarningEmail(emailData: {email: string, message: string}) {
