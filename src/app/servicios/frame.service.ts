@@ -13,14 +13,14 @@ export class FrameService {
 
   idUpaUser: string = this.authService.getIdUpa();
 
-  private apiUrl = '/api/frame/getAll'
-  private getReportUrl = '/api/frame/getReport'
-  private getReportUrl2 = '/api/frame/getDataReport'
-  private getGraphUrl = '/api/frame/getFrameVariablesDate'
-  private getLastFrameUrl = '/api/frame/getLast'
-  private getLastFrameUpaUrl = '/api/frame/getLastFrameUpa'
-  private getAllFrameUpaUrl = '/api/frame/getAllFrameUpa'
-  private postFrameUrl = '/api/frame/createFrame'
+  private apiUrl = environment.HOST + '/api/frame/getAll'
+  private getReportUrl = environment.HOST + '/api/frame/getReport'
+  private getReportUrl2 = environment.HOST + '/api/frame/getDataReport'
+  private getGraphUrl = environment.HOST + '/api/frame/getFrameVariablesDate'
+  private getLastFrameUrl = environment.HOST + '/api/frame/getLast'
+  private getLastFrameUpaUrl = environment.HOST + '/api/frame/getLastFrameUpa'
+  private getAllFrameUpaUrl = environment.HOST + '/api/frame/getAllFrameUpa'
+  private postFrameUrl = environment.HOST + '/api/frame/createFrame'
 
   constructor(
     private http: HttpClient,

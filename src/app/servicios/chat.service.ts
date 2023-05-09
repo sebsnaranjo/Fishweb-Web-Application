@@ -14,10 +14,10 @@ export class MessageService {
 
   userId : string = this.authService.getIdUser();
 
-  private baseUrl = '/api/chat/createChat';
-  private rolUrl = '/api/auth/getUsersWithRole2';
-  private getChats = '/api/chat/getId';
-  private apiUrlUserId = 'api/auth/userAuthId';
+  private baseUrl = environment.HOST + '/api/chat/createChat';
+  private rolUrl = environment.HOST + '/api/auth/getUsersWithRole2';
+  private getChats = environment.HOST + '/api/chat/getId';
+  private apiUrlUserId = environment.HOST + 'api/auth/userAuthId';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

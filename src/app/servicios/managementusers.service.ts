@@ -18,10 +18,10 @@ export class ManagementusersService {
 
   userId : string = this.authService.getIdUser();
 
-  private apiUrl = '/api/usuarios/listado-nombres';
-  private apiUrleditar = '/api/users/putUser'; //se usa
-  private apiUrlUser = 'api/auth/getUser/';
-  private apiUrlUser2 = 'api/auth/userAuth';
+  private apiUrl = environment.HOST + '/api/usuarios/listado-nombres';
+  private apiUrleditar = environment.HOST + '/api/users/putUser'; //se usa
+  private apiUrlUser = environment.HOST + 'api/auth/getUser/';
+  private apiUrlUser2 = environment.HOST + 'api/auth/userAuth';
   
 
   private getUsers = '/api/users/getAll'; //se usa

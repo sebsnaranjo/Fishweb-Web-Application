@@ -12,7 +12,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = '/api/auth/signin';
+  private apiUrl = environment.HOST + '/api/auth/signin';
   public currentUser = null;
 
   constructor(private http: HttpClient, private encrypt: EncryptService, private injector:Injector) {
