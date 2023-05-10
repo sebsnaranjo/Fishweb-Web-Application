@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { UpasService } from 'src/app/servicios/upas.service';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-data-table-upa',
@@ -23,6 +24,8 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit{
 
   idUpa: string;
   nameUpa: string;
+
+  private interval: any;
 
   constructor(
     private frameService: FrameService,
@@ -47,6 +50,11 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit{
 
   ngOnInit(): void {
     this.getFrames();
+    // Consumir servicio de tramas cada 5 segundos
+    interval(5000).subscribe(() => {
+      this.getFrames();
+    });
+
     this.idUpa = this.authService.getIdUpa();
     this.upasService.getUpaById(this.idUpa).subscribe((data:any) => {
       this.nameUpa = data.name;
