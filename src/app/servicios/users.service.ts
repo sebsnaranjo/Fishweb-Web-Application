@@ -22,7 +22,7 @@ export class UsersService {
   private userUrl = environment.HOST + '/api/users/getUser'
   private forgotUrl = environment.HOST + '/api/users/forgetPassword'
   private resetPass = environment.HOST + '/api/users/resetPass?token=${token}'
-  private urlUpdate = environment.HOST + '/api/auth/updateUser/'
+  private urlUpdate = environment.HOST + '/api/auth/updateUser'
 
   constructor(
     private http: HttpClient,
