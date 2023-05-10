@@ -44,9 +44,11 @@ export class ManagementusersService {
 
     //Servicio para obtener el usuario por ID, se usa para: Cambiar el rol.
     editUserRol(id):Observable<any>{
+      debugger
       let direccion = this.apiUrlUser + id;
       return this.http.get<any>(direccion);
     }
+
     getUserLoggedIn() {
       const headers = {
         Authorization: 'Bearer ' + sessionStorage.getItem(environment.TOKEN)   // o donde sea que esté almacenado el token de autenticación

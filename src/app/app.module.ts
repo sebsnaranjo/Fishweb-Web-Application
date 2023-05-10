@@ -120,7 +120,8 @@ import { GestionarUsuariosSaComponent } from './vistas/super-admin/gestionar-usu
     MatNativeDateModule,
     MatPaginatorModule,
     MatSortModule,
-    NgChartsModule
+    NgChartsModule,
+    MatDatepickerModule 
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
