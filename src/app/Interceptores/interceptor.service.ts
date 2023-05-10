@@ -16,7 +16,7 @@ export class InterceptorService implements HttpInterceptor {
     }
 
     const headers = new HttpHeaders({
-      'x-acces-token': token,
+      'x-access-token': token,
     });
 
     const reqClone = req.clone({

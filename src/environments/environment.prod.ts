@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  HOST: 'https://mysterious-brushlands-11324.herokuapp.com',
-  REGISTRO: 'https://mysterious-brushlands-11324.herokuapp.com',
+  HOST: 'http://shielded-everglades-04466.herokuapp.com',
+  REGISTRO: 'http://shielded-everglades-04466.herokuapp.com',
   //llave para acceder al token
   TOKEN: 'access_token',
   expiration: 'expiresIn',

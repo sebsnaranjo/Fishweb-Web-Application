@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, ChangeDetectorRef  } from '@angular/core';
 import { DataTableUpa, TableFrame } from 'src/app/modelos/data-table-upa.interface';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -28,7 +28,8 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit{
     private frameService: FrameService,
     private upasService: UpasService,
     private authService: AuthService,
-    private router:Router
+    private router:Router,
+    private changeDetectorRef: ChangeDetectorRef
   ) { }
 
   ngAfterViewInit(): void {
@@ -41,6 +42,7 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit{
     };
     this.dataSource.sort = this.sort;
     this.dataSource.sort.sort({id: 'createdAt', start: 'desc', disableClear: true});
+    this.changeDetectorRef.detectChanges();
   }
 
   ngOnInit(): void {
