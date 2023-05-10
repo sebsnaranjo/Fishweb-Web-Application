@@ -516,7 +516,7 @@ export class ReportsComponent implements OnInit {
       datos.variables.push('Oxigeno_Disuelto');
     }
   
-    return fetch('http://localhost:3000/api/frame/getDataReport', {
+    return fetch('https://shielded-everglades-04466.herokuapp.com/api/frame/getDataReport', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
