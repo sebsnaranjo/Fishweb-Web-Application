@@ -63,7 +63,7 @@ export class UsersService {
     }
 
     resetPassword(password: string) {
-      const url = `/api/users/resetPassword?token=${this.token}`;
+      const url = environment.HOST + `/api/users/resetPassword?token=${this.token}`;
       const body = { password };
       return this.http.post(url, body);
     } 
