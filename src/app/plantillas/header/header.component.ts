@@ -13,10 +13,22 @@ export class HeaderComponent implements OnInit {
   constructor(private router:Router, private authService:AuthService) { }
 
   ngOnInit(): void {
-    this.authService.expiresInToken();
+    const token = this.authService.expiresInToken();
+    if(token == true){
+      sessionStorage.removeItem(environment.TOKEN);
+      sessionStorage.removeItem(environment.rolId);
+      sessionStorage.removeItem(environment.expiration);
+      this.router.navigate(['inicio'])
+    }
     setInterval(() => {
-      this.authService.expiresInToken();
-    }, 120000);
+      const token = this.authService.expiresInToken();
+      if(token == true){
+        sessionStorage.removeItem(environment.TOKEN);
+        sessionStorage.removeItem(environment.rolId);
+        sessionStorage.removeItem(environment.expiration);
+        this.router.navigate(['inicio'])
+      }
+    }, 60000);
   }
   
 

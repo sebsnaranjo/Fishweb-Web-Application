@@ -57,11 +57,10 @@ export class AuthService {
     const now = Date.now().valueOf() / 1000;
 
     if (tokenPayload.exp < now) {
-      sessionStorage.removeItem(environment.TOKEN);
-      sessionStorage.removeItem(environment.rolId);
-      sessionStorage.removeItem(environment.expiration);
-      this.router.navigate(['inicio']);
-    } 
+      return true;
+    } else {
+      return false;
+    }
   }
 
   getIdUpa(){
