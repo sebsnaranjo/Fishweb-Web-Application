@@ -10,25 +10,12 @@ import { AuthService } from 'src/app/servicios/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router, private authService:AuthService) { }
+  constructor(private router:Router, private authService:AuthService) {
+
+   }
 
   ngOnInit(): void {
-    const token = this.authService.expiresInToken();
-    if(token == true){
-      sessionStorage.removeItem(environment.TOKEN);
-      sessionStorage.removeItem(environment.rolId);
-      sessionStorage.removeItem(environment.expiration);
-      this.router.navigate(['inicio'])
-    }
-    setInterval(() => {
-      const token = this.authService.expiresInToken();
-      if(token == true){
-        sessionStorage.removeItem(environment.TOKEN);
-        sessionStorage.removeItem(environment.rolId);
-        sessionStorage.removeItem(environment.expiration);
-        this.router.navigate(['inicio'])
-      }
-    }, 60000);
+
   }
   
 

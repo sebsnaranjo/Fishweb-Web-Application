@@ -81,12 +81,16 @@ export class AuthService {
     return user;
   }
 
-  
-
   getEmailUser(){
     let emailUser = sessionStorage.getItem(environment.email)||'';
     let email = this.encrypt.decrypt(emailUser).replace(/"/g, '');
     return email;
+  }
+
+  getExpires(){
+    let expiresToken = sessionStorage.getItem(environment.expiration)||'';
+    let expires = this.encrypt.decrypt(expiresToken).replace(/"/g, '');
+    return expires;
   }
  
 
