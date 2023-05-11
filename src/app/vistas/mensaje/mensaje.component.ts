@@ -29,6 +29,7 @@ export class MensajeComponent implements OnInit {
     private fb: FormBuilder,
     private chatService: MessageService,
     private userService: ManagementusersService,
+    private authService: AuthService
   ) {}
 
   
@@ -46,8 +47,9 @@ export class MensajeComponent implements OnInit {
       }
     );
     
+    const emailUser = this.authService.getEmailUser();
     this.chatForm = this.fb.group({
-      from: ['', Validators.required],
+      from: [emailUser, Validators.required],
       to: ['', Validators.required],
       subject: ['', Validators.required],
       message: ['', Validators.required]
