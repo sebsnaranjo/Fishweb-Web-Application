@@ -44,3 +44,11 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #007B3E;
 }
+.email-select select {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+

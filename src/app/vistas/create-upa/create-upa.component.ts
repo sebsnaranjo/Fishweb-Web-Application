@@ -54,6 +54,23 @@ createGroup(){
               icon: 'error'
             });} )
 
+        } else {
+          if (this.registreUpaFormGroup.controls["name"].value === ''){
+            Swal.fire({
+              title: 'Campo vacío',
+              text: 'El campo nombre UPA no puede estar vacío',
+              icon: 'warning'
+            });
+
+
+          }else if (this.registreUpaFormGroup.controls["location"].value === ''){
+            Swal.fire({
+              title: 'Campo vacío',
+              text: 'El campo locación no puede estar vacío',
+              icon: 'warning'
+            });
+            
+          }
         }
     }
   

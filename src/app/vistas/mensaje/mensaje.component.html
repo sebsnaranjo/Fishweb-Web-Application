@@ -1,9 +1,14 @@
 <div class="container">
+  
     <form [formGroup]="chatForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="to">Para:</label>
-        <input type="text" formControlName="to" class="form-control" id="to" placeholder="Enter recipient" required>
+      <div class="form-group email-select">
+        <label for="to">To</label>
+        <select formControlName="to">
+          <option value="">Seleccione un correo electrónico</option>
+          <option *ngFor="let email of emailsList" [value]="email" class="form-control">{{ email }} </option>
+        </select>
       </div>
+      
       <div class="form-group">
         <label for="subject">Asunto:</label>
         <input type="text" formControlName="subject" class="form-control" id="subject" placeholder="Enter subject" required>

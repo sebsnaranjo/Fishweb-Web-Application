@@ -17,3 +17,29 @@
   margin-bottom: 20px;
 }
 
+/* Botones con margen de 5px en la parte superior e inferior y fondo verde */
+button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: green;
+}
+
+/* Estilos adicionales para el botón de "Editar Usuario" */
+.btn-primary {
+  border-color: green;
+}
+/* Clase personalizada para el contenedor de botones */
+.button-container button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: green;
+}
+
+/* Estilos adicionales para el botón de "Editar Usuario" */
+.button-container .btn-primary {
+  border-color: green;
+}
+/* Espacio horizontal de 5px entre los botones */
+button + button {
+  margin-left: 5px;
+}

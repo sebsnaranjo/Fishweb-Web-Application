@@ -20,6 +20,7 @@ export class UpasService {
   private getFrames = '/api/upa/frameby';
   private emailUrl = '/api/upa/enviarMail';
   private getUpaId = '/api/upa/'
+  private emailUpa = '/api/upa/emailby'
 
   constructor(
     private http: HttpClient,
@@ -64,6 +65,12 @@ export class UpasService {
 
   sendWarningEmail(emailData: {email: string, message: string}) {
     return this.http.post(this.emailUrl, emailData);
+  }
+
+  getEmailByUpa(){
+
+    return this.http.get<any>(`${this.emailUpa}/${this.upaId}`);
+
   }
 
 }
