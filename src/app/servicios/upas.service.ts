@@ -21,6 +21,8 @@ export class UpasService {
   private getFrames = environment.HOST + '/api/upa/frameby';
   private emailUrl = environment.HOST + '/api/upa/enviarMail';
   private getUpaId = environment.HOST + '/api/upa/'
+  private emailUpa = environment.HOST + '/api/upa/emailby'
+
 
   constructor(
     private http: HttpClient,
