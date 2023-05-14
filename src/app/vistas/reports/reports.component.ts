@@ -252,6 +252,28 @@ export class ReportsComponent implements OnInit {
               },
             },
           },
+          plugins: {
+            tooltip: {
+              enabled: true,
+              mode: 'index',
+              intersect: false,
+              backgroundColor: '#fff',
+              borderColor: 'rgba(0,0,0,0.3)',
+              borderWidth: 1,
+              titleColor: '#000',
+              bodyColor: '#000',
+              callbacks: {
+                title: (tooltipItems) => {
+                  // Personalizar el título del tooltip aquí
+                  return `Fecha: ${tooltipItems[0].label}`;
+                },
+                label: (tooltipItem) => {
+                  // Personalizar la etiqueta del tooltip aquí
+                  return `${tooltipItem.dataset.label}: ${tooltipItem.formattedValue}`;
+                }
+              }
+            }
+          }          
         };
       });
     }

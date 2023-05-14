@@ -20,7 +20,7 @@ export class ManagementusersService {
 
   private apiUrl = environment.HOST + '/api/usuarios/listado-nombres';
   private apiUrleditar = environment.HOST + '/api/users/putUser'; //se usa
-  private apiUrlUser = environment.HOST + 'api/auth/getUser/';
+  private apiUrlUser = environment.HOST + '/api/users/getUser/';
   private apiUrlUser2 = environment.HOST + 'api/auth/userAuth';
   
 
@@ -44,7 +44,6 @@ export class ManagementusersService {
 
     //Servicio para obtener el usuario por ID, se usa para: Cambiar el rol.
     editUserRol(id):Observable<any>{
-      debugger
       let direccion = this.apiUrlUser + id;
       return this.http.get<any>(direccion);
     }

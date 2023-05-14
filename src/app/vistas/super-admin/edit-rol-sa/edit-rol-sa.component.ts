@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserChange } from 'src/app/modelos/userChange.interface';
-import { UserEditI } from 'src/app/modelos/userEdit.interface';
 import { ManagementusersService } from 'src/app/servicios/managementusers.service';
 
 @Component({
@@ -17,10 +16,12 @@ export class EditRolSaComponent implements OnInit{
     private managementusers: ManagementusersService,
   ) {}
 
-  dataUser: UserEditI;
+  dataUser: any;
   selectedValue: number;
   idUser: any;
   idUpa: any;
+
+  idUserUrl: any;
 
   editForm = new FormGroup({
     _id: new FormControl(''),
@@ -32,17 +33,17 @@ export class EditRolSaComponent implements OnInit{
 
   ngOnInit(): void {
     console.log("INICIO EL COMPONENTE");
-    let id = this.activerouter.snapshot.paramMap.get('id');
-    this.idUser = id;
-    this.managementusers.editUserRol(id).subscribe((data) => {
-      this.dataUser = data;
-      /* this.editar(this.dataUser); */
+    this.idUserUrl = this.activerouter.snapshot.paramMap.get('id');
+    this.idUser = this.idUserUrl;
+    this.managementusers.editUserRol(this.idUserUrl).subscribe((data) => {
+      this.dataUser = data.userResponse;
+      console.log(this.dataUser);
     });
   }
 
   putRol(form: any) {
     const updateUser: UserChange = {
-      idUser: this.dataUser._id,
+      idUser: this.idUserUrl,
       _id: this.selectedValue,
     };
     
@@ -53,8 +54,9 @@ export class EditRolSaComponent implements OnInit{
     }
 
     this.managementusers.change(updateUser.idUser, roles).subscribe((data) => {
-      console.log(data);
+      console.log("RESPUESTA UPDATE USER", data);
     });
+
     this.router.navigate(['crear-upa']);
   }
 

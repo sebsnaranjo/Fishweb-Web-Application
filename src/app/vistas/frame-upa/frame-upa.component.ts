@@ -1,8 +1,9 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
+import { Subject, interval, takeUntil } from 'rxjs';
 import { TableFrame } from 'src/app/modelos/data-table-upa.interface';
 import { UpasService } from 'src/app/servicios/upas.service';
 
@@ -22,9 +23,12 @@ export class FrameUpaComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['createdAt', 'ph', 'temperatura', 'conductividad_electrica', 'nivelAgua', 'turbidez'];
   dataSource = new MatTableDataSource<TableFrame>();
 
+  private interval$ = new Subject<void>();
+
   constructor(
     private activerouter: ActivatedRoute,
-    private upasService: UpasService
+    private upasService: UpasService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   ngAfterViewInit(): void {
@@ -36,17 +40,29 @@ export class FrameUpaComponent implements OnInit, AfterViewInit {
       }
     };
     this.dataSource.sort = this.sort;
-    this.dataSource.sort.sort({id: 'createdAt', start: 'desc', disableClear: true});
+    this.dataSource.sort.sort({ id: 'createdAt', start: 'desc', disableClear: true });
+    this.changeDetectorRef.detectChanges();
   }
 
   ngOnInit(): void {
     this.idUpa = this.activerouter.snapshot.paramMap.get('id');
     this.getFrames(this.idUpa);
+    // Consumir servicio de tramas cada 5 segundos
+    interval(5000)
+      .pipe(takeUntil(this.interval$))
+      .subscribe(() => {
+        this.getFrames(this.idUpa);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.interval$.next();
+    this.interval$.complete();
   }
 
   public getFrames(idUpa: any) {
     this.upasService.getFrameUPA(idUpa).subscribe((data: TableFrame[]) => {
-      console.log("GET FRAMES", data);
+      console.log("GET FRAMES SUPERADMIN", data);
     })
     let resp = this.upasService.getFrameUPA(idUpa);
     resp.subscribe((report) => (this.dataSource.data = report as unknown as TableFrame[]));

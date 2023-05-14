@@ -31,7 +31,6 @@ export class UsersComponent implements OnInit {
         sessionStorage.removeItem(environment.rolId);
         sessionStorage.removeItem(environment.expiration);
         this.router.navigate(['inicio']);
-        sessionStorage.clear();
       } else {
         console.log("X");
       }
