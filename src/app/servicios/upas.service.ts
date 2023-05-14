@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { TableFrame, UpaModel } from '../modelos/data-table-upa.interface';
 import { UpaModels } from '../modelos/upa.model';
 import { AuthService } from './auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,13 @@ export class UpasService {
   upaId : string = this.authService.getIdUpa();
 
   headers = new HttpHeaders().set("Authorization", "Bearer "+ sessionStorage.getItem("access_token"));
-  private apiUrl = '/api/upa/createUpa';
-  private apiGet = '/api/upa/getupa'
-  private upaUrl = '/api/upa/upaName'
-  private getUsers = '/api/upa/userby';
-  private getFrames = '/api/upa/frameby';
-  private emailUrl = '/api/upa/enviarMail';
-  private getUpaId = '/api/upa/'
-  private emailUpa = '/api/upa/emailby'
+  private apiUrl = environment.HOST + '/api/upa/createUpa';
+  private apiGet = environment.HOST + '/api/upa/getupa'
+  private upaUrl = environment.HOST + '/api/upa/upaName'
+  private getUsers = environment.HOST + '/api/upa/userby';
+  private getFrames = environment.HOST + '/api/upa/frameby';
+  private emailUrl = environment.HOST + '/api/upa/enviarMail';
+  private getUpaId = environment.HOST + '/api/upa/'
 
   constructor(
     private http: HttpClient,

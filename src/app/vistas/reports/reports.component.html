@@ -82,11 +82,9 @@
     <h2>Rango de fecha</h2>
     <mat-form-field>
       <mat-label class="mat-label">Rango de fecha</mat-label>
-      <mat-date-range-input [rangePicker]="picker" (dateChange)="onDateRangeChange($event)">
-        <input matStartDate placeholder="Fecha inicio" [value]="fechaInicio | date:'dd/MM/yyyy'" 
-               (dateInput)="fechaInicio=$event.target.value">
-        <input matEndDate placeholder="Fecha fin" [value]="fechaFin | date:'dd/MM/yyyy'" 
-               (dateInput)="fechaFin=$event.target.value">
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Fecha inicio" [(ngModel)]="fechaInicio" (dateChange)="onStartDateChange($event)">
+        <input matEndDate placeholder="Fecha fin" [(ngModel)]="fechaFin" (dateChange)="onEndDateChange($event)">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-date-range-input>
@@ -116,11 +114,11 @@
     <h2>Rango de fecha</h2>
     <mat-form-field>
       <mat-label class="mat-label">Rango de fecha</mat-label>
-      <mat-date-range-input [rangePicker]="pickerGraph" (dateChange)="onDateRangeChangeGraph($event)">
-        <input matStartDate placeholder="Fecha inicio" [value]="fechaInicio | date:'dd/MM/yyyy'" 
-               (dateInput)="fechaInicio=$event.target.value">
-        <input matEndDate placeholder="Fecha fin" [value]="fechaFin | date:'dd/MM/yyyy'" 
-               (dateInput)="fechaFin=$event.target.value">
+      <mat-date-range-input [rangePicker]="pickerGraph">
+        <input matStartDate placeholder="Fecha inicio" [(ngModel)]="fechaInicio" (dateChange)="onStartDateChange($event)">
+        <input matEndDate placeholder="Fecha fin" [(ngModel)]="fechaFin" (dateChange)="onEndDateChange($event)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-date-range-input>
       <mat-datepicker-toggle matSuffix [for]="pickerGraph"></mat-datepicker-toggle>
       <mat-date-range-picker #pickerGraph></mat-date-range-picker>
@@ -129,7 +127,7 @@
     <mat-form-field appearance="fill" class="select_box">
       <mat-label>Seleccione una opción</mat-label>
       <mat-select [(value)]="selected">
-        <mat-option>Ninguna</mat-option>
+        <mat-option value="Ninguna">Ninguna</mat-option>
         <mat-option value="PH">PH</mat-option>
         <mat-option value="Temperatura">Temperatura</mat-option>
         <mat-option value="Conductividad_Electrica">Conductividad electrica</mat-option>
@@ -153,8 +151,3 @@
 
   </div>
 </div>
-
-
-
-
-

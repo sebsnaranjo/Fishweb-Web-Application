@@ -18,10 +18,13 @@ export class NotificationsComponent implements OnInit {
   constructor(private frameService: FrameService, private emailService: UpasService, private authService:AuthService) { }
 
   ngOnInit(): void {
-    this.alert();
-    this.interval = setInterval(() => {
+    const idRol = this.authService.getIdRol();
+    if(idRol != 1){
       this.alert();
-    }, 60000); // llamar a getData() cada 5 segundos
+      this.interval = setInterval(() => {
+        this.alert();
+      }, 60000); // llamar a getData() cada 5 segundos
+    }
   }
 
   ngOnDestroy(): void {

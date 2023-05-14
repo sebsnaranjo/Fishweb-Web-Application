@@ -22,27 +22,27 @@
         <div [ngSwitch]="rol_user">
             <ul class="menu_items" *ngSwitchCase='1'>
 <!--                 <li><a routerLink="/inicio-super-administrador">Monitoreo de variables</a></li> -->
-                <li><a routerLink="/crear-upa">UPAs</a></li>
-                <li><a routerLink="/registro">Registro usuarios</a></li>
+                <li><a routerLink="/crear-upa" title="Crear una nueva UPA y visualizar las UPAs y su información">UPAs</a></li>
+                <li><a routerLink="/registro" title="Registrar usuarios (Administrador, Auxiliar)">Registro usuarios</a></li>
                 <!-- <li><a routerLink="/ajuste-variables">Ajuste de variables</a></li>
                 <li><a routerLink="/controlar">Control</a></li> -->
-                <li><a routerLink="/reportes">Reportes</a></li>
-                <li><a routerLink="/perfil">Ver perfil</a></li>
+                <li><a routerLink="/reportes" title="Creación de los reportes y grafica">Reportes</a></li>
+                <li><a routerLink="/perfil" title="Visualización de mensajes">Ver perfil</a></li>
                 <li><button class="button_logout" type="submit">Cerrar sesión</button></li>
             </ul>
             <ul class="menu_items" *ngSwitchCase='2'>
-                <li><a routerLink="/inicio-administrador">Monitoreo de variables</a></li>
-                <li><a routerLink="/ajuste-variables">Ajuste de variables</a></li>
-                <li><a routerLink="/controlar">Control</a></li>
-                <li><a routerLink="/reportes">Reportes</a></li>
-                <li><a routerLink="/mensajes">Mensajes</a></li>
+                <li><a routerLink="/inicio-administrador" title="Tabla en donde se observan los valores de la UPA">Monitoreo de variables</a></li>
+                <li><a routerLink="/ajuste-variables" title="Configuración de la sensorica">Ajuste de variables</a></li>
+                <li><a routerLink="/controlar" title="Configuración de los actuadores">Control</a></li>
+                <li><a routerLink="/reportes" title="Creación de los reportes y grafica">Reportes</a></li>
+                <li><a routerLink="/mensajes" title="Visualización de mensajes">Mensajes</a></li>
                 <li><a routerLink="/perfil">Ver perfil</a></li>
                 <li><button class="button_logout" type="submit">Cerrar sesión</button></li>
             </ul>
             <ul class="menu_items" *ngSwitchCase='3'>
-                <li><a routerLink="/inicio-auxiliar">Monitoreo de variables</a></li>
-                <li><a routerLink="/reportes">Reportes</a></li>
-                <li><a routerLink="/mensaje">Mensajes</a></li>
+                <li><a routerLink="/inicio-auxiliar" title="Tabla en donde se observan los valores de la UPA">Monitoreo de variables</a></li>
+                <li><a routerLink="/reportes" title="Creación de los reportes y grafica">Reportes</a></li>
+                <li><a routerLink="/mensaje" title="Visualización de mensajes">Mensajes</a></li>
                 <li><a routerLink="/perfil">Ver perfil</a></li>
                 <li><button class="button_logout" type="submit">Cerrar sesión</button></li>
             </ul>

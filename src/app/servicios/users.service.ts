@@ -18,11 +18,11 @@ export class UsersService {
   userId : string = this.authService.getIdUser();
   private token: string | null = null;
   
-  private apiUrl = '/api/Account/registro';
-  private userUrl = '/api/users/getUser'
-  private forgotUrl = '/api/users/forgetPassword'
-  private resetPass = '/api/users/resetPass?token=${token}'
-  private urlUpdate = '/api/auth/updateUser/'
+  private apiUrl = environment.HOST + '/api/Account/registro';
+  private userUrl = environment.HOST + '/api/users/getUser'
+  private forgotUrl = environment.HOST + '/api/users/forgetPassword'
+  private resetPass = environment.HOST + '/api/users/resetPass?token=${token}'
+  private urlUpdate = environment.HOST + '/api/auth/updateUser'
 
   constructor(
     private http: HttpClient,
@@ -63,7 +63,7 @@ export class UsersService {
     }
 
     resetPassword(password: string) {
-      const url = `/api/users/resetPassword?token=${this.token}`;
+      const url = environment.HOST + `/api/users/resetPassword?token=${this.token}`;
       const body = { password };
       return this.http.post(url, body);
     } 

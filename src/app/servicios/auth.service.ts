@@ -7,15 +7,16 @@ import jwt_decode from 'jwt-decode';
 import { EncryptService } from './encrypt.service';
 import { IAuth, ILogin, UserRolModel } from '../modelos/auth.interface';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = '/api/auth/signin';
+  private apiUrl = environment.HOST + '/api/auth/signin';
   public currentUser = null;
 
-  constructor(private http: HttpClient, private encrypt: EncryptService, private injector:Injector) {
+  constructor(private http: HttpClient, private encrypt: EncryptService, private injector:Injector, private router:Router) {
     this.currentUser = this.getIdRol();
   }
 
@@ -51,6 +52,17 @@ export class AuthService {
     }
   }
 
+  expiresInToken() {
+    const tokenPayload = jwt_decode<TokenDecodeI>(environment.TOKEN);
+    const now = Date.now().valueOf() / 1000;
+
+    if (tokenPayload.exp < now) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   getIdUpa(){
     let idupa = sessionStorage.getItem(environment.upaId)||'';
     let upa = this.encrypt.decrypt(idupa).replace(/"/g, '');
@@ -69,12 +81,16 @@ export class AuthService {
     return user;
   }
 
-  
-
   getEmailUser(){
     let emailUser = sessionStorage.getItem(environment.email)||'';
     let email = this.encrypt.decrypt(emailUser).replace(/"/g, '');
     return email;
+  }
+
+  getExpires(){
+    let expiresToken = sessionStorage.getItem(environment.expiration)||'';
+    let expires = this.encrypt.decrypt(expiresToken).replace(/"/g, '');
+    return expires;
   }
  
 

@@ -18,10 +18,10 @@ export class ManagementusersService {
 
   userId : string = this.authService.getIdUser();
 
-  private apiUrl = '/api/usuarios/listado-nombres';
-  private apiUrleditar = '/api/users/putUser'; //se usa
-  private apiUrlUser = 'api/auth/getUser/';
-  private apiUrlUser2 = 'api/auth/userAuth';
+  private apiUrl = environment.HOST + '/api/usuarios/listado-nombres';
+  private apiUrleditar = environment.HOST + '/api/users/putUser'; //se usa
+  private apiUrlUser = environment.HOST + '/api/users/getUser/';
+  private apiUrlUser2 = environment.HOST + 'api/auth/userAuth';
   
 
   private getUsers = '/api/users/getAll'; //se usa
@@ -47,6 +47,7 @@ export class ManagementusersService {
       let direccion = this.apiUrlUser + id;
       return this.http.get<any>(direccion);
     }
+
     getUserLoggedIn() {
       const headers = {
         Authorization: 'Bearer ' + sessionStorage.getItem(environment.TOKEN)   // o donde sea que esté almacenado el token de autenticación
