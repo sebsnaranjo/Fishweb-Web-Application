@@ -6,9 +6,15 @@
     <div class="col-md-8">
       <div *ngIf="user">
         <div *ngIf="!isEditing">
-          <p><strong>Nombre:</strong> {{ user.name }}</p>
-          <p><strong>Apellido:</strong> {{ user.lastname }}</p>
-          <button class="btn btn-primary" (click)="editUser()">Editar Usuario</button>
+          <div class="form-group user-info">
+            <label for="fullName">Nombre:</label>
+            <input id="fullName" type="text" class="form-control" [(ngModel)]="user.name">
+          </div>
+          <div class="form-group user-info">
+            <label for="fullName">Apellido:</label>
+            <input id="fullName" type="text" class="form-control" [(ngModel)]="user.lastname">
+          </div>
+          
         </div>
         <div *ngIf="isEditing">
           <div class="form-group">
@@ -19,8 +25,11 @@
             <label for="fullName">Apellido:</label>
             <input id="fullName" type="text" class="form-control" [(ngModel)]="user.lastname">
           </div>
-          <button class="btn btn-primary" (click)="saveUser()">Guardar</button>
-          <button class="btn btn-secondary" (click)="cancelEdit()">Cancelar</button>
+          <div class="button-container">
+            <button class="btn btn-primary" (click)="saveUser()">Guardar</button>
+            <button class="btn btn-secondary" (click)="cancelEdit()">Cancelar</button>
+          </div>
+          
         </div>
       </div>
       <div class="form-group">
@@ -35,7 +44,12 @@
         <label for="upa">LOCATION:</label>
         <input id="upa" type="text" class="form-control" [value]="upa.location.name" readonly>
       </div>
+      <div class="button-container">
+        <button class="btn btn-primary" (click)="editUser()">Editar Usuario</button>
+      </div>
+      
     </div>
+   
   </div>
 </div>
 

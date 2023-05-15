@@ -8,6 +8,7 @@ import { id } from '@swimlane/ngx-charts/release/utils';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserI } from 'src/app/modelos/user.interface';
 import Swal from 'sweetalert2';
+import { UpasService } from 'src/app/servicios/upas.service';
 @Component({
 
   selector: 'app-mensaje',
@@ -22,30 +23,28 @@ export class MensajeComponent implements OnInit {
   currentUserId: UserI;
   isDropdownOpen = false;
   rol: UserI[] = [];
-
+  upaName: string;
+  emailsList: string[];
+  selectedEmail: string = '';
 
 
   constructor(
     private fb: FormBuilder,
     private chatService: MessageService,
     private userService: ManagementusersService,
-    private authService: AuthService
+    private authService: AuthService,
+    private upaService: UpasService 
   ) {}
 
   
  
   ngOnInit(): void {
+
     
+    this.upaService.getEmailByUpa().subscribe(data => {
+      this.emailsList = data.emails;
+    });
     
-    this.userService.getUserLoggedIn().subscribe(
-      (response) => {
-        this.currentUserId = response.email;
-        this.chatForm.controls['from'].setValue(this.currentUserId); 
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
     
     const emailUser = this.authService.getEmailUser();
     this.chatForm = this.fb.group({
@@ -53,15 +52,19 @@ export class MensajeComponent implements OnInit {
       to: ['', Validators.required],
       subject: ['', Validators.required],
       message: ['', Validators.required]
-
-      //643ce67137316489d4637bb5
     });
-    
-   
-   
-    
-   
 
+  }
+
+
+  getEmailsByUpa() {
+    this.upaService.getEmailByUpa().subscribe(data => {
+      this.emailsList = data.emails;
+    });
+  }
+  onEmailSelect(event: any) {
+    this.selectedEmail = event.target.value;
+    this.chatForm.controls['to'].setValue(this.selectedEmail);
   }
 
   onSubmit() {
@@ -127,7 +130,7 @@ export class MensajeComponent implements OnInit {
       message: this.chatForm.value.message,
       timestamp: new Date()
     };
-    
+   
 
     this.chatService.sendMessage(message).subscribe(() => {
       this.chatForm.reset();
