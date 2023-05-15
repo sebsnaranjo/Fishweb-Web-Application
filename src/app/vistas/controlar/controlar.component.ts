@@ -33,7 +33,7 @@ export class ControlarComponent implements OnInit {
     this.idUpaParametrer = this.activerouter.snapshot.paramMap.get('id');
     this.getFrame();
     if(this.idRol === 1){
-      this.lastFrame.NombreUpa = this.idUpa;
+      this.lastFrame.idUPA = this.idUpa;
     }
   }
 
@@ -41,7 +41,7 @@ export class ControlarComponent implements OnInit {
     if(this.idRol == 1){
       this.frameService.getlastFrameByUpaAdmin(this.idUpaParametrer).subscribe((data) => {
         this.lastFrame = data;
-        this.lastFrame.NombreUpa = this.idUpaParametrer;
+        this.lastFrame.idUPA = this.idUpaParametrer;
       })
     } else {
       this.frameService.getlastFrameByUpa().subscribe((data) => {
@@ -61,11 +61,11 @@ export class ControlarComponent implements OnInit {
       this.rtuView = false;
       this.typeComValue = 2;
     }
-    this.lastFrame.Type_Com = this.typeComValue;
+    this.lastFrame.T_Com = this.typeComValue;
   }
 
   activarAlarma() {
-    this.lastFrame.Actuadores.Alarmas = 1;
+    this.lastFrame.Act.Alarmas = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -80,7 +80,7 @@ export class ControlarComponent implements OnInit {
   }
 
   desactivarAlarma() {
-    this.lastFrame.Actuadores.Alarmas = 0;
+    this.lastFrame.Act.Alarmas = 0;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -95,7 +95,7 @@ export class ControlarComponent implements OnInit {
   }
 
   activarRecirculacion(){
-    this.lastFrame.Actuadores.Recirculacion = 1;
+    this.lastFrame.Act.Recir = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -110,7 +110,7 @@ export class ControlarComponent implements OnInit {
   }
 
   desactivarRecirculacion(){
-    this.lastFrame.Actuadores.Recirculacion = 0;
+    this.lastFrame.Act.Recir = 0;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -125,7 +125,7 @@ export class ControlarComponent implements OnInit {
   }
 
   activarAlimentacion(){
-    this.lastFrame.Actuadores.Alimentacion = 1;
+    this.lastFrame.Act.Alim = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -140,7 +140,7 @@ export class ControlarComponent implements OnInit {
   }
 
   desactivarAlimentacion(){
-    this.lastFrame.Actuadores.Alimentacion = 0;
+    this.lastFrame.Act.Alim = 0;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -155,7 +155,7 @@ export class ControlarComponent implements OnInit {
   }
 
   activarOxigeno(){
-    this.lastFrame.Actuadores.Oxigeno = 1;
+    this.lastFrame.Act.Ox = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -170,7 +170,7 @@ export class ControlarComponent implements OnInit {
   }
 
   desactivarOxigeno(){
-    this.lastFrame.Actuadores.Oxigeno = 0;
+    this.lastFrame.Act.Ox = 0;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {

@@ -20,38 +20,37 @@ export class EstacionMeteorologica {
   lluvia: number;
   _id: string;
 }
-export class Datos {
+export class Sensores {
   PH: number;
-  Temperatura: number;
-  Conductividad_Electrica: number;
-  Nivel_Agua: number;
-  Turbidez: number;
-  Oxigeno_Disuelto: number;
+  Temp: number;
+  C_Electrica: number;
+  N_Agua: number;
+  Tu: number;
+  O_Dis: number;
   _id: string;
 }
 
 export class Actuadores {
   Alarmas: number;
-  Recirculacion: number;
-  Alimentacion: number;
-  Oxigeno: number;
+  Recir: number;
+  Alim: number;
+  Ox: number;
   _id: string;
 }
 
 export class TableFrame {
+  idUPA: string;
+  T_Com: number;
+  D_Esc: number;
+  Fn: string;
+  D_Reg: number;
+  Sensores: Sensores;
+  Act: Actuadores;
   _id?: string;
-  NombreUpa: string;
-  Type_Com: number;
-  Dir_Esclavo: number;
-  Funtion: string;
-  Dire_Registro: number;
-  Estacion_Meteorologica: EstacionMeteorologica;
-  Datos: Datos;
-  Actuadores: Actuadores;
-  CRC: string;
   createdAt: Date;
   updatedAt: string;
   __v: number;
+  CRC: string;
 }
 export class Location {
   name: string;

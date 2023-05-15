@@ -37,19 +37,19 @@ export class NotificationsComponent implements OnInit {
 
       const condiciones = {
         PH: { min: 10, max: 13 },
-        Temperatura: { min: 14, max: 15 },
-        Conductividad_Electrica: { min: 0, max: 2 },
-        Nivel_Agua: { min: 0, max: 100 },
-        Turbidez: { min: 0, max: 10 },
-        Oxigeno_Disuelto: { min: 0, max: 14 },
+        Temp: { min: 14, max: 15 },
+        C_Electrica: { min: 0, max: 2 },
+        N_Agua: { min: 0, max: 100 },
+        Tu: { min: 0, max: 10 },
+        O_Dis: { min: 0, max: 14 },
       };
 
       let warningText = "";
 
       for (let variable in condiciones) {
         let variableNombre = variable.replace(/_/g, " ");
-        if (data.Datos[variable] < condiciones[variable].min || data.Datos[variable] > condiciones[variable].max) {
-          warningText += `${variableNombre}: ${data.Datos[variable]}\n`;
+        if (data.Sensores[variable] < condiciones[variable].min || data.Sensores[variable] > condiciones[variable].max) {
+          warningText += `${variableNombre}: ${data.Sensores[variable]}\n`;
         }
       }
 
