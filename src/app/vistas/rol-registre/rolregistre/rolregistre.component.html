@@ -7,8 +7,7 @@
                     <form [formGroup]="registreFormGroupAdmin">
                         <div class="form-group">
                             <input formControlName="roles" matInput placeholder="Rol" class="registreCamp form-control" hidden>
-                            <mat-error class="error" *ngIf="registreFormGroupAdmin.controls.roles.hasError('required')">
-                                Este campo es<strong> obligatorio</strong>
+                            <mat-error class="error" *ngIf="registreFormGroupAdmin.controls.roles.hasError('required')" hidden>
                             </mat-error>
                         </div>
                         <div class="form-group">
@@ -69,7 +68,7 @@
                     <form [formGroup]="registreFormGroupAux">
                         <div class="form-group">
                             <input formControlName="roles" matInput placeholder="Rol" class="registreCamp form-control" hidden>
-                            <mat-error class="error" *ngIf="registreFormGroupAux.controls.roles.hasError('required')">
+                            <mat-error class="error" *ngIf="registreFormGroupAux.controls.roles.hasError('required')" hidden>
                                 Este campo es<strong> obligatorio</strong>
                             </mat-error>
                         </div>

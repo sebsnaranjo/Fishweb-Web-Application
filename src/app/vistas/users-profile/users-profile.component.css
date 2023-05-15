@@ -21,23 +21,23 @@
 button {
   margin-top: 5px;
   margin-bottom: 5px;
-  background-color: green;
+  background-color: #007b3e;
 }
 
 /* Estilos adicionales para el botón de "Editar Usuario" */
 .btn-primary {
-  border-color: green;
+  border-color: #007b3e;
 }
 /* Clase personalizada para el contenedor de botones */
 .button-container button {
   margin-top: 5px;
   margin-bottom: 5px;
-  background-color: green;
+  background-color: #007b3e;
 }
 
 /* Estilos adicionales para el botón de "Editar Usuario" */
 .button-container .btn-primary {
-  border-color: green;
+  border-color: #007b3e;
 }
 /* Espacio horizontal de 5px entre los botones */
 button + button {

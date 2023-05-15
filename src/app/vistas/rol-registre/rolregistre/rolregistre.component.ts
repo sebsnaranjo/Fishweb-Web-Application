@@ -55,17 +55,17 @@ export class RolregistreComponent implements OnInit {
 registreAdmin(){
   
    
-   if (this.registreFormGroupAdmin.valid){
-     var model = new UsuarioModel()
-    
-     model.roles = parseInt(this.registreFormGroupAdmin.controls["roles"].value);
-     model.name = this.registreFormGroupAdmin.controls["name"].value;
-     model.lastname = this.registreFormGroupAdmin.controls["lastname"].value;
-     model.email = this.registreFormGroupAdmin.controls["email"].value;
-     model.password = this.registreFormGroupAdmin.controls["password"].value;
-     model.upaId = this.registreFormGroupAdmin.controls["upaId"].value;
+    if (this.registreFormGroupAdmin.valid){
+      var model = new UsuarioModel()
+      
+      model.roles = parseInt(this.registreFormGroupAdmin.controls["roles"].value);
+      model.name = this.registreFormGroupAdmin.controls["name"].value;
+      model.lastname = this.registreFormGroupAdmin.controls["lastname"].value;
+      model.email = this.registreFormGroupAdmin.controls["email"].value;
+      model.password = this.registreFormGroupAdmin.controls["password"].value;
+      model.upaId = this.registreFormGroupAdmin.controls["upaId"].value;
 
-     this.registreFormGroupAdmin.reset();
+      this.registreFormGroupAdmin.reset({ roles: model.roles });
 
      this.RegistreService.RegisterRol(model).subscribe(
        data => { 
@@ -134,7 +134,7 @@ registreAdmin(){
       model.password = this.registreFormGroupAux.controls["password"].value;
       model.upaId = this.registreFormGroupAux.controls["upaId"].value;
  
-      this.registreFormGroupAux.reset();
+      this.registreFormGroupAux.reset({ roles: model.roles });
  
       this.RegistreService.RegisterRol(model).subscribe(
         data => { 
