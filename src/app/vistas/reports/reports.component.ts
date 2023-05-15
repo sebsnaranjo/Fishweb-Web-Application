@@ -184,7 +184,7 @@ export class ReportsComponent implements OnInit {
         fechaInicio: this.fechaInicio.toISOString(),
         fechaFin: this.fechaFin.toISOString(),
         variables: [] as string[],
-        nombreUpa: this.nombreUpaUser
+        idUpa: this.nombreUpaUser
       };
     
       if (this.selected !== 'Ninguna') {
@@ -202,7 +202,7 @@ export class ReportsComponent implements OnInit {
         console.log(data);
         this.dataGrafica = data;
         this.Huys = this.dataGrafica; // Llenar Huys cuando se reciben los datos
-        this.phsData = this.Huys.map((item: any) => item.Datos[this.selected]);
+        this.phsData = this.Huys.map((item: any) => item.Sensores[this.selected]);
         this.datesCollection = this.Huys.map((item:any) => new Date(item.createdAt).toLocaleString());
     
         if (this.chart && this.chart.datasets) {
@@ -399,16 +399,16 @@ export class ReportsComponent implements OnInit {
         datos.variables.push('PH');
       }
       if (this.temperaturaSelected) {
-        datos.variables.push('Temperatura');
+        datos.variables.push('Temp');
       }
       if (this.nivelAguaSelected) {
-        datos.variables.push('Nivel_Agua');
+        datos.variables.push('N_Agua');
       }
       if (this.turbidezSelected) {
-        datos.variables.push('Turbidez');
+        datos.variables.push('Tu');
       }
       if (this.oxigenoDisueltoSelected) {
-        datos.variables.push('Oxigeno_Disuelto');
+        datos.variables.push('O_Dis');
       }
       
       if (!this.pHSelected && !this.temperaturaSelected && !this.nivelAguaSelected && !this.turbidezSelected && !this.oxigenoDisueltoSelected) {
@@ -519,23 +519,23 @@ export class ReportsComponent implements OnInit {
       fechaInicio: this.fechaInicio.toISOString(),
       fechaFin: this.fechaFin.toISOString(),
       variables: [] as string[],
-      nombreUpa: this.nombreUpaUser
+      idUpa: this.nombreUpaUser
     };
 
     if (this.pHSelected) {
       datos.variables.push('PH');
     }
     if (this.temperaturaSelected) {
-      datos.variables.push('Temperatura');
+      datos.variables.push('Temp');
     }
     if (this.nivelAguaSelected) {
-      datos.variables.push('Nivel_Agua');
+      datos.variables.push('N_Agua');
     }
     if (this.turbidezSelected) {
-      datos.variables.push('Turbidez');
+      datos.variables.push('Tu');
     }
     if (this.oxigenoDisueltoSelected) {
-      datos.variables.push('Oxigeno_Disuelto');
+      datos.variables.push('O_Dis');
     }
   
     return fetch('https://shielded-everglades-04466.herokuapp.com/api/frame/getDataReport', {

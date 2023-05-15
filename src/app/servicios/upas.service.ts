@@ -18,7 +18,7 @@ export class UpasService {
   private apiGet = environment.HOST + '/api/upa/getupa'
   private upaUrl = environment.HOST + '/api/upa/upaName'
   private getUsers = environment.HOST + '/api/upa/userby';
-  private getFrames = environment.HOST + '/api/upa/frameby';
+  private getFrames = environment.HOST + '/api/frame/getAllFrameUpa';
   private emailUrl = environment.HOST + '/api/upa/enviarMail';
   private getUpaId = environment.HOST + '/api/upa/'
   private emailUpa = environment.HOST + '/api/upa/emailby'

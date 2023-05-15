@@ -47,13 +47,13 @@ export class AjustesVariablesComponent implements OnInit {
       this.rtuView = false;
       this.typeComValue = 2;
     }
-    this.lastFrame.Type_Com = this.typeComValue;
+    this.lastFrame.T_Com = this.typeComValue;
   }
 
   saveValuePH() {
     /* console.log("Valor de la variable", this.valuePH)
     console.log("PH", this.lastFrame.Datos.PH) */
-    this.lastFrame.Datos.PH = this.valuePH; // modificas el valor de PH en el objeto "Datos"
+    this.lastFrame.Sensores.PH = this.valuePH; // modificas el valor de PH en el objeto "Datos"
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -69,7 +69,7 @@ export class AjustesVariablesComponent implements OnInit {
 
   saveValueTemperatura() {
     console.log("Valor de la variable", this.valueTemperatura)
-    this.lastFrame.Datos.Temperatura = this.valueTemperatura;
+    this.lastFrame.Sensores.Temp = this.valueTemperatura;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -85,7 +85,7 @@ export class AjustesVariablesComponent implements OnInit {
 
   saveValueConductividad() {
     console.log("Valor de la variable", this.valueConductividad)
-    this.lastFrame.Datos.Conductividad_Electrica = this.valueConductividad;
+    this.lastFrame.Sensores.C_Electrica = this.valueConductividad;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -101,7 +101,7 @@ export class AjustesVariablesComponent implements OnInit {
 
   saveValueNivelAgua() {
     console.log("Valor de la variable", this.valueNivelAgua)
-    this.lastFrame.Datos.Nivel_Agua = this.valueNivelAgua;
+    this.lastFrame.Sensores.N_Agua = this.valueNivelAgua;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -117,7 +117,7 @@ export class AjustesVariablesComponent implements OnInit {
 
   saveValueTurbidez() {
     console.log("Valor de la variable", this.valueTurbidez)
-    this.lastFrame.Datos.Turbidez = this.valueTurbidez;
+    this.lastFrame.Sensores.Tu = this.valueTurbidez;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -133,7 +133,7 @@ export class AjustesVariablesComponent implements OnInit {
 
   saveValueOxigenoDisuelto() {
     console.log("Valor de la variable", this.valueOxigenoDisuelto)
-    this.lastFrame.Datos.Oxigeno_Disuelto = this.valueOxigenoDisuelto;
+    this.lastFrame.Sensores.O_Dis = this.valueOxigenoDisuelto;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
