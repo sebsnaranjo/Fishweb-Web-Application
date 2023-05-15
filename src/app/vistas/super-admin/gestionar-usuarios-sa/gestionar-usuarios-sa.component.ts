@@ -48,11 +48,12 @@ export class GestionarUsuariosSaComponent implements OnInit, AfterViewInit{
   }
 
   public getUsers(id) {
-    this.upasService.getUsersUPA(id).subscribe((data) => {
-      console.log(data);
+    this.upasService.getUsersUPA(id).subscribe((data: any) => {
+      const filteredData = data.filter(user => user.roles.name_rol !== 'Superadministrador');
+      this.dataSource.data = filteredData;
     })
     let resp = this.upasService.getUsersUPA(id);
-    resp.subscribe((report) => (this.dataSource.data = report as UserI[]));
+    /* resp.subscribe((report) => (this.dataSource.data = report as UserI[])); */
   }
 
   editUserRol(id) {

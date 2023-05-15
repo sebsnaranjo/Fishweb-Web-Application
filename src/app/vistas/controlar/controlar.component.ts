@@ -66,6 +66,7 @@ export class ControlarComponent implements OnInit {
 
   activarAlarma() {
     this.lastFrame.Act.Alarmas = 1;
+    this.lastFrame.D_Reg = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -81,6 +82,7 @@ export class ControlarComponent implements OnInit {
 
   desactivarAlarma() {
     this.lastFrame.Act.Alarmas = 0;
+    this.lastFrame.D_Reg = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -96,6 +98,7 @@ export class ControlarComponent implements OnInit {
 
   activarRecirculacion(){
     this.lastFrame.Act.Recir = 1;
+    this.lastFrame.D_Reg = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -111,6 +114,7 @@ export class ControlarComponent implements OnInit {
 
   desactivarRecirculacion(){
     this.lastFrame.Act.Recir = 0;
+    this.lastFrame.D_Reg = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -126,6 +130,7 @@ export class ControlarComponent implements OnInit {
 
   activarAlimentacion(){
     this.lastFrame.Act.Alim = 1;
+    this.lastFrame.D_Reg = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -141,6 +146,7 @@ export class ControlarComponent implements OnInit {
 
   desactivarAlimentacion(){
     this.lastFrame.Act.Alim = 0;
+    this.lastFrame.D_Reg = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -156,6 +162,7 @@ export class ControlarComponent implements OnInit {
 
   activarOxigeno(){
     this.lastFrame.Act.Ox = 1;
+    this.lastFrame.D_Reg = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {
@@ -171,6 +178,7 @@ export class ControlarComponent implements OnInit {
 
   desactivarOxigeno(){
     this.lastFrame.Act.Ox = 0;
+    this.lastFrame.D_Reg = 1;
     delete this.lastFrame?._id;
     this.lastFrame.createdAt = new Date(Date.now());
     this.frameService.postFrame(this.lastFrame).subscribe((data) => {

@@ -16,27 +16,27 @@
     <!-- Name Column -->
     <ng-container matColumnDef="ph">
       <th mat-header-cell *matHeaderCellDef> pH (10 a 13)</th>
-      <td mat-cell *matCellDef="let element"> {{element.Datos.PH}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.Sensores.PH}} </td>
     </ng-container>
 
     <ng-container matColumnDef="temperatura">
       <th mat-header-cell *matHeaderCellDef> Temperatura (14 a 15)</th>
-      <td mat-cell *matCellDef="let element"> {{element.Datos.Temperatura}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.Sensores.Temp}} </td>
     </ng-container>
 
     <ng-container matColumnDef="conductividad_electrica">
       <th mat-header-cell *matHeaderCellDef> Conductividad electrica (0 a 3)</th>
-      <td mat-cell *matCellDef="let element"> {{element.Datos.Conductividad_Electrica}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.Sensores.C_Electrica}} </td>
     </ng-container>
 
     <ng-container matColumnDef="nivelAgua">
       <th mat-header-cell *matHeaderCellDef> Nivel del agua (2000 a 4000)</th>
-      <td mat-cell *matCellDef="let element"> {{element.Datos.Nivel_Agua}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.Sensores.N_Agua}} </td>
     </ng-container>
 
     <ng-container matColumnDef="turbidez">
       <th mat-header-cell *matHeaderCellDef> Turbidez (0 a 14)</th>
-      <td mat-cell *matCellDef="let element"> {{element.Datos.Turbidez}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.Sensores.Tu}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

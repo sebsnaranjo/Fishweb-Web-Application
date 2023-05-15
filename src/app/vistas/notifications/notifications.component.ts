@@ -34,25 +34,37 @@ export class NotificationsComponent implements OnInit {
   alert() {
     this.frameService.getlastFrameByUpa().subscribe((data: any) => {
       console.log(data);
-
+  
       const condiciones = {
         PH: { min: 10, max: 13 },
         Temp: { min: 14, max: 15 },
-        C_Electrica: { min: 0, max: 2 },
+        C_Electrica: { min: 0, max: 3 },
         N_Agua: { min: 0, max: 100 },
         Tu: { min: 0, max: 10 },
         O_Dis: { min: 0, max: 14 },
       };
-
+  
+      const variableNombres = {
+        PH: "PH",
+        Temp: "Temperatura",
+        C_Electrica: "Conductividad eléctrica",
+        N_Agua: "Nivel de agua",
+        Tu: "Turbidez",
+        O_Dis: "Oxigeno",
+      };
+  
       let warningText = "";
-
+  
       for (let variable in condiciones) {
-        let variableNombre = variable.replace(/_/g, " ");
-        if (data.Sensores[variable] < condiciones[variable].min || data.Sensores[variable] > condiciones[variable].max) {
-          warningText += `${variableNombre}: ${data.Sensores[variable]}\n`;
+        const variableNombre = variableNombres[variable] || variable.replace(/_/g, " ");
+        const valor = data.Sensores[variable];
+        const condicion = condiciones[variable];
+  
+        if (valor < condicion.min || valor > condicion.max) {
+          warningText += `${variableNombre}: ${valor}\n`;
         }
       }
-
+  
       if (warningText !== "") {
         Swal.fire({
           icon: 'warning',
@@ -65,7 +77,7 @@ export class NotificationsComponent implements OnInit {
           if (result.isConfirmed) {
             const email = this.authService.getEmailUser();
             const message = 'Debes tener cuidado con las siguientes variables:\n' + warningText;
-            this.emailService.sendWarningEmail({email, message}).subscribe(() => {
+            this.emailService.sendWarningEmail({ email, message }).subscribe(() => {
               Swal.fire('Correo electrónico enviado', '', 'success');
             }, () => {
               Swal.fire('Error al enviar correo electrónico', '', 'error');
@@ -73,9 +85,9 @@ export class NotificationsComponent implements OnInit {
           }
         });
       }
-    })
-
+    });
   }
+  
 }
   
 
