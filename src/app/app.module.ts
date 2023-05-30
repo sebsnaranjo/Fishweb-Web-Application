@@ -58,6 +58,7 @@ import { ResetPasswordComponent } from './vistas/reset-password/reset-password.c
 import { EditRolSaComponent } from './vistas/super-admin/edit-rol-sa/edit-rol-sa.component';
 import { ControlarSaComponent } from './vistas/super-admin/controlar-sa/controlar-sa.component';
 import { GestionarUsuariosSaComponent } from './vistas/super-admin/gestionar-usuarios-sa/gestionar-usuarios-sa.component';
+import { AjusteSenActComponent } from './vistas/ajuste-sen-act/ajuste-sen-act.component';
 
 
 @NgModule({
@@ -96,7 +97,8 @@ import { GestionarUsuariosSaComponent } from './vistas/super-admin/gestionar-usu
     ResetPasswordComponent,
     EditRolSaComponent,
     ControlarSaComponent,
-    GestionarUsuariosSaComponent
+    GestionarUsuariosSaComponent,
+    AjusteSenActComponent
   ],
   imports: [
     BrowserModule,

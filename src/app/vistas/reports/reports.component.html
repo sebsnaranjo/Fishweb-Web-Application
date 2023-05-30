@@ -101,6 +101,7 @@
       <div style="display: flex; flex-direction: column;">
         <mat-checkbox [(ngModel)]="turbidezSelected">Turbidez</mat-checkbox>
         <mat-checkbox [(ngModel)]="oxigenoDisueltoSelected">Oxigeno disuelto</mat-checkbox>
+        <mat-checkbox [(ngModel)]="S_1Selected" *ngIf="stateSensor">{{ nameSensor }}</mat-checkbox>
       </div>
     </div>
     <button mat-raised-button color="primary" class="btn_report" (click)="generate()">Descargar reporte</button>
@@ -134,6 +135,7 @@
         <mat-option value="N_Agua">Nivel agua</mat-option>
         <mat-option value="Tu">Turbidez</mat-option>
         <mat-option value="O_Dis">Oxigeno disuelto</mat-option>
+        <mat-option value="S_1" *ngIf="stateSensor">{{ nameSensor }}</mat-option>
       </mat-select>
     </mat-form-field>
     

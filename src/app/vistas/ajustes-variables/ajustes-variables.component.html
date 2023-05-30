@@ -30,40 +30,61 @@
     <mat-tab label="PH">
       <ng-template mat-tab-label>
         <div class="tab-label">
-          PH <br>
-          <small>Prom. (6 - 8)</small>
+          PH
         </div>
       </ng-template>
-      <mat-form-field class="form-field">
-        <input
-          matInput
-          type="number"
-          placeholder="PH"
-          class="input-field"
-          [(ngModel)]="valuePH"
-        />
-      </mat-form-field>
+      <div class="input-container"> <!-- nuevo contenedor flex -->
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Minimo PH"
+            class="input-field"
+            [(ngModel)]="valuePHmin"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Maximo PH"
+            class="input-field"
+            [(ngModel)]="valuePHmax"
+          />
+        </mat-form-field>
+      </div>
       <div class="boton-container">
         <button mat-button class="btn-save" (click)="saveValuePH()">
           Guardar
         </button>
       </div>
-    </mat-tab>
+    </mat-tab>    
     <mat-tab label="TEMPERATURA">
       <ng-template mat-tab-label>
         <div class="tab-label">
-          TEMPERATURA <br>
-          <small>Prom. (20 - 25)</small>
+          TEMPERATURA
         </div>
       </ng-template>
-      <mat-form-field class="form-field">
-        <input
-          matInput
-          type="number"
-          placeholder="Temperatura"
-          [(ngModel)]="valueTemperatura"
-        />
-      </mat-form-field>
+      <div class="input-container"> <!-- nuevo contenedor flex -->
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Minimo Temperatura"
+            class="input-field"
+            [(ngModel)]="valueTemperaturamin"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Maximo Temperatura"
+            class="input-field"
+            [(ngModel)]="valueTemperaturamax"
+          />
+        </mat-form-field>
+      </div>
       <div class="boton-container">
         <button mat-button class="btn-save" (click)="saveValueTemperatura()">
           Guardar
@@ -73,18 +94,29 @@
     <mat-tab label="CONDUCTIVIDAD">
       <ng-template mat-tab-label>
         <div class="tab-label">
-          CONDUCTIVIDAD <br>
-          <small>Prom. (200 - 400)(µS/cm)</small>
+          CONDUCTIVIDAD
         </div>
       </ng-template>
-      <mat-form-field class="form-field">
-        <input
-          matInput
-          type="number"
-          placeholder="Conductividad"
-          [(ngModel)]="valueConductividad"
-        />
-      </mat-form-field>
+      <div class="input-container"> <!-- nuevo contenedor flex -->
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Minimo Conductividad"
+            class="input-field"
+            [(ngModel)]="valueConductividadmin"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Maximo Conductividad"
+            class="input-field"
+            [(ngModel)]="valueConductividadmax"
+          />
+        </mat-form-field>
+      </div>
       <div class="boton-container">
         <button mat-button class="btn-save" (click)="saveValueConductividad()">
           Guardar
@@ -94,18 +126,29 @@
     <mat-tab label="NIVEL DEL AGUA">
       <ng-template mat-tab-label>
         <div class="tab-label">
-          NIVEL DEL AGUA <br>
-          <small>Prom. (4000 - 5000)</small>
+          NIVEL DEL AGUA
         </div>
       </ng-template>
-      <mat-form-field class="form-field">
-        <input
-          matInput
-          type="number"
-          placeholder="Nivel de Agua"
-          [(ngModel)]="valueNivelAgua"
-        />
-      </mat-form-field>
+      <div class="input-container"> <!-- nuevo contenedor flex -->
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Minimo Nivel del agua"
+            class="input-field"
+            [(ngModel)]="valueNivelAguamin"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Maximo Nivel del agua"
+            class="input-field"
+            [(ngModel)]="valueNivelAguamax"
+          />
+        </mat-form-field>
+      </div>
       <div class="boton-container">
         <button mat-button class="btn-save" (click)="saveValueNivelAgua()">
           Guardar
@@ -115,18 +158,29 @@
     <mat-tab label="TURBIDEZ">
       <ng-template mat-tab-label>
         <div class="tab-label">
-          TURBIDEZ <br>
-          <small>Prom. (4 - 5)</small>
+          TURBIDEZ
         </div>
       </ng-template>
-      <mat-form-field class="form-field">
-        <input
-          matInput
-          type="number"
-          placeholder="Turbidez"
-          [(ngModel)]="valueTurbidez"
-        />
-      </mat-form-field>
+      <div class="input-container"> <!-- nuevo contenedor flex -->
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Minimo Turbidez"
+            class="input-field"
+            [(ngModel)]="valueTurbidezmin"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Maximo Turbidez"
+            class="input-field"
+            [(ngModel)]="valueTurbidezmax"
+          />
+        </mat-form-field>
+      </div>
       <div class="boton-container">
         <button mat-button class="btn-save" (click)="saveValueTurbidez()">
           Guardar
@@ -134,14 +188,26 @@
       </div>
     </mat-tab>
     <mat-tab label="OXIGENO DISUELTO">
-      <mat-form-field class="form-field">
-        <input
-          matInput
-          type="number"
-          placeholder="Oxígeno Disuelto"
-          [(ngModel)]="valueOxigenoDisuelto"
-        />
-      </mat-form-field>
+      <div class="input-container"> <!-- nuevo contenedor flex -->
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Minimo Oxigeno Disuelto"
+            class="input-field"
+            [(ngModel)]="valueOxigenoDisueltomin"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input
+            matInput
+            type="number"
+            placeholder="Maximo Oxigeno Disuelto"
+            class="input-field"
+            [(ngModel)]="valueOxigenoDisueltomax"
+          />
+        </mat-form-field>
+      </div>
       <div class="boton-container">
         <button
           mat-button
@@ -152,5 +218,38 @@
         </button>
       </div>
     </mat-tab>
+    <div *ngIf="stateSensor">
+      <mat-tab [label]="nameSensor">
+        <div class="input-container"> <!-- nuevo contenedor flex -->
+          <mat-form-field class="form-field">
+            <input
+              matInput
+              type="number"
+              placeholder="Minimo {{nameSensor}}"
+              class="input-field"
+              [(ngModel)]="valueS_1min"
+            />
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <input
+              matInput
+              type="number"
+              placeholder="Maximo {{nameSensor}}"
+              class="input-field"
+              [(ngModel)]="valueS_1max"
+            />
+          </mat-form-field>
+        </div>
+        <div class="boton-container">
+          <button
+            mat-button
+            class="btn-save"
+            (click)="saveValueS_1()"
+          >
+            Guardar
+          </button>
+        </div>
+      </mat-tab>
+    </div>
   </mat-tab-group>
 </div>

@@ -31,6 +31,7 @@ import { UsersProfileComponent } from './vistas/users-profile/users-profile.comp
 import { ForgotPasswordComponent } from './vistas/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './vistas/reset-password/reset-password.component';
 import { EditRolSaComponent } from './vistas/super-admin/edit-rol-sa/edit-rol-sa.component';
+import { AjusteSenActComponent } from './vistas/ajuste-sen-act/ajuste-sen-act.component';
 
 const routes: Routes = [
   {
@@ -59,7 +60,7 @@ const routes: Routes = [
       { path: 'ajuste-variables', canActivate: [VariableSettingGuard], component: AjustesVariablesComponent},
       { path: 'reportes', canActivate: [ReportsGuard], component: ReportsComponent},
       { path: 'edit-rol-superadmin/:id', canActivate: [ManageUsersGuard], component: EditRolSaComponent },
-
+      { path: 'ajustes', component: AjusteSenActComponent},
       /* { path: 'permiso-usuarios', component: UsersPermissionComponent }, */
       { path: '', redirectTo: 'inicio', pathMatch: 'full' },
     ]

@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { UpasService } from 'src/app/servicios/upas.service';
 import Swal from 'sweetalert2';
 import { MatDateRangePicker, MatDatepickerInputEvent, DateRange } from '@angular/material/datepicker';
+import { Sensor_1 } from 'src/app/modelos/settingsensor.interface';
 
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -39,6 +40,7 @@ export class ReportsComponent implements OnInit {
   turbidezSelected: boolean;
   oxigenoDisueltoSelected: boolean;
   recirculacionAguaSelected: boolean;
+  S_1Selected: boolean;
   fechaInicio: any;
   fechaFin: any;
   fechaInicioGraph: Date = new Date();
@@ -70,6 +72,10 @@ export class ReportsComponent implements OnInit {
   fechaInicioValidation: any;
   fechaFinValidation: any;
 
+  settingSensor: Sensor_1;
+  nameSensor: string;
+  stateSensor: boolean;
+
   constructor(
     private http: HttpClient,
     private frameService: FrameService,
@@ -87,6 +93,17 @@ export class ReportsComponent implements OnInit {
     console.log(this.panelOpenState);
 
     this.idUpa = this.authService.getIdUpa();
+
+    this.frameService.getLastSetting(this.idUpa).subscribe(data => {
+      this.settingSensor = data;
+      this.nameSensor = this.settingSensor.n;
+      if(this.settingSensor.e == 1){
+        this.stateSensor = true;
+      } else if (this.settingSensor.e == 0){
+        this.stateSensor = false;
+      }
+      console.log(this.settingSensor)
+    })
 
     this.upasService.getUpaById(this.idUpa).subscribe((data:any) => {
       this.nombreUpa = data.name;
@@ -410,8 +427,11 @@ export class ReportsComponent implements OnInit {
       if (this.oxigenoDisueltoSelected) {
         datos.variables.push('O_Dis');
       }
+      if (this.S_1Selected) {
+        datos.variables.push('S_1');
+      }
       
-      if (!this.pHSelected && !this.temperaturaSelected && !this.nivelAguaSelected && !this.turbidezSelected && !this.oxigenoDisueltoSelected) {
+      if (!this.pHSelected && !this.temperaturaSelected && !this.nivelAguaSelected && !this.turbidezSelected && !this.oxigenoDisueltoSelected && !this.S_1Selected) {
         Swal.fire({
           icon: 'error',
           title: 'Error',
@@ -536,6 +556,9 @@ export class ReportsComponent implements OnInit {
     }
     if (this.oxigenoDisueltoSelected) {
       datos.variables.push('O_Dis');
+    }      
+    if (this.S_1Selected) {
+      datos.variables.push('S_1');
     }
   
     return fetch('https://shielded-everglades-04466.herokuapp.com/api/frame/getDataReport', {
