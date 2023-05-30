@@ -58,6 +58,15 @@ import { ResetPasswordComponent } from './vistas/reset-password/reset-password.c
 import { EditRolSaComponent } from './vistas/super-admin/edit-rol-sa/edit-rol-sa.component';
 import { ControlarSaComponent } from './vistas/super-admin/controlar-sa/controlar-sa.component';
 import { GestionarUsuariosSaComponent } from './vistas/super-admin/gestionar-usuarios-sa/gestionar-usuarios-sa.component';
+import { DxLinearGaugeModule } from 'devextreme-angular/ui/linear-gauge';
+import { DxSelectBoxModule } from 'devextreme-angular';
+import { DxCircularGaugeModule } from 'devextreme-angular';
+import { DataShowGraphsComponent } from './vistas/data-show-graphs/data-show-graphs.component';
+
+
+
+
+
 
 
 @NgModule({
@@ -96,7 +105,8 @@ import { GestionarUsuariosSaComponent } from './vistas/super-admin/gestionar-usu
     ResetPasswordComponent,
     EditRolSaComponent,
     ControlarSaComponent,
-    GestionarUsuariosSaComponent
+    GestionarUsuariosSaComponent,
+    DataShowGraphsComponent
   ],
   imports: [
     BrowserModule,
@@ -121,7 +131,11 @@ import { GestionarUsuariosSaComponent } from './vistas/super-admin/gestionar-usu
     MatPaginatorModule,
     MatSortModule,
     NgChartsModule,
-    MatDatepickerModule 
+    MatDatepickerModule,
+    DxLinearGaugeModule,
+    DxSelectBoxModule,
+    DxCircularGaugeModule
+    
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

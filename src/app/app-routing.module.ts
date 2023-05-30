@@ -31,6 +31,7 @@ import { UsersProfileComponent } from './vistas/users-profile/users-profile.comp
 import { ForgotPasswordComponent } from './vistas/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './vistas/reset-password/reset-password.component';
 import { EditRolSaComponent } from './vistas/super-admin/edit-rol-sa/edit-rol-sa.component';
+import { DataShowGraphsComponent } from './vistas/data-show-graphs/data-show-graphs.component';
 
 const routes: Routes = [
   {

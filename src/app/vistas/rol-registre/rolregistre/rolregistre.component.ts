@@ -17,7 +17,7 @@ export class RolregistreComponent implements OnInit {
 
   registreFormGroupAdmin: FormGroup;
   registreFormGroupAux: FormGroup;
-
+ 
   createFormGroupAdmin(){
   
     return new FormGroup({
@@ -25,7 +25,7 @@ export class RolregistreComponent implements OnInit {
     name: new FormControl('',[Validators.required]),
     lastname: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email]),
-    password: new FormControl('',[Validators.required, Validators.minLength(7)]),
+    password: new FormControl(''),
     upaId: new FormControl('', [Validators.required]),
   });
   }
@@ -37,7 +37,7 @@ export class RolregistreComponent implements OnInit {
     name: new FormControl('',[Validators.required]),
     lastname: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email]),
-    password: new FormControl('',[Validators.required, Validators.minLength(7)]),
+    password: new FormControl(''),
     upaId: new FormControl('', [Validators.required]),
   });
   }
@@ -71,7 +71,7 @@ registreAdmin(){
        data => { 
         Swal.fire({
           title: 'Registro exitoso',
-          text: 'El registro se hizo con exito',
+          text: 'El registro se hizo con exito, la contraseña se envio al correo registrado',
           icon: 'success'
         });
         }, 
@@ -140,7 +140,7 @@ registreAdmin(){
         data => { 
          Swal.fire({
            title: 'Registro exitoso',
-           text: 'El registro se hizo con exito',
+           text: 'El registro se hizo con exito, la contraseña se envio al correo registrado',
            icon: 'success'
          });
          }, 

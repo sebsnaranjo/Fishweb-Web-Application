@@ -1,0 +1,144 @@
+
+<div class="container">
+   
+    <div id="gauge-demo">
+      <dx-circular-gauge [value]="phSensor?.mean" [subvalues]="[phSensor?.min !== undefined ? phSensor.min : 0, phSensor?.max !== undefined ? phSensor.max : 0]">
+        <dxo-range-container>
+          <dxi-range [startValue]="1" [endValue]="6" color="#E6E200"></dxi-range>
+          <dxi-range [startValue]="6" [endValue]="10" color="#77DD77"></dxi-range>
+          <dxi-range [startValue]="10" [endValue]="14" color="#E6E200"></dxi-range>
+        </dxo-range-container>
+    
+        <dxo-scale [startValue]="1" [endValue]="14" [tickInterval]="1">
+          
+        </dxo-scale>
+        <dxo-tooltip [enabled]="true"></dxo-tooltip>
+        <dxo-title text="PH">
+          <dxo-font [size]="28"></dxo-font>
+        </dxo-title>
+      </dx-circular-gauge>
+    </div>
+      <div id="gauge-demo">
+        <dx-circular-gauge [value]="tempSensor?.mean" [subvalues]="[tempSensor?.min !== undefined ? tempSensor.min : 0, tempSensor?.max !== undefined ? tempSensor.max : 0]">
+          <dxo-range-container>
+            <dxi-range [startValue]="10" [endValue]="15" color="#E6E200"></dxi-range>
+            <dxi-range [startValue]="15" [endValue]="20" color="#77DD77"></dxi-range>
+            <dxi-range [startValue]="20" [endValue]="24" color="#E6E200"></dxi-range>
+          </dxo-range-container>
+      
+          <dxo-scale [startValue]="10" [endValue]="24" [tickInterval]="2">
+            <dxo-label [customizeText]="customizeText"></dxo-label>
+          </dxo-scale>
+          <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          <dxo-title text="Temperatura">
+            <dxo-font [size]="28"></dxo-font>
+          </dxo-title>
+        </dx-circular-gauge>
+  
+  
+      </div>
+
+      <div id="gauge-demo">
+        <dx-circular-gauge [value]="c_elecSensor?.mean" [subvalues]="[c_elecSensor?.min !== undefined ? c_elecSensor.min : 0, c_elecSensor?.max !== undefined ? c_elecSensor.max : 0]">
+          <dxo-range-container>
+            <dxi-range [startValue]="100" [endValue]="300" color="#E6E200"></dxi-range>
+            <dxi-range [startValue]="300" [endValue]="500" color="#77DD77"></dxi-range>
+            <dxi-range [startValue]="500" [endValue]="800" color="#E6E200"></dxi-range>
+          </dxo-range-container>
+      
+          <dxo-scale [startValue]="100" [endValue]="800" [tickInterval]="40">
+            
+          </dxo-scale>
+          <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          <dxo-title text="Conductividad Electrica">
+            <dxo-font [size]="28"></dxo-font>
+          </dxo-title>
+        </dx-circular-gauge>
+  
+    
+      </div>
+      <div id="gauge-demo">
+        <dx-circular-gauge [value]="nAguaSensor?.mean" [subvalues]="[nAguaSensor?.min !== undefined ? nAguaSensor.min : 0, nAguaSensor?.max !== undefined ? nAguaSensor.max : 0]">
+          <dxo-range-container>
+            <dxi-range [startValue]="10" [endValue]="20" color="#0077BE"></dxi-range>
+            <dxi-range [startValue]="20" [endValue]="30" color="#E6E200"></dxi-range>
+            <dxi-range [startValue]="30" [endValue]="40" color="#77DD77"></dxi-range>
+          </dxo-range-container>
+      
+          <dxo-scale [startValue]="10" [endValue]="40" [tickInterval]="5">
+            <dxo-label [customizeText]="customizeText"></dxo-label>
+          </dxo-scale>
+          <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          <dxo-title text="Nivel del agua">
+            <dxo-font [size]="28"></dxo-font>
+          </dxo-title>
+        </dx-circular-gauge>
+  
+    
+      </div>
+
+      <div id="gauge-demo">
+        <dx-circular-gauge [value]="tuSensor?.mean" [subvalues]="[tuSensor?.min !== undefined ? tuSensor.min : 0, tuSensor?.max !== undefined ? tuSensor.max : 0]">
+          <dxo-range-container>
+            <dxi-range [startValue]="10" [endValue]="20" color="#0077BE"></dxi-range>
+            <dxi-range [startValue]="20" [endValue]="30" color="#E6E200"></dxi-range>
+            <dxi-range [startValue]="30" [endValue]="40" color="#77DD77"></dxi-range>
+          </dxo-range-container>
+      
+          <dxo-scale [startValue]="10" [endValue]="40" [tickInterval]="5">
+            <dxo-label [customizeText]="customizeText"></dxo-label>
+          </dxo-scale>
+          <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          <dxo-title text="Turbulenza">
+            <dxo-font [size]="28"></dxo-font>
+          </dxo-title>
+        </dx-circular-gauge>
+  
+      </div>
+
+      <div id="gauge-demo">
+        <dx-circular-gauge [value]="oDisSensor?.mean" [subvalues]="[oDisSensor?.min !== undefined ? oDisSensor.min : 0, oDisSensor?.max !== undefined ? oDisSensor.max : 0]">
+          <dxo-range-container>
+            <dxi-range [startValue]="10" [endValue]="20" color="#0077BE"></dxi-range>
+            <dxi-range [startValue]="20" [endValue]="30" color="#E6E200"></dxi-range>
+            <dxi-range [startValue]="30" [endValue]="40" color="#77DD77"></dxi-range>
+          </dxo-range-container>
+      
+          <dxo-scale [startValue]="10" [endValue]="40" [tickInterval]="5">
+            <dxo-label [customizeText]="customizeText"></dxo-label>
+          </dxo-scale>
+          <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          <dxo-title text="Oxigeno Disuelto">
+            <dxo-font [size]="28"></dxo-font>
+          </dxo-title>
+        </dx-circular-gauge>
+  
+ 
+      </div>
+
+      <div id="gauge-demo">
+        <dx-circular-gauge [value]="s1Sensor?.mean" [subvalues]="[s1Sensor?.min !== undefined ? s1Sensor.min : 0, s1Sensor?.max !== undefined ? s1Sensor.max : 0]">
+          <dxo-range-container>
+            <dxi-range [startValue]="10" [endValue]="20" color="#0077BE"></dxi-range>
+            <dxi-range [startValue]="20" [endValue]="30" color="#E6E200"></dxi-range>
+            <dxi-range [startValue]="30" [endValue]="40" color="#77DD77"></dxi-range>
+          </dxo-range-container>
+      
+          <dxo-scale [startValue]="10" [endValue]="40" [tickInterval]="5">
+            <dxo-label [customizeText]="customizeText"></dxo-label>
+          </dxo-scale>
+          <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          <dxo-title text="Sensor 1">
+            <dxo-font [size]="28"></dxo-font>
+          </dxo-title>
+        </dx-circular-gauge>
+  
+ 
+      </div>
+
+      
+  
+    
+  </div>
+  
+  
