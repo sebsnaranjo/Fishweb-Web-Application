@@ -42,7 +42,7 @@ export class MensajeComponent implements OnInit {
 
     
     this.upaService.getEmailByUpa().subscribe(data => {
-      this.emailsList = data.name;
+      this.emailsList = data.emails;
     });
     
     
