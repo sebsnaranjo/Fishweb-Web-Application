@@ -62,11 +62,7 @@ import { DxLinearGaugeModule } from 'devextreme-angular/ui/linear-gauge';
 import { DxSelectBoxModule } from 'devextreme-angular';
 import { DxCircularGaugeModule } from 'devextreme-angular';
 import { DataShowGraphsComponent } from './vistas/data-show-graphs/data-show-graphs.component';
-
-
-
-
-
+import { AjusteSenActComponent } from './vistas/ajuste-sen-act/ajuste-sen-act.component';
 
 
 @NgModule({
@@ -106,7 +102,8 @@ import { DataShowGraphsComponent } from './vistas/data-show-graphs/data-show-gra
     EditRolSaComponent,
     ControlarSaComponent,
     GestionarUsuariosSaComponent,
-    DataShowGraphsComponent
+    DataShowGraphsComponent,
+    AjusteSenActComponent
   ],
   imports: [
     BrowserModule,

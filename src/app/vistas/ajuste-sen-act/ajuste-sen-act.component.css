@@ -1,0 +1,73 @@
+.example-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.example-container {
+  background-color: #f5f5f5;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.example-title {
+  text-align: center;
+  margin-bottom: 16px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.example-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.example-item {
+  margin-right: 16px;
+  margin-bottom: 8px; /* Espacio vertical entre los elementos */
+  width: calc(25% - 16px);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form-container {
+  width: 80%;
+  height: auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-bottom: 20px; /* Para dar un poco de espacio entre los formularios */
+}
+
+.form-title {
+  text-align: center;
+  font-weight: bold;
+  font-family: "DM Sans", sans-serif;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn_report {
+  width: 30%;
+  height: 50px;
+  border-style: none;
+  background-color: #007b3e;
+  border-radius: 50px;
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  margin: auto; /* Nueva línea agregada */
+  display: block; /* Nueva línea agregada */
+}

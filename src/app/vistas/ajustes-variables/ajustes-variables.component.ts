@@ -1,7 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { TableFrame } from 'src/app/modelos/data-table-upa.interface';
+import { Sensor_1 } from 'src/app/modelos/settingsensor.interface';
 import { FrameService } from 'src/app/servicios/frame.service';
 import Swal from 'sweetalert2';
+
+interface Range {
+  name: string;
+  min: number;
+  max: number;
+}
+
+interface ResultObject {
+  idUPA: string;
+  [key: string]: any;
+}
 
 @Component({
   selector: 'app-ajustes-variables',
@@ -15,19 +27,49 @@ export class AjustesVariablesComponent implements OnInit {
   rtuView: boolean = false; 
 
   lastFrame: TableFrame;
-  valuePH: number;
-  valueTemperatura: number;
-  valueConductividad: number;
-  valueNivelAgua: number;
-  valueTurbidez: number;
-  valueOxigenoDisuelto: number;
+  valuePHmin: number;
+  valuePHmax: number;
+  valueTemperaturamin: number;
+  valueTemperaturamax: number;
+  valueConductividadmin: number;
+  valueConductividadmax: number;
+  valueNivelAguamin: number;
+  valueNivelAguamax: number;
+  valueTurbidezmin: number;
+  valueTurbidezmax: number;
+  valueOxigenoDisueltomin: number;
+  valueOxigenoDisueltomax: number;
+  valueS_1min: number;
+  valueS_1max: number;
 
   typeComValue: number;
+
+  sensor1: Sensor_1;
+  nameSensor: string;
+  stateSensor: boolean = false;
+  dataRange: Range[];
+  newDataRange: any;
 
   constructor(private frameService: FrameService) { }
 
   ngOnInit(): void {
     this.getFrame();
+
+    this.frameService.getLastSetting("645993329aaf246f8ce032bd").subscribe(data => {
+      console.log(data);
+      this.sensor1 = data;
+      this.nameSensor = this.sensor1.n;
+      if(this.sensor1.e == 1){
+        this.stateSensor = true;
+      } else if (this.sensor1.e == 0){
+        this.stateSensor = false;
+      }
+    })
+
+    this.frameService.getRangeSensor("645993329aaf246f8ce032bd").subscribe( data => {
+      this.dataRange = data;
+      console.log("RANGOS", data);
+    })
   }
 
   getFrame() {
@@ -51,16 +93,32 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValuePH() {
-    /* console.log("Valor de la variable", this.valuePH)
-    console.log("PH", this.lastFrame.Datos.PH) */
-    this.lastFrame.Sensores.PH = this.valuePH; // modificas el valor de PH en el objeto "Datos"
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log(data)
+    this.dataRange = (this.dataRange as any[]).map(range => {
+      if (range.name === 'PH') {
+        range.min = this.valuePHmin;
+        range.max = this.valuePHmax;
+      }
+      return range;
+    });
+
+    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+
+    let transformedObject: ResultObject = {
+        idUPA: idUPA
+    };
+
+    this.dataRange.forEach((range: Range) => {
+        transformedObject[range.name] = {
+            n: range.min,
+            m: range.max
+        };
+    });
+
+    this.frameService.postRangeSensor(transformedObject).subscribe(data => {
+      console.log("SE PUBLICO", data);
       Swal.fire({
         icon: 'success',
-        title: '¡Valor del PH ha sido enviado!',
+        title: '¡Rango del PH ha sido actualizado!',
         showConfirmButton: false,
         timer: 2000
       });
@@ -68,15 +126,32 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueTemperatura() {
-    console.log("Valor de la variable", this.valueTemperatura)
-    this.lastFrame.Sensores.Temp = this.valueTemperatura;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log(data)
+    this.dataRange = (this.dataRange as any[]).map(range => {
+      if (range.name === 'Temp') {
+        range.min = this.valueTemperaturamin;
+        range.max = this.valueTemperaturamax;
+      }
+      return range;
+    });
+
+    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+
+    let transformedObject: ResultObject = {
+        idUPA: idUPA
+    };
+
+    this.dataRange.forEach((range: Range) => {
+        transformedObject[range.name] = {
+            n: range.min,
+            m: range.max
+        };
+    });
+
+    this.frameService.postRangeSensor(transformedObject).subscribe(data => {
+      console.log("SE PUBLICO", data);
       Swal.fire({
         icon: 'success',
-        title: '¡Valor de la Temperatura ha sido enviado!',
+        title: '¡Rango de Temperatura ha sido actualizado!',
         showConfirmButton: false,
         timer: 2000
       });
@@ -84,15 +159,32 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueConductividad() {
-    console.log("Valor de la variable", this.valueConductividad)
-    this.lastFrame.Sensores.C_Electrica = this.valueConductividad;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log(data)
+    this.dataRange = (this.dataRange as any[]).map(range => {
+      if (range.name === 'C_Electrica') {
+        range.min = this.valueConductividadmin;
+        range.max = this.valueConductividadmax;
+      }
+      return range;
+    });
+
+    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+
+    let transformedObject: ResultObject = {
+        idUPA: idUPA
+    };
+
+    this.dataRange.forEach((range: Range) => {
+        transformedObject[range.name] = {
+            n: range.min,
+            m: range.max
+        };
+    });
+
+    this.frameService.postRangeSensor(transformedObject).subscribe(data => {
+      console.log("SE PUBLICO", data);
       Swal.fire({
         icon: 'success',
-        title: '¡Valor de la Conductividad ha sido enviado!',
+        title: '¡Rango de Conductividad Electrica ha sido actualizado!',
         showConfirmButton: false,
         timer: 2000
       });
@@ -100,15 +192,32 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueNivelAgua() {
-    console.log("Valor de la variable", this.valueNivelAgua)
-    this.lastFrame.Sensores.N_Agua = this.valueNivelAgua;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log(data)
+    this.dataRange = (this.dataRange as any[]).map(range => {
+      if (range.name === 'N_Agua') {
+        range.min = this.valueNivelAguamin;
+        range.max = this.valueNivelAguamax;
+      }
+      return range;
+    });
+
+    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+
+    let transformedObject: ResultObject = {
+        idUPA: idUPA
+    };
+
+    this.dataRange.forEach((range: Range) => {
+        transformedObject[range.name] = {
+            n: range.min,
+            m: range.max
+        };
+    });
+
+    this.frameService.postRangeSensor(transformedObject).subscribe(data => {
+      console.log("SE PUBLICO", data);
       Swal.fire({
         icon: 'success',
-        title: '¡Valor del Nivel del Agua ha sido enviado!',
+        title: '¡Rango de Nivel Agua ha sido actualizado!',
         showConfirmButton: false,
         timer: 2000
       });
@@ -116,15 +225,32 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueTurbidez() {
-    console.log("Valor de la variable", this.valueTurbidez)
-    this.lastFrame.Sensores.Tu = this.valueTurbidez;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log(data)
+    this.dataRange = (this.dataRange as any[]).map(range => {
+      if (range.name === 'Tu') {
+        range.min = this.valueTurbidezmin;
+        range.max = this.valueTurbidezmax;
+      }
+      return range;
+    });
+
+    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+
+    let transformedObject: ResultObject = {
+        idUPA: idUPA
+    };
+
+    this.dataRange.forEach((range: Range) => {
+        transformedObject[range.name] = {
+            n: range.min,
+            m: range.max
+        };
+    });
+
+    this.frameService.postRangeSensor(transformedObject).subscribe(data => {
+      console.log("SE PUBLICO", data);
       Swal.fire({
         icon: 'success',
-        title: '¡Valor de la Turbidez ha sido enviado!',
+        title: '¡Rango de Trubidez ha sido actualizado!',
         showConfirmButton: false,
         timer: 2000
       });
@@ -132,15 +258,65 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueOxigenoDisuelto() {
-    console.log("Valor de la variable", this.valueOxigenoDisuelto)
-    this.lastFrame.Sensores.O_Dis = this.valueOxigenoDisuelto;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log(data)
+    this.dataRange = (this.dataRange as any[]).map(range => {
+      if (range.name === 'O_Dis') {
+        range.min = this.valueOxigenoDisueltomin;
+        range.max = this.valueOxigenoDisueltomax;
+      }
+      return range;
+    });
+
+    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+
+    let transformedObject: ResultObject = {
+        idUPA: idUPA
+    };
+
+    this.dataRange.forEach((range: Range) => {
+        transformedObject[range.name] = {
+            n: range.min,
+            m: range.max
+        };
+    });
+
+    this.frameService.postRangeSensor(transformedObject).subscribe(data => {
+      console.log("SE PUBLICO", data);
       Swal.fire({
         icon: 'success',
-        title: '¡Valor del Oxigeno Disuelto ha sido enviado!',
+        title: '¡Rango de Oxigeno Disuelto ha sido actualizado!',
+        showConfirmButton: false,
+        timer: 2000
+      });
+    })
+  }
+
+  saveValueS_1(){
+    this.dataRange = (this.dataRange as any[]).map(range => {
+      if (range.name === 'S_1') {
+        range.min = this.valueS_1min;
+        range.max = this.valueS_1max;
+      }
+      return range;
+    });
+
+    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+
+    let transformedObject: ResultObject = {
+        idUPA: idUPA
+    };
+
+    this.dataRange.forEach((range: Range) => {
+        transformedObject[range.name] = {
+            n: range.min,
+            m: range.max
+        };
+    });
+
+    this.frameService.postRangeSensor(transformedObject).subscribe(data => {
+      console.log("SE PUBLICO", data);
+      Swal.fire({
+        icon: 'success',
+        title: '¡Rango de ' + this.nameSensor + ' ha sido actualizado!',
         showConfirmButton: false,
         timer: 2000
       });

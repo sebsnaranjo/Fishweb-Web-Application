@@ -27,6 +27,7 @@ export class Sensores {
   N_Agua: number;
   Tu: number;
   O_Dis: number;
+  S_1: number;
   _id: string;
 }
 

@@ -453,6 +453,16 @@ h4 {
   margin-top: 30px;
 }
 
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Ajusta este valor según sea necesario */
+}
+
+.input-container .form-field {
+  flex-grow: 1;
+}
+
 @media (max-width: 768px) {
   .variable-container {
     width: 100%;

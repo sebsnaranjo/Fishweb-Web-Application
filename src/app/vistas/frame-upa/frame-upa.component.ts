@@ -62,7 +62,7 @@ export class FrameUpaComponent implements OnInit, AfterViewInit {
 
   public getFrames(idUpa: any) {
     this.upasService.getFrameUPA(idUpa).subscribe((data: TableFrame[]) => {
-      console.log("GET FRAMES SUPERADMINs", data);
+      console.log("GET FRAMES SUPERADMIN", data);
     })
     let resp = this.upasService.getFrameUPA(idUpa);
     resp.subscribe((report) => (this.dataSource.data = report as unknown as TableFrame[]));

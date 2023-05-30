@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  HOST: 'https://shielded-everglades-04466.herokuapp.com',
-  REGISTRO: 'https://shielded-everglades-04466.herokuapp.com',
+  HOST: 'http://localhost:3000',
+  REGISTRO: 'http://localhost:3000',
   //llave para acceder al token
   TOKEN: 'access_token',
   expiration: 'expiresIn',

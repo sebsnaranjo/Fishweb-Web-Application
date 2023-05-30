@@ -2,12 +2,6 @@
 
   <h1 class="title-upa">Bienvenido a la UPA {{nameUpa}}</h1>
 
-  <div class="filter">
-   <!-- <mat-form-field>
-     <input matInput (keyup)="filtrar($event)" placeholder="Buscar">
-    </mat-form-field>-->
-  </div>
-
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 tabla-gestion">
 
     <mat-sort-header mat-sort-header="createdAt">Fecha</mat-sort-header>
@@ -19,28 +13,33 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="ph">
-      <th mat-header-cell *matHeaderCellDef> pH (10 a 13)</th>
+      <th mat-header-cell *matHeaderCellDef> pH ({{this.minPh}} a {{this.maxPh}})</th>
       <td mat-cell *matCellDef="let element"> {{element.Sensores.PH}} </td>
     </ng-container>
 
     <ng-container matColumnDef="temperatura">
-      <th mat-header-cell *matHeaderCellDef> Temperatura (14 a 15)</th>
+      <th mat-header-cell *matHeaderCellDef> Temperatura ({{this.minTemp}} a {{this.maxTemp}})</th>
       <td mat-cell *matCellDef="let element"> {{element.Sensores.Temp}} </td>
     </ng-container>
 
     <ng-container matColumnDef="conductividad_electrica">
-      <th mat-header-cell *matHeaderCellDef> Conductividad electrica (0 a 3)</th>
+      <th mat-header-cell *matHeaderCellDef> Conductividad electrica ({{this.minCond}} a {{this.maxCond}})</th>
       <td mat-cell *matCellDef="let element"> {{element.Sensores.C_Electrica}} </td>
     </ng-container>
 
     <ng-container matColumnDef="nivelAgua">
-      <th mat-header-cell *matHeaderCellDef> Nivel del agua (2000 a 4000)</th>
+      <th mat-header-cell *matHeaderCellDef> Nivel del agua ({{this.minNivAgua}} a {{this.maxNivAgua}})</th>
       <td mat-cell *matCellDef="let element"> {{element.Sensores.N_Agua}} </td>
     </ng-container>
 
     <ng-container matColumnDef="turbidez">
-      <th mat-header-cell *matHeaderCellDef> Turbidez (0 a 14)</th>
+      <th mat-header-cell *matHeaderCellDef> Turbidez ({{this.minTur}} a {{this.maxTur}})</th>
       <td mat-cell *matCellDef="let element"> {{element.Sensores.Tu}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="S_1">
+      <th mat-header-cell *matHeaderCellDef [hidden]="!stateSensor"> {{nameSensor}}  ({{this.minS_1}} a {{this.maxS_1}})</th>
+      <td mat-cell *matCellDef="let element" [hidden]="!stateSensor"> {{element.Sensores?.S_1}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -57,6 +56,6 @@
 
   <div class="button">
     <button class="btn_send">Obtener reportes</button>
-  </div>
+  </div> 
 
 </div>

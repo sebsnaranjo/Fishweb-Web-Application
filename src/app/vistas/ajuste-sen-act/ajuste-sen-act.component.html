@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="form-container">
+    <h1 class="form-title">Sensores</h1>
+    <form *ngIf="sensor1" (ngSubmit)="onSubmitSensor()" #sensorForm="ngForm">
+      <div class="row">
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>S_1</mat-label>
+          <input matInput disabled />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>Ingresa un texto</mat-label>
+          <input matInput [(ngModel)]="sensor1.n" name="input0" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>Estado</mat-label>
+          <mat-select [(ngModel)]="sensor1.e" name="status0" required>
+            <mat-option [value]="1">Activado</mat-option>
+            <mat-option [value]="0">Desactivado</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+<!--       <div *ngIf="sensor2" class="row">
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>S_2</mat-label>
+          <input matInput disabled />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>Ingresa un texto</mat-label>
+          <input matInput [(ngModel)]="sensor2.n" name="input1" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>Estado</mat-label>
+          <mat-select [(ngModel)]="sensor2.e" name="status1" required>
+            <mat-option [value]="1">Activado</mat-option>
+            <mat-option [value]="0">Desactivado</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> -->
+      <button type="submit" mat-raised-button color="primary" class="btn_report">Enviar</button>
+    </form>
+  </div>
+  <!-- <div class="form-container">
+    <h1 class="form-title">Actuadores</h1>
+    <form (ngSubmit)="onSubmitActuador()" #actuadorForm="ngForm">
+      <div *ngIf="actuador1" class="row">
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>A_1</mat-label>
+          <input matInput disabled />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>Ingresa un texto</mat-label>
+          <input matInput [(ngModel)]="actuador1.n" name="input0" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>Estado</mat-label>
+          <mat-select [(ngModel)]="actuador1.e" name="status0" required>
+            <mat-option [value]="1">Activado</mat-option>
+            <mat-option [value]="0">Desactivado</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="actuador2" class="row">
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>A_2</mat-label>
+          <input matInput disabled />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>Ingresa un texto</mat-label>
+          <input matInput [(ngModel)]="actuador2.n" name="input1" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col">
+          <mat-label>Estado</mat-label>
+          <mat-select [(ngModel)]="actuador2.e" name="status1" required>
+            <mat-option [value]="1">Activado</mat-option>
+            <mat-option [value]="0">Desactivado</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="button-container">
+        <button type="submit" mat-raised-button color="primary" class="btn_report">Enviar</button>
+      </div>
+    </form>
+  </div> -->
+</div>

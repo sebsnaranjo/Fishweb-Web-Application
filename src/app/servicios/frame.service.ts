@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, interval } from 'rxjs';
+import { catchError,map, switchMap } from 'rxjs/operators';
 import { TableFrame } from '../modelos/data-table-upa.interface';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
@@ -21,6 +21,11 @@ export class FrameService {
   private getLastFrameUpaUrl = environment.HOST + '/api/frame/getLastFrameUpa'
   private getAllFrameUpaUrl = environment.HOST + '/api/frame/getAllFrameUpa'
   private postFrameUrl = environment.HOST + '/api/frame/createFrame'
+  private postNewFrameUrl = environment.HOST + '/api/frame/createNewFrame'
+  private getLastSettingUrl = environment.HOST + '/api/frame/getSensorSettings'
+  private postSettingUrl = environment.HOST + '/api/frame/createSensorData'
+  private getRangeSensorUrl = environment.HOST + '/api/frame/getLastSensorRange'
+  private postRangeSensorUrl = environment.HOST + '/api/frame/createRange'
 
   constructor(
     private http: HttpClient,
@@ -38,6 +43,10 @@ export class FrameService {
   getlastFrameByUpa(): Observable<TableFrame> {
     return this.http.get<TableFrame>(`${this.getLastFrameUpaUrl}/${this.idUpaUser}`);
   }
+
+/*   getlastFrameByUpaNew(): Observable<JsonModel> {
+    return this.http.get<JsonModel>(`${this.getLastFrameUpaUrl}/${this.idUpaUser}`);
+  } */
 
   getlastFrameByUpaAdmin(id: string): Observable<TableFrame> {
     return this.http.get<TableFrame>(`${this.getLastFrameUpaUrl}/${id}`);
@@ -57,7 +66,7 @@ export class FrameService {
   }
 
   getDataReport(datos: any): Observable<any> {
-    return this.http.post(this.getReportUrl2, datos);
+    return this.http.post("http://localhost:3000/api/frame/getDataReport", datos);
   }
 
   getGraph(datos: any): Observable<any> {
@@ -65,7 +74,29 @@ export class FrameService {
   }
 
   postFrame(datos: any): Observable<any> {
-    return this.http.post(this.postFrameUrl, datos);
+    return this.http.post(this.postNewFrameUrl, datos);
+  }
+
+  getlastNewFrameByUpa(intervalTime: number): Observable<TableFrame> {
+    return interval(intervalTime).pipe(
+      switchMap(() => this.http.get<TableFrame>(`${this.getLastFrameUpaUrl}/${this.idUpaUser}`))
+    );
+  }
+
+  getLastSetting(idUpa: string): Observable<any>{
+    return this.http.get(`${this.getLastSettingUrl}/${idUpa}`);
+  }
+
+  createSetting(datos: any): Observable<any>{
+    return this.http.post(this.postSettingUrl, datos);
+  }
+
+  getRangeSensor(idUpa: any): Observable<any>{
+    return this.http.get(`https://shielded-everglades-04466.herokuapp.com/api/frame/getLastSensorRange/${idUpa}`);
+  }
+
+  postRangeSensor(datos: any): Observable<any> {
+    return this.http.post(this.postRangeSensorUrl, datos);
   }
 
 }
