@@ -60,13 +60,13 @@
       <div id="gauge-demo">
         <dx-circular-gauge [value]="nAguaSensor?.mean" [subvalues]="[nAguaSensor?.min !== undefined ? nAguaSensor.min : 0, nAguaSensor?.max !== undefined ? nAguaSensor.max : 0]">
           <dxo-range-container>
-            <dxi-range [startValue]="10" [endValue]="20" color="#0077BE"></dxi-range>
-            <dxi-range [startValue]="20" [endValue]="30" color="#E6E200"></dxi-range>
-            <dxi-range [startValue]="30" [endValue]="40" color="#77DD77"></dxi-range>
+            <dxi-range [startValue]="0" [endValue]="1300" color="#E6E200"></dxi-range>
+            <dxi-range [startValue]="1300" [endValue]="1800" color="#77DD77"></dxi-range>
+            <dxi-range [startValue]="1800" [endValue]="2000" color="#E6E200"></dxi-range>
           </dxo-range-container>
       
-          <dxo-scale [startValue]="10" [endValue]="40" [tickInterval]="5">
-            <dxo-label [customizeText]="customizeText"></dxo-label>
+          <dxo-scale [startValue]="0" [endValue]="2000" [tickInterval]="150">
+    
           </dxo-scale>
           <dxo-tooltip [enabled]="true"></dxo-tooltip>
           <dxo-title text="Nivel del agua">
@@ -80,13 +80,13 @@
       <div id="gauge-demo">
         <dx-circular-gauge [value]="tuSensor?.mean" [subvalues]="[tuSensor?.min !== undefined ? tuSensor.min : 0, tuSensor?.max !== undefined ? tuSensor.max : 0]">
           <dxo-range-container>
-            <dxi-range [startValue]="10" [endValue]="20" color="#0077BE"></dxi-range>
-            <dxi-range [startValue]="20" [endValue]="30" color="#E6E200"></dxi-range>
-            <dxi-range [startValue]="30" [endValue]="40" color="#77DD77"></dxi-range>
+            <dxi-range [startValue]="1" [endValue]="5" color="#E6E200"></dxi-range>
+            <dxi-range [startValue]="5" [endValue]="20" color="#77DD77"></dxi-range>
+            <dxi-range [startValue]="20" [endValue]="50" color="#E6E200"></dxi-range>
           </dxo-range-container>
       
-          <dxo-scale [startValue]="10" [endValue]="40" [tickInterval]="5">
-            <dxo-label [customizeText]="customizeText"></dxo-label>
+          <dxo-scale [startValue]="1" [endValue]="50" [tickInterval]="5">
+          
           </dxo-scale>
           <dxo-tooltip [enabled]="true"></dxo-tooltip>
           <dxo-title text="Turbidez">
@@ -99,13 +99,13 @@
       <div id="gauge-demo">
         <dx-circular-gauge [value]="oDisSensor?.mean" [subvalues]="[oDisSensor?.min !== undefined ? oDisSensor.min : 0, oDisSensor?.max !== undefined ? oDisSensor.max : 0]">
           <dxo-range-container>
-            <dxi-range [startValue]="10" [endValue]="20" color="#0077BE"></dxi-range>
-            <dxi-range [startValue]="20" [endValue]="30" color="#E6E200"></dxi-range>
-            <dxi-range [startValue]="30" [endValue]="40" color="#77DD77"></dxi-range>
+            <dxi-range [startValue]="1" [endValue]="4" color="#E6E200"></dxi-range>
+            <dxi-range [startValue]="4" [endValue]="8" color="#77DD77"></dxi-range>
+            <dxi-range [startValue]="8" [endValue]="10" color="#E6E200"></dxi-range>
           </dxo-range-container>
       
-          <dxo-scale [startValue]="10" [endValue]="40" [tickInterval]="5">
-            <dxo-label [customizeText]="customizeText"></dxo-label>
+          <dxo-scale [startValue]="1" [endValue]="10" [tickInterval]="1">
+          
           </dxo-scale>
           <dxo-tooltip [enabled]="true"></dxo-tooltip>
           <dxo-title text="Oxigeno Disuelto">
@@ -119,13 +119,13 @@
       <div *ngIf="stateSensor" id="gauge-demo">
         <dx-circular-gauge [value]="s1Sensor?.mean" [subvalues]="[s1Sensor?.min !== undefined ? s1Sensor.min : 0, s1Sensor?.max !== undefined ? s1Sensor.max : 0]">
           <dxo-range-container>
-            <dxi-range [startValue]="10" [endValue]="20" color="#0077BE"></dxi-range>
-            <dxi-range [startValue]="20" [endValue]="30" color="#E6E200"></dxi-range>
-            <dxi-range [startValue]="30" [endValue]="40" color="#77DD77"></dxi-range>
+            <dxi-range [startValue]="10" [endValue]="30" color="#0077BE"></dxi-range>
+            <dxi-range [startValue]="30" [endValue]="60" color="#E6E200"></dxi-range>
+            <dxi-range [startValue]="60" [endValue]="100" color="#77DD77"></dxi-range>
           </dxo-range-container>
       
-          <dxo-scale [startValue]="10" [endValue]="40" [tickInterval]="5">
-            <dxo-label [customizeText]="customizeText"></dxo-label>
+          <dxo-scale [startValue]="10" [endValue]="100" [tickInterval]="100">
+        
           </dxo-scale>
           <dxo-tooltip [enabled]="true"></dxo-tooltip>
           <dxo-title  [text]="nameSensor">
