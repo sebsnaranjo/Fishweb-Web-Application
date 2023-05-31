@@ -28,7 +28,7 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<any>;
   ELEMENT_DATA: TableFrame[];
-  displayedColumns: string[] = ['createdAt', 'ph', 'temperatura', 'conductividad_electrica', 'nivelAgua', 'turbidez', 'S_1'];
+  displayedColumns: string[] = ['createdAt', 'ph', 'temperatura', 'conductividad_electrica', 'nivelAgua', 'turbidez', 'oxigeno_disuelto', 'S_1'];
   dataSource = new MatTableDataSource<TableFrame>();
 
   idUpa: string;
@@ -52,6 +52,8 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit, OnDestroy {
   maxNivAgua: number;
   minTur: number;
   maxTur: number;
+  minOx: number;
+  maxOx: number;
   minS_1: number;
   maxS_1: number;
 
@@ -86,8 +88,10 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit, OnDestroy {
         this.maxNivAgua = this.dataRange[3].max;
         this.minTur = this.dataRange[4].min;
         this.maxTur = this.dataRange[4].max;
-        this.minS_1 = this.dataRange[5].min;
-        this.maxS_1 = this.dataRange[5].max;
+        this.minOx = this.dataRange[5].min;
+        this.maxOx = this.dataRange[5].max;
+        this.minS_1 = this.dataRange[6].min;
+        this.maxS_1 = this.dataRange[6].max;
       }
     });
 

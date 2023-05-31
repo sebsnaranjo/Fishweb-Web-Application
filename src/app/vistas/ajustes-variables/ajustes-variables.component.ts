@@ -93,6 +93,15 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValuePH() {
+    if(!this.valuePHmin || !this.valuePHmax || this.valuePHmin > this.valuePHmax || this.valuePHmax < this.valuePHmin || this.valuePHmin < 0 || this.valuePHmax < 0 ){
+      Swal.fire({
+        icon: 'error',
+        title: 'Haz ingresado valores incorrectos',
+        showConfirmButton: false,
+        timer: 2000
+      });
+      return
+    }
     this.dataRange = (this.dataRange as any[]).map(range => {
       if (range.name === 'PH') {
         range.min = this.valuePHmin;
@@ -126,6 +135,15 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueTemperatura() {
+    if(!this.valueTemperaturamin || !this.valueTemperaturamax || this.valueTemperaturamin > this.valueTemperaturamax || this.valueTemperaturamax < this.valueTemperaturamin || this.valueTemperaturamin < 0 || this.valueTemperaturamax < 0 ){
+      Swal.fire({
+        icon: 'error',
+        title: 'Haz ingresado valores incorrectos',
+        showConfirmButton: false,
+        timer: 2000
+      });
+      return
+    }
     this.dataRange = (this.dataRange as any[]).map(range => {
       if (range.name === 'Temp') {
         range.min = this.valueTemperaturamin;
@@ -159,6 +177,15 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueConductividad() {
+    if(!this.valueConductividadmin || !this.valueConductividadmax || this.valueConductividadmin > this.valueConductividadmax || this.valueConductividadmax < this.valueConductividadmin || this.valueConductividadmin < 0 || this.valueConductividadmax < 0 ){
+      Swal.fire({
+        icon: 'error',
+        title: 'Haz ingresado valores incorrectos',
+        showConfirmButton: false,
+        timer: 2000
+      });
+      return
+    }
     this.dataRange = (this.dataRange as any[]).map(range => {
       if (range.name === 'C_Electrica') {
         range.min = this.valueConductividadmin;
@@ -192,6 +219,15 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueNivelAgua() {
+    if(!this.valueNivelAguamin || !this.valueNivelAguamax || this.valueNivelAguamin > this.valueNivelAguamax || this.valueNivelAguamax < this.valueNivelAguamin || this.valueNivelAguamin < 0 || this.valueNivelAguamax < 0 ){
+      Swal.fire({
+        icon: 'error',
+        title: 'Haz ingresado valores incorrectos',
+        showConfirmButton: false,
+        timer: 2000
+      });
+      return
+    }
     this.dataRange = (this.dataRange as any[]).map(range => {
       if (range.name === 'N_Agua') {
         range.min = this.valueNivelAguamin;
@@ -225,6 +261,15 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueTurbidez() {
+    if(!this.valueTurbidezmin || !this.valueTurbidezmax || this.valueTurbidezmin > this.valueTurbidezmax || this.valueTurbidezmax < this.valueTurbidezmin || this.valueTurbidezmin < 0 || this.valueTurbidezmax < 0 ){
+      Swal.fire({
+        icon: 'error',
+        title: 'Haz ingresado valores incorrectos',
+        showConfirmButton: false,
+        timer: 2000
+      });
+      return
+    }
     this.dataRange = (this.dataRange as any[]).map(range => {
       if (range.name === 'Tu') {
         range.min = this.valueTurbidezmin;
@@ -258,6 +303,15 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueOxigenoDisuelto() {
+    if(!this.valueOxigenoDisueltomin || !this.valueOxigenoDisueltomax || this.valueOxigenoDisueltomin > this.valueOxigenoDisueltomax || this.valueOxigenoDisueltomax < this.valueOxigenoDisueltomin || this.valueOxigenoDisueltomin < 0 || this.valueOxigenoDisueltomax < 0 ){
+      Swal.fire({
+        icon: 'error',
+        title: 'Haz ingresado valores incorrectos',
+        showConfirmButton: false,
+        timer: 2000
+      });
+      return
+    }
     this.dataRange = (this.dataRange as any[]).map(range => {
       if (range.name === 'O_Dis') {
         range.min = this.valueOxigenoDisueltomin;
@@ -291,6 +345,15 @@ export class AjustesVariablesComponent implements OnInit {
   }
 
   saveValueS_1(){
+    if(!this.valueS_1min || !this.valueS_1max || this.valueS_1min > this.valueS_1max || this.valueS_1max < this.valueS_1min || this.valueS_1min < 0 || this.valueS_1max < 0 ){
+      Swal.fire({
+        icon: 'error',
+        title: 'Haz ingresado valores incorrectos',
+        showConfirmButton: false,
+        timer: 2000
+      });
+      return
+    }
     this.dataRange = (this.dataRange as any[]).map(range => {
       if (range.name === 'S_1') {
         range.min = this.valueS_1min;

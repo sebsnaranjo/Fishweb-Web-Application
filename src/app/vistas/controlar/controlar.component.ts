@@ -65,131 +65,180 @@ export class ControlarComponent implements OnInit {
   }
 
   activarAlarma() {
-    this.lastFrame.Act.Alarmas = 1;
-    this.lastFrame.D_Reg = 1;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log("POST FRAME", data)
-      Swal.fire({
-        icon: 'success',
-        title: '¡Alarma activada!',
-        showConfirmButton: false,
-        timer: 2000
-      });
-    })
+    Swal.fire({
+      title: '¿Deseas activar este actuador?',
+      showDenyButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Leer más sobre isConfirmed, isDenied a continuación */
+      if (result.isConfirmed) {
+        // El usuario confirmó guardar los cambios
+        this.lastFrame.Act.Alarmas = 1;
+        this.lastFrame.D_Reg = 1;
+        delete this.lastFrame?._id;
+        this.lastFrame.createdAt = new Date(Date.now());
+        this.frameService.postFrame(this.lastFrame).subscribe((data) => {
+          console.log("POST FRAME", data);
+          Swal.fire('¡Activado!', '', 'success');
+        });
+      }
+    });
   }
 
   desactivarAlarma() {
-    this.lastFrame.Act.Alarmas = 0;
-    this.lastFrame.D_Reg = 1;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log("POST FRAME", data)
-      Swal.fire({
-        icon: 'success',
-        title: '¡Alarma desactivada!',
-        showConfirmButton: false,
-        timer: 2000
-      });
-    })
+    Swal.fire({
+      title: '¿Deseas desactivar la alarma?',
+      showDenyButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Leer más sobre isConfirmed, isDenied a continuación */
+      if (result.isConfirmed) {
+        // El usuario confirmó desactivar la alarma
+        this.lastFrame.Act.Alarmas = 0;
+        this.lastFrame.D_Reg = 1;
+        delete this.lastFrame?._id;
+        this.lastFrame.createdAt = new Date(Date.now());
+        this.frameService.postFrame(this.lastFrame).subscribe((data) => {
+          console.log("POST FRAME", data);
+          Swal.fire('¡Alarma desactivada!', '', 'success');
+        });
+      }
+    });
+    
   }
 
   activarRecirculacion(){
-    this.lastFrame.Act.Recir = 1;
-    this.lastFrame.D_Reg = 1;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log("POST FRAME", data)
-      Swal.fire({
-        icon: 'success',
-        title: '¡Recirculacion activada!',
-        showConfirmButton: false,
-        timer: 2000
-      });
-    })
+    Swal.fire({
+      title: '¿Deseas activar la recirculación?',
+      showDenyButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Leer más sobre isConfirmed, isDenied a continuación */
+      if (result.isConfirmed) {
+        // El usuario confirmó activar la recirculación
+        this.lastFrame.Act.Recir = 1;
+        this.lastFrame.D_Reg = 1;
+        delete this.lastFrame?._id;
+        this.lastFrame.createdAt = new Date(Date.now());
+        this.frameService.postFrame(this.lastFrame).subscribe((data) => {
+          console.log("POST FRAME", data);
+          Swal.fire('¡Recirculación activada!', '', 'success');
+        });
+      }
+    });    
   }
 
   desactivarRecirculacion(){
-    this.lastFrame.Act.Recir = 0;
-    this.lastFrame.D_Reg = 1;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log("POST FRAME", data)
-      Swal.fire({
-        icon: 'success',
-        title: '¡Recirculacion desactivada!',
-        showConfirmButton: false,
-        timer: 2000
-      });
-    })
+    Swal.fire({
+      title: '¿Deseas desactivar la recirculación?',
+      showDenyButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Leer más sobre isConfirmed, isDenied a continuación */
+      if (result.isConfirmed) {
+        // El usuario confirmó desactivar la recirculación
+        this.lastFrame.Act.Recir = 0;
+        this.lastFrame.D_Reg = 1;
+        delete this.lastFrame?._id;
+        this.lastFrame.createdAt = new Date(Date.now());
+        this.frameService.postFrame(this.lastFrame).subscribe((data) => {
+          console.log("POST FRAME", data);
+          Swal.fire('¡Recirculación desactivada!', '', 'success');
+        });
+      }
+    });    
   }
 
   activarAlimentacion(){
-    this.lastFrame.Act.Alim = 1;
-    this.lastFrame.D_Reg = 1;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log("POST FRAME", data)
-      Swal.fire({
-        icon: 'success',
-        title: '¡Alimentacion activada!',
-        showConfirmButton: false,
-        timer: 2000
-      });
-    })
+    Swal.fire({
+      title: '¿Deseas activar la alimentación?',
+      showDenyButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Leer más sobre isConfirmed, isDenied a continuación */
+      if (result.isConfirmed) {
+        // El usuario confirmó activar la alimentación
+        this.lastFrame.Act.Alim = 1;
+        this.lastFrame.D_Reg = 1;
+        delete this.lastFrame?._id;
+        this.lastFrame.createdAt = new Date(Date.now());
+        this.frameService.postFrame(this.lastFrame).subscribe((data) => {
+          console.log("POST FRAME", data);
+          Swal.fire('¡Alimentación activada!', '', 'success');
+        });
+      }
+    });    
   }
 
   desactivarAlimentacion(){
-    this.lastFrame.Act.Alim = 0;
-    this.lastFrame.D_Reg = 1;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log("POST FRAME", data)
-      Swal.fire({
-        icon: 'success',
-        title: '¡Alimentacion desactivada!',
-        showConfirmButton: false,
-        timer: 2000
-      });
-    })
+    Swal.fire({
+      title: '¿Deseas desactivar la alimentación?',
+      showDenyButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Leer más sobre isConfirmed, isDenied a continuación */
+      if (result.isConfirmed) {
+        // El usuario confirmó desactivar la alimentación
+        this.lastFrame.Act.Alim = 0;
+        this.lastFrame.D_Reg = 1;
+        delete this.lastFrame?._id;
+        this.lastFrame.createdAt = new Date(Date.now());
+        this.frameService.postFrame(this.lastFrame).subscribe((data) => {
+          console.log("POST FRAME", data);
+          Swal.fire('¡Alimentación desactivada!', '', 'success');
+        });
+      }
+    });    
   }
 
   activarOxigeno(){
-    this.lastFrame.Act.Ox = 1;
-    this.lastFrame.D_Reg = 1;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log("POST FRAME", data)
-      Swal.fire({
-        icon: 'success',
-        title: '¡Oxigeno activada!',
-        showConfirmButton: false,
-        timer: 2000
-      });
-    })
+    Swal.fire({
+      title: '¿Deseas activar el oxígeno?',
+      showDenyButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Leer más sobre isConfirmed, isDenied a continuación */
+      if (result.isConfirmed) {
+        // El usuario confirmó activar el oxígeno
+        this.lastFrame.Act.Ox = 1;
+        this.lastFrame.D_Reg = 1;
+        delete this.lastFrame?._id;
+        this.lastFrame.createdAt = new Date(Date.now());
+        this.frameService.postFrame(this.lastFrame).subscribe((data) => {
+          console.log("POST FRAME", data);
+          Swal.fire('¡Oxígeno activado!', '', 'success');
+        });
+      }
+    });    
   }
 
   desactivarOxigeno(){
-    this.lastFrame.Act.Ox = 0;
-    this.lastFrame.D_Reg = 1;
-    delete this.lastFrame?._id;
-    this.lastFrame.createdAt = new Date(Date.now());
-    this.frameService.postFrame(this.lastFrame).subscribe((data) => {
-      console.log("POST FRAME", data)
-      Swal.fire({
-        icon: 'success',
-        title: '¡Oxigeno desactivada!',
-        showConfirmButton: false,
-        timer: 2000
-      });
-    })
+    Swal.fire({
+      title: '¿Deseas desactivar el oxígeno?',
+      showDenyButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Leer más sobre isConfirmed, isDenied a continuación */
+      if (result.isConfirmed) {
+        // El usuario confirmó desactivar el oxígeno
+        this.lastFrame.Act.Ox = 0;
+        this.lastFrame.D_Reg = 1;
+        delete this.lastFrame?._id;
+        this.lastFrame.createdAt = new Date(Date.now());
+        this.frameService.postFrame(this.lastFrame).subscribe((data) => {
+          console.log("POST FRAME", data);
+          Swal.fire('¡Oxígeno desactivado!', '', 'success');
+        });
+      }
+    });    
   }
 
 }
