@@ -2,8 +2,10 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { Sensor_1 } from 'src/app/modelos/settingsensor.interface';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 import { FrameService } from 'src/app/servicios/frame.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ajuste-sen-act',
@@ -14,6 +16,8 @@ export class AjusteSenActComponent implements OnInit, OnDestroy {
 
   @ViewChild('sensorForm') sensorForm: NgForm;
   @ViewChild('actuadorForm') actuadorForm: NgForm;
+
+  idUpa: string = this.authService.getIdUpa();
 
   sensor1: Sensor_1;
 /*   sensor2: Sensor; */
@@ -26,7 +30,7 @@ export class AjusteSenActComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();; // Subject para notificar la finalización
   /* intervalTime: number = 5000; */
 
-  constructor(private frameService: FrameService) {}
+  constructor(private frameService: FrameService, private authService: AuthService) {}
 
   ngOnInit(): void {
 /*     this.frameService.getlastNewFrameByUpa(this.intervalTime)
@@ -41,7 +45,7 @@ export class AjusteSenActComponent implements OnInit, OnDestroy {
 
         this.serviceJson = jsonModel;
       }); */
-      this.frameService.getLastSetting("645993329aaf246f8ce032bd").subscribe(data => {
+      this.frameService.getLastSetting(this.idUpa).subscribe(data => {
         console.log(data);
         this.sensor1 = data;
       })
@@ -123,11 +127,17 @@ export class AjusteSenActComponent implements OnInit, OnDestroy {
 
   onSubmitSensor() {
     this.newJson = new Sensor_1();
-    this.newJson.idUPA = "645993329aaf246f8ce032bd";
+    this.newJson.idUPA = this.idUpa;
     this.newJson.n = this.sensorForm.value.input0;
     this.newJson.e = this.sensorForm.value.status0;
     this.frameService.createSetting(this.newJson).subscribe(data => {
       console.log(data);
+      Swal.fire({
+        icon: 'success',
+        title: '¡Valores guardados!',
+        showConfirmButton: false,
+        timer: 2000
+      });
     })
   }
 }

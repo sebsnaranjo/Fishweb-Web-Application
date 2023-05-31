@@ -57,6 +57,8 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit, OnDestroy {
   minS_1: number;
   maxS_1: number;
 
+  idUpaService: string = this.authService.getIdUpa();
+
   constructor(
     private frameService: FrameService,
     private upasService: UpasService,
@@ -74,7 +76,7 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     };
 
-    this.frameService.getRangeSensor("645993329aaf246f8ce032bd").subscribe((data: Range[]) => {
+    this.frameService.getRangeSensor(this.idUpaService).subscribe((data: Range[]) => {
       this.dataRange = data;
       if (this.dataRange && this.dataRange.length > 0) {
         console.log("RANGO", this.dataRange[0].min);

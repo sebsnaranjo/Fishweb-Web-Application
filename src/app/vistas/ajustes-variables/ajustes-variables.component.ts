@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TableFrame } from 'src/app/modelos/data-table-upa.interface';
 import { Sensor_1 } from 'src/app/modelos/settingsensor.interface';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { FrameService } from 'src/app/servicios/frame.service';
 import Swal from 'sweetalert2';
 
@@ -50,12 +51,14 @@ export class AjustesVariablesComponent implements OnInit {
   dataRange: Range[];
   newDataRange: any;
 
-  constructor(private frameService: FrameService) { }
+  idUpa: string = this.authService.getIdUpa();
+
+  constructor(private frameService: FrameService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getFrame();
 
-    this.frameService.getLastSetting("645993329aaf246f8ce032bd").subscribe(data => {
+    this.frameService.getLastSetting(this.idUpa).subscribe(data => {
       console.log(data);
       this.sensor1 = data;
       this.nameSensor = this.sensor1.n;
@@ -66,7 +69,7 @@ export class AjustesVariablesComponent implements OnInit {
       }
     })
 
-    this.frameService.getRangeSensor("645993329aaf246f8ce032bd").subscribe( data => {
+    this.frameService.getRangeSensor(this.idUpa).subscribe( data => {
       this.dataRange = data;
       console.log("RANGOS", data);
     })
@@ -110,7 +113,7 @@ export class AjustesVariablesComponent implements OnInit {
       return range;
     });
 
-    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+    let idUPA = this.idUpa; // tu idUPA
 
     let transformedObject: ResultObject = {
         idUPA: idUPA
@@ -152,7 +155,7 @@ export class AjustesVariablesComponent implements OnInit {
       return range;
     });
 
-    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+    let idUPA = this.idUpa; // tu idUPA
 
     let transformedObject: ResultObject = {
         idUPA: idUPA
@@ -194,7 +197,7 @@ export class AjustesVariablesComponent implements OnInit {
       return range;
     });
 
-    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+    let idUPA = this.idUpa; // tu idUPA
 
     let transformedObject: ResultObject = {
         idUPA: idUPA
@@ -236,7 +239,7 @@ export class AjustesVariablesComponent implements OnInit {
       return range;
     });
 
-    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+    let idUPA = this.idUpa; // tu idUPA
 
     let transformedObject: ResultObject = {
         idUPA: idUPA
@@ -278,7 +281,7 @@ export class AjustesVariablesComponent implements OnInit {
       return range;
     });
 
-    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+    let idUPA = this.idUpa; // tu idUPA
 
     let transformedObject: ResultObject = {
         idUPA: idUPA
@@ -320,7 +323,7 @@ export class AjustesVariablesComponent implements OnInit {
       return range;
     });
 
-    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+    let idUPA = this.idUpa; // tu idUPA
 
     let transformedObject: ResultObject = {
         idUPA: idUPA
@@ -362,7 +365,7 @@ export class AjustesVariablesComponent implements OnInit {
       return range;
     });
 
-    let idUPA = "645993329aaf246f8ce032bd"; // tu idUPA
+    let idUPA = this.idUpa; // tu idUPA
 
     let transformedObject: ResultObject = {
         idUPA: idUPA

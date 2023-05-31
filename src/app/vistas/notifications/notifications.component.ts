@@ -29,12 +29,14 @@ export class NotificationsComponent implements OnInit {
   nameSensor: string;
   stateSensor: boolean;
 
+  idUpa: string = this.authService.getIdUpa();
+
   constructor(private frameService: FrameService, private emailService: UpasService, private authService:AuthService) { }
 
   ngOnInit(): void {
     const idRol = this.authService.getIdRol();
 
-    this.frameService.getRangeSensor("645993329aaf246f8ce032bd").subscribe((data: Range[]) => {
+    this.frameService.getRangeSensor(this.idUpa).subscribe((data: Range[]) => {
       this.dataRange = data;
       if (this.dataRange && this.dataRange.length > 0) {
         console.log("RANGO", this.dataRange[0].min);
@@ -48,7 +50,7 @@ export class NotificationsComponent implements OnInit {
       }, 60000); // llamar a getData() cada 5 segundos
     }
 
-    this.frameService.getLastSetting("645993329aaf246f8ce032bd").subscribe(data => {
+    this.frameService.getLastSetting(this.idUpa).subscribe(data => {
       console.log(data);
       this.sensor1 = data;
       this.nameSensor = this.sensor1.n;

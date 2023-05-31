@@ -4,6 +4,7 @@ import axios from 'axios';
 import { SensorData } from 'src/app/modelos/sensorData.interface';
 import { FrameService } from 'src/app/servicios/frame.service';
 import { Sensor_1 } from 'src/app/modelos/settingsensor.interface';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-data-show-graphs',
@@ -26,7 +27,9 @@ export class DataShowGraphsComponent {
   nameSensor: string;
   stateSensor: boolean = false;
 
-  constructor(private sensorService: DataService, private frameService: FrameService) { }
+  idUpa: string = this.authService.getIdUpa();
+
+  constructor(private sensorService: DataService, private frameService: FrameService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.sensorService.getData().subscribe(data => {
@@ -42,7 +45,7 @@ export class DataShowGraphsComponent {
 
     });
 
-    this.frameService.getLastSetting("645993329aaf246f8ce032bd").subscribe(data => {
+    this.frameService.getLastSetting(this.idUpa).subscribe(data => {
       console.log(data);
       this.sensor1 = data;
       this.nameSensor = this.sensor1.n;
