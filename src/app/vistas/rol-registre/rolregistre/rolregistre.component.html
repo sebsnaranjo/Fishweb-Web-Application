@@ -4,9 +4,9 @@
             <h2 class="titleRegistre">Registrar Usuario</h2>
             <form [formGroup]="registreFormGroupAdmin">
                 <div class="form-group roles-container">
-                    <mat-form-field appearance="fill">
-                      <mat-label>Rol</mat-label>
-                      <mat-select formControlName="roles">
+                    
+                     
+                      <mat-select formControlName="roles" class="custom-select">
                         <mat-option value="1">Super Administrador</mat-option>
                         <mat-option value="2">Administrador</mat-option>
                         <mat-option value="3">Auxiliar</mat-option>
@@ -14,8 +14,9 @@
                       <mat-error class="error" *ngIf="registreFormGroupAdmin.controls.roles.hasError('required')">
                         Este campo es <strong>obligatorio</strong>
                       </mat-error>
-                    </mat-form-field>
+                
                   </div>
+                  
                   
 
                 <div class="form-group">
