@@ -5,6 +5,7 @@ import { SensorData } from 'src/app/modelos/sensorData.interface';
 import { FrameService } from 'src/app/servicios/frame.service';
 import { Sensor_1 } from 'src/app/modelos/settingsensor.interface';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-data-show-graphs',
@@ -42,7 +43,19 @@ export class DataShowGraphsComponent {
       this.oDisSensor = data.find(sensor => sensor.name === 'O_Dis');
       this.s1Sensor = data.find(sensor => sensor.name === 'S_1');
       // Asigna los valores para los otros sensores
-
+    });
+    interval(5000).subscribe(() => {
+      this.sensorService.getData().subscribe(data => {
+        // Asigna los datos del servicio a las variables correspondientes
+        this.phSensor = data.find(sensor => sensor.name === 'PH');
+        this.tempSensor = data.find(sensor => sensor.name === 'Temp');
+        this.c_elecSensor = data.find(sensor => sensor.name === 'C_Electrica');
+        this.nAguaSensor = data.find(sensor => sensor.name === 'N_Agua');
+        this.tuSensor = data.find(sensor => sensor.name === 'Tu');
+        this.oDisSensor = data.find(sensor => sensor.name === 'O_Dis');
+        this.s1Sensor = data.find(sensor => sensor.name === 'S_1');
+        // Asigna los valores para los otros sensores
+      });
     });
 
     this.frameService.getLastSetting(this.idUpa).subscribe(data => {
