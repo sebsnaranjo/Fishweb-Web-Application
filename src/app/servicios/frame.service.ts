@@ -15,6 +15,7 @@ export class FrameService {
 
   private apiUrl = environment.HOST + '/api/frame/getAll'
   private getReportUrl = environment.HOST + '/api/frame/getReport'
+  private getTXTUrl = environment.HOST + '/api/frame/getTXT'
   private getReportUrl2 = environment.HOST + '/api/frame/getDataReport'
   private getGraphUrl = environment.HOST + '/api/frame/getFrameVariablesDate'
   private getLastFrameUrl = environment.HOST + '/api/frame/getLast'
@@ -64,6 +65,16 @@ export class FrameService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.getReportUrl, datos, { headers: headers, responseType: 'arraybuffer' });
   }
+  
+  generateReport(variables: string[], fechaInicio: string, fechaFin: string) {
+  
+    const body = { variables, fechaInicio, fechaFin };
+
+    return this.http.post(this.getTXTUrl, body, { responseType: 'text' }).pipe(
+      map((response: any) => response)
+    );
+  }
+
 
   getDataReport(datos: any): Observable<any> {
     return this.http.post("http://localhost:3000/api/frame/getDataReport", datos);
@@ -98,5 +109,6 @@ export class FrameService {
   postRangeSensor(datos: any): Observable<any> {
     return this.http.post(this.postRangeSensorUrl, datos);
   }
+
 
 }

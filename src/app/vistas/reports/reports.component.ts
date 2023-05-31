@@ -47,6 +47,8 @@ export class ReportsComponent implements OnInit {
   fechaFinGraph: Date = new Date();
   selectedRange: any;
 
+  variable: string[]=[];
+
   variables: string[];
 
   pdfUrl: SafeResourceUrl;
@@ -582,4 +584,35 @@ export class ReportsComponent implements OnInit {
     return true;
   }
 
+  onDownloadClick() {
+    this.variables = []; // Reinicia el arreglo antes de llenarlo nuevamente
+
+    if (this.pHSelected) this.variables.push('PH');
+    if (this.temperaturaSelected) this.variables.push('Temp');
+    if (this.nivelAguaSelected) this.variables.push('N_Agua');
+    if (this.turbidezSelected) this.variables.push('Tu');
+    if (this.oxigenoDisueltoSelected) this.variables.push('O_Dis');
+
+    this.frameService.generateReport(this.variables, this.fechaInicio, this.fechaFin)
+      .subscribe(
+        (data) => {
+          this.downloadFile(data);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+  }
+
+  downloadFile(data: any) {
+    const blob = new Blob([data], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'report.csv';
+    link.click();
+    window.URL.revokeObjectURL(url);
+  }
 }
+
+

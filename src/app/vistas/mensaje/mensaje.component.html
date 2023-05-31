@@ -4,7 +4,7 @@
       <div class="form-group email-select">
         <label for="to">Para</label>
         <select formControlName="to">
-          <option value="">Seleccione un correo electrónico</option>
+          <option value="">Seleccione un usuario</option>
           <option *ngFor="let email of emailsList" [value]="email" class="form-control">{{ email }} </option>
         </select>
       </div>
