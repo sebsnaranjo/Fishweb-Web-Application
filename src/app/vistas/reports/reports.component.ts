@@ -605,11 +605,11 @@ export class ReportsComponent implements OnInit {
   }
 
   downloadFile(data: any) {
-    const blob = new Blob([data], { type: 'text/plain' });
+    const blob = new Blob([data], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'report.txt';
+    link.download = 'report.csv';
     link.click();
     window.URL.revokeObjectURL(url);
   }
