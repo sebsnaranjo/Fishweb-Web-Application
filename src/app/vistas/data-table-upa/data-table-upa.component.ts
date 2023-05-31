@@ -116,6 +116,43 @@ export class DataTableUpaComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
+/*     const tuObjetoJSON = {
+      "idUPA": "6459d7fb4dda4b51c4e41c10",
+      "T_Com": 2,
+      "D_Esc": 0,
+      "Fn": "read",
+      "D_Reg": 3,
+      "Sensores": {
+          "PH": 5,
+          "Temp": 15,
+          "C_Electrica": 10,
+          "N_Agua": 3560,
+          "Tu": 1,
+          "O_Dis": 23,
+          "S_1": 4,
+          "_id": "64773dee6460de833b8106b8"
+      },
+      "Act": {
+          "Alarmas": 0,
+          "Recir": 0,
+          "Alim": 0,
+          "Ox": 0,
+          "_id": "64773dee6460de833b8106b9"
+      },
+      "_id": "64773dee6460de833b8106b7",
+      "createdAt": "2023-05-31T12:30:38.404Z",
+      "updatedAt": "2023-05-31T12:30:38.404Z",
+      "__v": 0,
+      "CRC": "B05"
+  }
+
+  var jsonString = JSON.stringify(tuObjetoJSON);
+
+  // Usando el objeto Blob para calcular el tamaño en bytes del string JSON.
+  var sizeInBytes = new Blob([jsonString], {type: "text/plain"}).size;
+
+  console.log("tamaño josn", sizeInBytes); */
+
     this.getFrames();
     // Consumir servicio de tramas cada 5 segundos
     interval(5000)
