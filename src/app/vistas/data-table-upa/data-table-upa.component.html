@@ -37,6 +37,11 @@
       <td mat-cell *matCellDef="let element"> {{element.Sensores.Tu}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="oxigeno_disuelto">
+      <th mat-header-cell *matHeaderCellDef> Oxigeno disuelto ({{this.minOx}} a {{this.maxOx}})</th>
+      <td mat-cell *matCellDef="let element"> {{element.Sensores.O_Dis}} </td>
+    </ng-container>
+
     <ng-container matColumnDef="S_1">
       <th mat-header-cell *matHeaderCellDef [hidden]="!stateSensor"> {{nameSensor}}  ({{this.minS_1}} a {{this.maxS_1}})</th>
       <td mat-cell *matCellDef="let element" [hidden]="!stateSensor"> {{element.Sensores?.S_1}} </td>

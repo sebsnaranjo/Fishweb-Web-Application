@@ -89,7 +89,7 @@
             <dxo-label [customizeText]="customizeText"></dxo-label>
           </dxo-scale>
           <dxo-tooltip [enabled]="true"></dxo-tooltip>
-          <dxo-title text="Turbulenza">
+          <dxo-title text="Turbidez">
             <dxo-font [size]="28"></dxo-font>
           </dxo-title>
         </dx-circular-gauge>
@@ -116,7 +116,7 @@
  
       </div>
 
-      <div id="gauge-demo">
+      <div *ngIf="stateSensor" id="gauge-demo">
         <dx-circular-gauge [value]="s1Sensor?.mean" [subvalues]="[s1Sensor?.min !== undefined ? s1Sensor.min : 0, s1Sensor?.max !== undefined ? s1Sensor.max : 0]">
           <dxo-range-container>
             <dxi-range [startValue]="10" [endValue]="20" color="#0077BE"></dxi-range>
@@ -128,7 +128,7 @@
             <dxo-label [customizeText]="customizeText"></dxo-label>
           </dxo-scale>
           <dxo-tooltip [enabled]="true"></dxo-tooltip>
-          <dxo-title text="Sensor 1">
+          <dxo-title  [text]="nameSensor">
             <dxo-font [size]="28"></dxo-font>
           </dxo-title>
         </dx-circular-gauge>

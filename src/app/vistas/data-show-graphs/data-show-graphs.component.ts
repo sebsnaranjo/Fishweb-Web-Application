@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { DataService} from 'src/app/servicios/data.service';
 import axios from 'axios';
 import { SensorData } from 'src/app/modelos/sensorData.interface';
+import { FrameService } from 'src/app/servicios/frame.service';
+import { Sensor_1 } from 'src/app/modelos/settingsensor.interface';
 
 @Component({
   selector: 'app-data-show-graphs',
@@ -20,7 +22,11 @@ export class DataShowGraphsComponent {
   s1Sensor: any;
   // Agrega variables para los otros sensores
 
-  constructor(private sensorService: DataService) { }
+  sensor1: Sensor_1;
+  nameSensor: string;
+  stateSensor: boolean = false;
+
+  constructor(private sensorService: DataService, private frameService: FrameService) { }
 
   ngOnInit(): void {
     this.sensorService.getData().subscribe(data => {
@@ -35,6 +41,17 @@ export class DataShowGraphsComponent {
       // Asigna los valores para los otros sensores
 
     });
+
+    this.frameService.getLastSetting("645993329aaf246f8ce032bd").subscribe(data => {
+      console.log(data);
+      this.sensor1 = data;
+      this.nameSensor = this.sensor1.n;
+      if(this.sensor1.e == 1){
+        this.stateSensor = true;
+      } else if (this.sensor1.e == 0){
+        this.stateSensor = false;
+      }
+    })
  
   }
   customizeText(arg) {

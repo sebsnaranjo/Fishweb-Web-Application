@@ -1,12 +1,12 @@
 <div class="titulo">
   <h3 class="title">
-    En esta sección podras ajustar las <br />
+    En esta sección podras ajustar el rango de las <br />
     variables según tu necesidad
   </h3>
 </div>
 <div class="container3">
   <h3 class="title">Variables de laboratorio</h3>
-  <h2 class="subtitle">Selecciona el modo de transmisión: </h2>
+<!--   <h2 class="subtitle">Selecciona el modo de transmisión: </h2>
   <div class="container_comunication">
     <mat-form-field>
         <mat-label>Seleccionar modo de transmisión</mat-label>
@@ -24,7 +24,7 @@
           <mat-option value="1">RTU 1</mat-option>
         </mat-select>
     </mat-form-field>
-  </div>
+  </div> -->
 
   <mat-tab-group>
     <mat-tab label="PH">
@@ -59,10 +59,10 @@
         </button>
       </div>
     </mat-tab>    
-    <mat-tab label="Temperatura">
+    <mat-tab label="TEMPERATURA">
       <ng-template mat-tab-label>
         <div class="tab-label">
-          TEMPERATURA
+          Temperatura
         </div>
       </ng-template>
       <div class="input-container"> <!-- nuevo contenedor flex -->
@@ -94,7 +94,7 @@
     <mat-tab label="CONDUCTIVIDAD">
       <ng-template mat-tab-label>
         <div class="tab-label">
-          CONDUCTIVIDAD
+          Conductividad
         </div>
       </ng-template>
       <div class="input-container"> <!-- nuevo contenedor flex -->
@@ -126,7 +126,7 @@
     <mat-tab label="NIVEL DEL AGUA">
       <ng-template mat-tab-label>
         <div class="tab-label">
-          NIVEL DEL AGUA
+          Nivel del agua
         </div>
       </ng-template>
       <div class="input-container"> <!-- nuevo contenedor flex -->
@@ -158,7 +158,7 @@
     <mat-tab label="TURBIDEZ">
       <ng-template mat-tab-label>
         <div class="tab-label">
-          TURBIDEZ
+          Turbidez
         </div>
       </ng-template>
       <div class="input-container"> <!-- nuevo contenedor flex -->
@@ -187,7 +187,12 @@
         </button>
       </div>
     </mat-tab>
-    <mat-tab label="OXIGENO DISUELTO">
+    <mat-tab label="Oxigeno disuelto">
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+          Oxigeno disuelto
+        </div>
+      </ng-template>
       <div class="input-container"> <!-- nuevo contenedor flex -->
         <mat-form-field class="form-field">
           <input
